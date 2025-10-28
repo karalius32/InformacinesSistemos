@@ -1,3 +1,12 @@
 ﻿/.vs
 /InformacinesSistemos/bin/Debug/net9.0
-/.obj
+/InformacinesSistemos/obj
+/InformacinesSistemos/obj/InformacinesSistemos.csproj.nuget.dgspec.json
+/InformacinesSistemos/obj/Debug/net9.0/InformacinesSistemos.AssemblyInfo.cs
+/InformacinesSistemos/obj/Debug/net9.0/InformacinesSistemos.assets.cache
+/InformacinesSistemos/obj/Debug/net9.0/InformacinesSistemos.AssemblyInfoInputs.cache
+/InformacinesSistemos/obj/Debug/net9.0/InformacinesSistemos.GeneratedMSBuildEditorConfig.editorconfig
+/InformacinesSistemos/obj/Debug/net9.0/InformacinesSistemos.GlobalUsings.g.cs
+/InformacinesSistemos/obj/InformacinesSistemos.csproj.nuget.g.props
+/InformacinesSistemos/obj/project.assets.json
+/InformacinesSistemos/obj/project.nuget.cache
