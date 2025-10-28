@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Vartotojų sąrašas";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Vartotojų sąrašas</h2>
+
+    <table class="table table-striped table-bordered align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Vardas</th>
+                <th>El. paštas</th>
+                <th>Rolė</th>
+                <th>Veiksmai</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example users for prototype -->
+            <tr>
+                <td>1</td>
+                <td>Jonas Jonaitis</td>
+                <td>jonas@pavyzdys.lt</td>
+                <td style="width: 200px;">
+                    <select class="form-select form-select-sm">
+                        <option selected>Vartotojas</option>
+                        <option>Administratorius</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-success" onclick="fakeSave(this)">Išsaugoti</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Agnė Petrauskaitė</td>
+                <td>agne@pavyzdys.lt</td>
+                <td style="width: 200px;">
+                    <select class="form-select form-select-sm">
+                        <option>Vartotojas</option>
+                        <option selected>Administratorius</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-success" onclick="fakeSave(this)">Išsaugoti</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center mt-3">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Grįžti į pradžią</a>
+    </div>
+</div>
+
+<!-- Fake JS for demo -->
+<script>
+    function fakeSave(btn) {
+        const row = btn.closest("tr");
+        const name = row.children[1].innerText;
+        const role = row.querySelector("select").value;
+        alert(`${name} rolė pakeista į: ${role}`);
+    }
+</script>
