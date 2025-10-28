@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Redaguoti profilį";
+}
+
+<div class="container mt-5" style="max-width: 500px;">
+    <h2 class="text-center mb-4">Redaguoti profilį</h2>
+
+    <form>
+        <div class="mb-3">
+            <label for="email" class="form-label">El. paštas</label>
+            <input type="email" class="form-control" id="email" placeholder="vartotojas@pavyzdys.lt" />
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Išsaugoti</button>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary w-100 mt-2">Atšaukti</a>
+    </form>
+</div>

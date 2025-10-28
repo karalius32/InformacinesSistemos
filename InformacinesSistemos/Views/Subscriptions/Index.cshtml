@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Prenumeratos planai";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Pasirinkite prenumeratos planą</h2>
+
+    <div class="row justify-content-center g-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h4 class="card-title mb-3">Basic</h4>
+                    <p class="card-text text-muted">30 dienų prenumerata</p>
+                    <h5 class="fw-bold mb-4">9.99 €</h5>
+                    <a asp-controller="Payments" asp-action="Checkout" class="btn btn-primary w-100">
+                        Pirkti su kriptovaliuta
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100 border-primary">
+                <div class="card-body text-center">
+                    <h4 class="card-title mb-3 text-primary">Pro</h4>
+                    <p class="card-text text-muted">30 dienų + papildomos funkcijos</p>
+                    <h5 class="fw-bold mb-4">19.99 €</h5>
+                    <a asp-controller="Payments" asp-action="Checkout" class="btn btn-outline-primary w-100">
+                        Pirkti su kriptovaliuta
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

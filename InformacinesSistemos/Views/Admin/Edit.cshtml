@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Redaguoti vartotoją";
+}
+
+<div class="container mt-5" style="max-width: 500px;">
+    <h2 class="text-center mb-4">Redaguoti vartotoją</h2>
+
+    <form>
+        <div class="mb-3">
+            <label for="name" class="form-label">Vardas</label>
+            <input type="text" class="form-control" id="name" value="Jonas Jonaitis" />
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">El. paštas</label>
+            <input type="email" class="form-control" id="email" value="jonas@pavyzdys.lt" />
+        </div>
+
+        <div class="mb-3">
+            <label for="role" class="form-label">Rolė</label>
+            <select class="form-select" id="role">
+                <option>Vartotojas</option>
+                <option>Administratorius</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Išsaugoti</button>
+        <a asp-controller="Admin" asp-action="Index" class="btn btn-secondary w-100 mt-2">Atšaukti</a>
+    </form>
+</div>
