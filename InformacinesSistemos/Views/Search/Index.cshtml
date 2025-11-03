@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Knygos paieška";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Knygos paieška</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="get" action="@Url.Action("Results","Search")" class="row g-3">
+                <div class="col-md-9">
+                    <input type="text" name="q" class="form-control" placeholder="Įvesk knygos pavadinimą">
+                </div>
+                <div class="col-md-3 d-grid">
+                    <button type="submit" class="btn btn-success">Ieškoti</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-3">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-sm">Grįžti į pradžią</a>
+    </div>
+</div>

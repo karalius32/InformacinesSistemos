@@ -1,0 +1,47 @@
+@using InformacinesSistemos.Models
+@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Paieškos rezultatai";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3 text-center">Paieškos rezultatai</h2>
+    <p class="text-center">Užklausa: <b>@(ViewBag.Query ?? "-")</b></p>
+
+    <table class="table table-striped table-bordered align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Pavadinimas</th>
+                <th>Autorius</th>
+                <th>Metai</th>
+                <th>Veiksmai</th>
+            </tr>
+        </thead>
+        <tbody>
+        @if (!Model.Any())
+        {
+            <tr><td colspan="4" class="text-center">Nieko nerasta</td></tr>
+        }
+        else
+        {
+            foreach (var b in Model)
+            {
+                <tr>
+                    <td>@b.Title</td>
+                    <td>@b.Author</td>
+                    <td>@b.Year</td>
+                    <td>
+                        <a asp-controller="Ratings" asp-action="Create" asp-route-id="@b.Id" class="btn btn-success">Įvertinti</a>
+                        <a asp-controller="Books" asp-action="Edit" asp-route-id="@b.Id" class="btn btn-outline-primary">Redaguoti</a>
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+
+    <div class="d-flex gap-2">
+        <a asp-controller="Search" asp-action="Index" class="btn btn-outline-secondary">Nauja paieška</a>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Pradžia</a>
+    </div>
+</div>
