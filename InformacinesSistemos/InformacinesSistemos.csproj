@@ -10,4 +10,8 @@
     <Folder Include="Models\ModelsSkolinimai\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Views\Payments\StatusDebt.cshtml" />
+  </ItemGroup>
+
 </Project>

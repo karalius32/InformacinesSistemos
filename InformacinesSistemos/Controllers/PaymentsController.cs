@@ -6,5 +6,7 @@ namespace InformacinesSistemos.Controllers
     {
         public IActionResult Checkout() => View();
         public IActionResult Status() => View();
+        public IActionResult PayDebt() => View();
+        public IActionResult StatusDebt() => View();
     }
 }
