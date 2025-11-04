@@ -3,23 +3,23 @@
 }
 
 <div class="container mt-5" style="max-width: 400px;">
-    <h2 class="text-center mb-4">Create Account</h2>
+    <h2 class="text-center mb-4">Paskyros sukūrimas</h2>
     <form>
         <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
+            <label for="email" class="form-label">Pašto adresas</label>
             <input type="email" class="form-control" id="email" placeholder="name@example.com">
         </div>
         <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
+            <label for="password" class="form-label">Slaptažodis</label>
             <input type="password" class="form-control" id="password" placeholder="••••••••">
         </div>
         <div class="mb-3">
-            <label for="confirm" class="form-label">Confirm Password</label>
+            <label for="confirm" class="form-label">Patvirtinti slaptažodį</label>
             <input type="password" class="form-control" id="confirm" placeholder="••••••••">
         </div>
-        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Register</a>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Registruotis</a>
         <div class="text-center mt-3">
-            <a asp-controller="Account" asp-action="Login">Already have an account? Log in</a>
+            <a asp-controller="Account" asp-action="Login">Jau turi paskyrą? Prisijunk</a>
         </div>
     </form>
 </div>
