@@ -52,6 +52,8 @@
                                    class="btn btn-sm btn-outline-primary">Redaguoti</a>
                                 <a asp-controller="Ratings" asp-action="Create" asp-route-bookId="@b.Id"
                                    class="btn btn-sm btn-success">Palikti įvertinimą</a>
+                                <a asp-controller="Lending" asp-action="LendBook" asp-route-bookId="@b.Id"
+                                       class="btn btn-sm btn-outline-primary">Pasiimti</a>
                             </td>
                         </tr>
                     }

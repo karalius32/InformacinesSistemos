@@ -33,6 +33,7 @@
                     <td>
                         <a asp-controller="Ratings" asp-action="Create" asp-route-id="@b.Id" class="btn btn-success">Įvertinti</a>
                         <a asp-controller="Books" asp-action="Edit" asp-route-id="@b.Id" class="btn btn-outline-primary">Redaguoti</a>
+                        <a asp-controller="Lending" asp-action="LendBook" asp-route-id="@b.Id" class="btn btn-outline-primary">Pasiimti</a>
                     </td>
                 </tr>
             }
