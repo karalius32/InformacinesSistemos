@@ -6,6 +6,4 @@ namespace InformacinesSistemos.Controllers;
 public class BorrowedBooksController : Controller
 {
     public IActionResult Index() => View();
-    
-    public IActionResult ReturnBook() => View();
 }

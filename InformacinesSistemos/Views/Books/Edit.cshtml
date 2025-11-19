@@ -1,0 +1,43 @@
+@model InformacinesSistemos.Models.Book
+@{
+    ViewData["Title"] = "Knygos redagavimo langas";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Knygos redagavimas</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="text-muted">Redaguojama knyga: ID @Model.Id</p>
+
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Pavadinimas</label>
+                        <input type="text" class="form-control" value="@Model.Title">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Autorius</label>
+                        <input type="text" class="form-control" value="@Model.Author">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Metai</label>
+                        <input type="number" class="form-control" value="@Model.Year" min="1" max="9999">
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 justify-content-end mt-4">
+                    <button type="button" class="btn btn-secondary" onclick="history.back()">Atšaukti</button>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-success">Išsaugoti</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-3">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-sm">
+            Grįžti į pradžią
+        </a>
+    </div>
+</div>

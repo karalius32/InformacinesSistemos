@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Apmokėjimas kriptovaliuta";
+}
+
+<div class="container mt-5" style="max-width: 600px;">
+    <h2 class="text-center mb-4">Apmokėjimas kriptovaliuta</h2>
+
+    <div class="card shadow-sm p-4">
+        <p><strong>Skola:</strong> 6.9 €</p>
+
+        <div class="mb-3">
+            <label class="form-label">Pasirinkite tinklą:</label>
+            <select class="form-select">
+                <option>Ethereum (testnet)</option>
+                <option>Bitcoin (testnet)</option>
+                <option>Polygon (testnet)</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Pasirinkite turtą:</label>
+            <select class="form-select">
+                <option>ETH</option>
+                <option>USDT</option>
+            </select>
+        </div>
+
+        <hr class="my-4" />
+
+        <div class="text-center">
+            <p class="fw-semibold mb-1">Siunčiama suma:</p>
+            <h4 class="mb-3">0.00384 ETH</h4>
+            <p class="mb-1">Adresas (testnet):</p>
+            <code class="user-select-all">0xDEADbeEFcafe0000000000000000000000000000</code>
+
+            <div class="mt-4">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=0xDEADbeEFcafe0000000000000000000000000000"
+                     alt="QR Code" class="border rounded mb-3" />
+                <p class="small text-muted">Nuskaitykite QR kodą, kad atliktumėte mokėjimą</p>
+            </div>
+
+            <a asp-controller="Payments" asp-action="StatusDebt" class="btn btn-success w-100">
+                Apmokėjau (demo)
+            </a>
+            </a>
+        </div>
+    </div>
+</div>
