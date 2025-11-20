@@ -2,7 +2,7 @@ using System;
 
 namespace InformacinesSistemos.Models
 {
-    public class Book
+    public class BookSimple
     {
         public int Id { get; set; }
         public string? Title { get; set; }

@@ -51,10 +51,17 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileMenu">
                             <li><h6 class="dropdown-header">Sveiki!</h6></li>
-                            <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Prisijungti</a></li>
-                            <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">Atsijungti</a></li>
+                            @if (User?.Identity?.IsAuthenticated == true)
+                            {
+                                <li><a class="dropdown-item" asp-controller="Account" asp-action="Edit">@User.Identity.Name</a></li>
+                                <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">Atsijungti</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Prisijungti</a></li>
+                                <li><a class="dropdown-item" asp-controller="Account" asp-action="Register">Registruotis</a></li>
+                            }
                             <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" asp-controller="Account" asp-action="Edit">Redaguoti profilį</a></li>
                             <li><a class="dropdown-item" asp-controller="Subscriptions" asp-action="Index">Prenumerata</a></li>
                         </ul>
                     </li>

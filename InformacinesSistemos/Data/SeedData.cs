@@ -10,7 +10,7 @@ namespace InformacinesSistemos.Data
             using var scope = services.CreateScope();
             var scoped = scope.ServiceProvider;
 
-            var context = scoped.GetRequiredService<ApplicationDbContext>();
+            var context = scoped.GetRequiredService<LibraryContext>();
             await context.Database.MigrateAsync();
 
             var userManager = scoped.GetRequiredService<UserManager<ApplicationUser>>();
@@ -49,20 +49,24 @@ namespace InformacinesSistemos.Data
                 }
             }
 
-            // Ensure UserProfile row exists for this Identity user (maps to existing user_account table)
-            var profile = await context.UserProfiles.FindAsync(admin.Id);
+            // Ensure UserAccount row exists for this Identity user (maps to existing user_accounts table)
+            var profile = await context.UserAccounts.FirstOrDefaultAsync(p => p.IdentityUserId == admin.Id);
             if (profile == null)
             {
-                profile = new UserProfile
+                profile = new Models.Library.UserAccount
                 {
-                    UserId = admin.Id,
-                    FullName = admin.UserName ?? admin.Email ?? "Administrator",
+                    IdentityUserId = admin.Id,
+                    FirstName = "Admin",
+                    LastName = "User",
                     Email = admin.Email,
-                    Phone = admin.PhoneNumber
-                    // BirthDate remains null; set here if you want a default
+                    PhoneNumber = admin.PhoneNumber,
+                    RegistrationDate = DateTime.UtcNow,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
+                    Role = Models.Enums.UserRole.Administrator
                 };
 
-                context.UserProfiles.Add(profile);
+                context.UserAccounts.Add(profile);
                 await context.SaveChangesAsync();
             }
         }

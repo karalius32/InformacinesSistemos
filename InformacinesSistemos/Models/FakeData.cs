@@ -6,23 +6,23 @@ namespace InformacinesSistemos.Models
     public static class FakeData
     {
 
-        public static readonly List<Book> Books = new()
+        public static readonly List<BookSimple> Books = new()
         {
-            new Book
+            new BookSimple
             {
                 Id = 1,
                 Title = "Banga",
                 Author = "J. Autorius",
                 Year = 2021,
             },
-            new Book
+            new BookSimple
             {
                 Id = 2,
                 Title = "Bitės kelias",
                 Author = "A. Bitininkas",
                 Year = 2019,
             },
-            new Book
+            new BookSimple
             {
                 Id = 3,
                 Title = "Atlasas",

@@ -1,9 +1,10 @@
+using InformacinesSistemos.Models.Library;
 using Microsoft.AspNetCore.Identity;
 
 namespace InformacinesSistemos.Data
 {
     public class ApplicationUser : IdentityUser
     {
-        public UserProfile? Profile { get; set; }
+        public UserAccount? Profile { get; set; }
     }
 }

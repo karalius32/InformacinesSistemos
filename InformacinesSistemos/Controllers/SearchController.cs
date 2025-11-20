@@ -12,7 +12,7 @@ namespace InformacinesSistemos.Controllers
 
         public IActionResult Results(string? q)
         {
-            IEnumerable<Book> items = FakeData.Books;
+            IEnumerable<BookSimple> items = FakeData.Books;
 
             if (!string.IsNullOrWhiteSpace(q))
             {

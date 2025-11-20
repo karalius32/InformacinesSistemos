@@ -1,4 +1,5 @@
 using InformacinesSistemos.Data;
+using InformacinesSistemos.Models.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,18 +10,24 @@ builder.Services.AddControllersWithViews();
 
 // Configure DB and Identity
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<LibraryContext>(options =>
+    options.UseNpgsql(connectionString, npgsqlOptionsAction =>
+    {
+        npgsqlOptionsAction.MapEnum<UserRole>("user_role", "public");
+        npgsqlOptionsAction.MapEnum<SubscriptionLevel>("subscription_level", "public");
+        npgsqlOptionsAction.MapEnum<AuthorRole>("author_role", "public");
+    }));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
-    options.Password.RequireDigit = true;
-    options.Password.RequiredLength = 6;
+    // Disable password complexity requirements
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 1;
     options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireUppercase = true;
-    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
 })
-    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddEntityFrameworkStores<LibraryContext>()
     .AddDefaultTokenProviders();
 
 builder.Services.AddRazorPages();
@@ -52,7 +59,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=Login}/{id?}")
+    pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 app.MapRazorPages();

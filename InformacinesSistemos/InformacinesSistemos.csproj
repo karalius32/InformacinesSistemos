@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\ModelsSkolinimai\" />
+    <Compile Remove="Models\ModelsSkolinimai\**" />
+    <Content Remove="Models\ModelsSkolinimai\**" />
+    <EmbeddedResource Remove="Models\ModelsSkolinimai\**" />
+    <None Remove="Models\ModelsSkolinimai\**" />
   </ItemGroup>
 
   <ItemGroup>
