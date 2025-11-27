@@ -1,25 +1,52 @@
-﻿@{
+﻿@model InformacinesSistemos.ViewModels.RegisterViewModel
+@{
     ViewData["Title"] = "Register";
 }
 
 <div class="container mt-5" style="max-width: 400px;">
     <h2 class="text-center mb-4">Paskyros sukūrimas</h2>
-    <form>
+
+    <form asp-action="Register" method="post">
+        @Html.AntiForgeryToken()
+
+        <div asp-validation-summary="All" class="text-danger mb-2"></div>
+
         <div class="mb-3">
-            <label for="email" class="form-label">Pašto adresas</label>
-            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            <label asp-for="Email" class="form-label">Pašto adresas</label>
+            <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+            <span asp-validation-for="Email" class="text-danger"></span>
         </div>
+
         <div class="mb-3">
-            <label for="password" class="form-label">Slaptažodis</label>
-            <input type="password" class="form-control" id="password" placeholder="••••••••">
+            <label asp-for="Password" class="form-label">Slaptažodis</label>
+            <input asp-for="Password" class="form-control" placeholder="••••••••" />
+            <span asp-validation-for="Password" class="text-danger"></span>
         </div>
+
         <div class="mb-3">
-            <label for="confirm" class="form-label">Patvirtinti slaptažodį</label>
-            <input type="password" class="form-control" id="confirm" placeholder="••••••••">
+            <label asp-for="ConfirmPassword" class="form-label">Patvirtinti slaptažodį</label>
+            <input asp-for="ConfirmPassword" class="form-control" placeholder="••••••••" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
         </div>
-        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Registruotis</a>
+
+        <div class="mb-3">
+            <label asp-for="FirstName" class="form-label">Vardas</label>
+            <input asp-for="FirstName" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LastName" class="form-label">Pavardė</label>
+            <input asp-for="LastName" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-outline-secondary w-100">
+            Registruotis
+        </button>
+
         <div class="text-center mt-3">
             <a asp-controller="Account" asp-action="Login">Jau turi paskyrą? Prisijunk</a>
         </div>
     </form>
 </div>
+
+

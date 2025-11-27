@@ -1,17 +1,48 @@
-﻿@{
+﻿@model InformacinesSistemos.ViewModels.EditProfileViewModel
+@{
     ViewData["Title"] = "Redaguoti profilį";
 }
 
 <div class="container mt-5" style="max-width: 500px;">
     <h2 class="text-center mb-4">Redaguoti profilį</h2>
 
-    <form>
+    <form asp-action="Edit" method="post">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="text-danger mb-2"></div>
+
         <div class="mb-3">
-            <label for="email" class="form-label">El. paštas</label>
-            <input type="email" class="form-control" id="email" placeholder="vartotojas@pavyzdys.lt" />
+            <label asp-for="FirstName" class="form-label">Vardas</label>
+            <input asp-for="FirstName" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LastName" class="form-label">Pavardė</label>
+            <input asp-for="LastName" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="BirthDate" class="form-label">Gimimo data</label>
+            <input asp-for="BirthDate" type="date" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Address" class="form-label">Adresas</label>
+            <input asp-for="Address" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label">El. paštas</label>
+            <input asp-for="Email" type="email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PhoneNumber" class="form-label">Telefonas</label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
         </div>
 
         <button type="submit" class="btn btn-success w-100">Išsaugoti</button>
-        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary w-100 mt-2">Atšaukti</a>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary w-100 mt-2">Atgal į pradžią</a>
     </form>
 </div>
