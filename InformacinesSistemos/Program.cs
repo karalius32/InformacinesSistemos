@@ -1,3 +1,4 @@
+using Coinbase.Commerce;
 using InformacinesSistemos.Data;
 using InformacinesSistemos.Models.Enums;
 using Microsoft.AspNetCore.Identity;
@@ -31,6 +32,14 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     .AddDefaultTokenProviders();
 
 builder.Services.AddRazorPages();
+
+// register commerce client
+builder.Services.AddSingleton(sp =>
+{
+    var cfg = sp.GetRequiredService<IConfiguration>();
+    var apiKey = cfg["CoinbaseCommerce:ApiKey"];
+    return new CommerceApi(apiKey);
+});
 
 var app = builder.Build();
 
