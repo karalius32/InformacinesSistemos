@@ -13,6 +13,11 @@
     </p>
 }
 
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <p class="text-danger">@Model.Message</p>
+}
+
 <h3>Development Mode</h3>
 <p>
     Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.

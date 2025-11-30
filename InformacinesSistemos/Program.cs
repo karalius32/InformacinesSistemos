@@ -1,6 +1,7 @@
 using Coinbase.Commerce;
 using InformacinesSistemos.Data;
 using InformacinesSistemos.Models.Enums;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -73,5 +74,38 @@ app.MapControllerRoute(
 
 app.MapRazorPages();
 
+AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+{
+    Console.WriteLine("UNHANDLED EXCEPTION: " + e.ExceptionObject);
+};
+
+TaskScheduler.UnobservedTaskException += (s, e) =>
+{
+    Console.WriteLine("UNOBSERVED TASK EXCEPTION: " + e.Exception);
+    e.SetObserved();
+};
+
+AppDomain.CurrentDomain.ProcessExit += (s, e) =>
+{
+    Console.WriteLine("PROCESS EXIT");
+};
+
+app.Use(async (ctx, next) =>
+{
+    Console.WriteLine($"INCOMING {ctx.Request.Method} {ctx.Request.Scheme}://{ctx.Request.Host}{ctx.Request.Path}{ctx.Request.QueryString}");
+    await next();
+});
+
+var forwardedOptions = new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedProto | ForwardedHeaders.XForwardedHost
+};
+
+// If you want to be strict you can add known proxies,
+// but with ngrok in dev it's easiest to clear these:
+forwardedOptions.KnownNetworks.Clear();
+forwardedOptions.KnownProxies.Clear();
+
+app.UseForwardedHeaders(forwardedOptions);
 
 app.Run();

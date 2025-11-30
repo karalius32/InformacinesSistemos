@@ -213,7 +213,9 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
             entity.Property(e => e.Id)
                 .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
-            entity.Property(e => e.Address)
+
+            entity.Property(e => e.Name).HasColumnName("name");
+            entity.Property(e => e.CoinbaseChargeCode)
                 .HasMaxLength(255)
                 .HasColumnName("address");
             entity.Property(e => e.Amount).HasColumnName("amount");
@@ -224,13 +226,12 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
                 .HasMaxLength(255)
                 .HasColumnName("currency");
             entity.Property(e => e.LoanId).HasColumnName("loan_id");
-            entity.Property(e => e.Network)
-                .HasMaxLength(255)
-                .HasColumnName("network");
             entity.Property(e => e.Status)
+                .HasConversion<string>()
                 .HasMaxLength(255)
                 .HasColumnName("status");
             entity.Property(e => e.SubscriptionId).HasColumnName("subscription_id");
+            entity.Property(i => i.UserId).HasColumnName("user_id");
 
             entity.HasOne(d => d.Loan).WithMany(p => p.Invoices)
                 .HasForeignKey(d => d.LoanId)
@@ -239,6 +240,11 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
             entity.HasOne(d => d.Subscription).WithOne(p => p.Invoice)
                 .HasForeignKey<Invoice>(d => d.SubscriptionId)
                 .HasConstraintName("invoice_subscription_fk");
+
+            entity.HasOne(i => i.User)
+            .WithMany(u => u.Invoices)
+            .HasForeignKey(i => i.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
         });
 
         modelBuilder.Entity<Loan>(entity =>

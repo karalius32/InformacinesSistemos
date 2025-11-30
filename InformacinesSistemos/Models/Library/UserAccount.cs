@@ -38,6 +38,7 @@ public partial class UserAccount
     public virtual ICollection<Loan> Loans { get; set; } = new List<Loan>();
 
     public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
+    public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
 
     public virtual Subscription? Subscription { get; set; }
 }
