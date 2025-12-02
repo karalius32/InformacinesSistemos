@@ -3,17 +3,19 @@
     ViewData["Title"] = "Waiting for payment";
 }
 
-<h2>Waiting for crypto payment…</h2>
-<p>Invoice #@Model.InvoiceId</p>
+<h2>Laukiama apmokėjimo kriptovaliuta</h2>
+<p>Sąskaita #@Model.InvoiceId</p>
 
 <p>
-    If the Coinbase tab didn’t open automatically,
+    Jei Coinbase skirtukas neatsidarė automatiškai,
     <a href="@Model.HostedUrl" target="_blank" rel="noopener noreferrer">
-        click here to open checkout
+        spauskite čia, kad patektumėte į apmokėjimą
     </a>.
 </p>
 
-<div id="status">Checking payment status…</div>
+<p>Mokėjimo patvirtinimas gali ilgai užtrukti, galite šį langą uždaryti.</p>
+
+<div id="status">Tikrinamas mokėjimo statusas</div>
 
 <script>
     const invoiceId = @Model.InvoiceId;
@@ -34,15 +36,6 @@
 
             const data = await res.json();
             document.getElementById("status").innerText = `Status: ${data.status}`;
-
-            if (data.status === "Paid") {
-                window.location.href = `/Payments/Success?invoiceId=${invoiceId}`;
-                return;
-            }
-            if (data.status === "Failed") {
-                window.location.href = `/Payments/Failed?invoiceId=${invoiceId}`;
-                return;
-            }
         } catch (e) {
             document.getElementById("status").innerText = "Error checking status, retrying…";
         }

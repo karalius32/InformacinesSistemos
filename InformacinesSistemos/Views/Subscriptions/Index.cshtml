@@ -1,19 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Prenumeratos planai";
+﻿@model List<InformacinesSistemos.Models.Library.Subscription>
+
+@{
+    ViewData["Title"] = "Prenumerata";
 }
 
 <div class="container mt-5">
+
+    <h2 class="mb-4 text-center">Prenumerata</h2>
+
     <div class="row justify-content-center g-4">
         <div class="col-md-4">
             <div class="card shadow-sm h-100">
-                <div class="card-body text-center">
-                    <h4 class="card-title mb-3">Basic</h4>
-                    <p class="card-text text-muted">30 dienų prenumerata</p>
-                    <h5 class="fw-bold mb-4">9.99 €</h5>
+                <div class="card-body text-center d-flex flex-column">
+                    <h4 class="card-title mb-2">Basic</h4>
+                    <p class="card-text text-muted mb-3">30 dienų prenumerata</p>
+
+                    <div class="mb-3">
+                        <span class="display-6 fw-bold">9.99 €</span>
+                        <div class="text-muted small">30 dienų</div>
+                    </div>
+
                     <form asp-controller="Subscriptions"
                           asp-action="BuyWithCrypto"
-                          method="post">
+                          method="post"
+                          class="mt-auto">
                         @Html.AntiForgeryToken()
+
                         <button type="submit" class="btn btn-primary w-100">
                             Pirkti su kriptovaliuta
                         </button>
@@ -22,4 +34,62 @@
             </div>
         </div>
     </div>
+
+    <hr class="my-5" />
+
+    <h3 class="mb-3">Mano prenumeratos</h3>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            Jūs dar neturite prenumeratų.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>Kaina</th>
+                        <th>Pirkimo data</th>
+                        <th>Galioja iki</th>
+                        <th>Statusas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var s in Model.OrderByDescending(x => x.PurchaseDate))
+                    {
+                        var isActive = s.ValidUntil.HasValue &&
+                        s.ValidUntil.Value >= DateOnly.FromDateTime(DateTime.Today);
+
+                        <tr>
+                            <td>@(s.Price?.ToString("0.00") ?? "-") €</td>
+                            <td>@(s.PurchaseDate?.ToString("yyyy-MM-dd") ?? "-")</td>
+                            <td>
+                                @if (s.ValidUntil.HasValue)
+                                {
+                                    <span class="@(isActive ? "text-success fw-semibold" : "text-muted")">
+                                        @s.ValidUntil.Value.ToString("yyyy-MM-dd")
+                                    </span>
+                                }
+                                else
+                                {
+
+                                    <span>-</span>
+                                }
+                        </td>
+                        <td>
+                            <span class="badge @(isActive ? "bg-success" : "bg-secondary")">
+                                @(string.IsNullOrWhiteSpace(s.Status)
+                                                            ? (isActive ? "Active" : "Expired")
+                                                            : s.Status)
+                        </span>
+                    </td>
+                </tr>
+                                }
+                </tbody>
+            </table>
+        </div>
+    }
 </div>

@@ -16,11 +16,7 @@ public partial class Subscription
 
     public string? Status { get; set; }
 
-    public bool? AutoRenew { get; set; }
-
     public int UserId { get; set; }
-
-    public SubscriptionLevel Level { get; set; }
 
     public virtual Invoice? Invoice { get; set; }
 

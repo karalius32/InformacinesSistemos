@@ -92,8 +92,9 @@ AppDomain.CurrentDomain.ProcessExit += (s, e) =>
 
 app.Use(async (ctx, next) =>
 {
-    Console.WriteLine($"INCOMING {ctx.Request.Method} {ctx.Request.Scheme}://{ctx.Request.Host}{ctx.Request.Path}{ctx.Request.QueryString}");
+    Console.WriteLine($"--> {ctx.Request.Method} {ctx.Request.Path} at {DateTime.UtcNow:o}");
     await next();
+    Console.WriteLine($"<-- {ctx.Response.StatusCode} {ctx.Request.Path}");
 });
 
 var forwardedOptions = new ForwardedHeadersOptions

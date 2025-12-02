@@ -3,12 +3,11 @@ using Coinbase.Commerce.Models;
 using InformacinesSistemos.Data;
 using InformacinesSistemos.Models;
 using InformacinesSistemos.Models.Enums;
-using InformacinesSistemos.Models.Library;
 using InformacinesSistemos.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyModel;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace InformacinesSistemos.Controllers
 {
@@ -34,6 +33,15 @@ namespace InformacinesSistemos.Controllers
                 return View("Error", new ErrorViewModel { RequestId = HttpContext.TraceIdentifier, Message = "Invoice not found." });
             }
 
+            if (invoice.CoinbaseHostedUrl != null)
+            {
+                return View("Waiting", new WaitingViewModel
+                {
+                    InvoiceId = invoiceId,
+                    HostedUrl = invoice.CoinbaseHostedUrl
+                });
+            }
+
             var charge = new CreateCharge
             {
                 Name = invoice.Name,
@@ -46,6 +54,7 @@ namespace InformacinesSistemos.Controllers
                 }
             };
 
+
             var response = await _commerce.CreateChargeAsync(charge);
             
             if (response.HasError())
@@ -55,6 +64,8 @@ namespace InformacinesSistemos.Controllers
             }
 
             invoice.CoinbaseChargeCode = response.Data.Code;
+            invoice.CoinbaseHostedUrl = response.Data.HostedUrl;
+
             await _db.SaveChangesAsync();
 
             return View("Waiting", new WaitingViewModel
@@ -74,6 +85,16 @@ namespace InformacinesSistemos.Controllers
             using var reader = new StreamReader(Request.Body);
             var body = await reader.ReadToEndAsync();
 
+            string pretty;
+            try
+            {
+                pretty = JObject.Parse(body).ToString(Formatting.Indented);
+            }
+            catch
+            {
+                pretty = body; // fallback if it's not valid JSON for some reason
+            }
+            System.IO.File.AppendAllText("webhook_raw.txt", $"----- {DateTime.UtcNow:o} -----\n{pretty}\n\n");
             // 2) Coinbase signature header
             var signature = Request.Headers["X-CC-Webhook-Signature"].ToString();
             var secret = _cfg["CoinbaseCommerce:WebhookSharedSecret"];
@@ -93,6 +114,8 @@ namespace InformacinesSistemos.Controllers
                 return BadRequest();
             }
 
+            Console.WriteLine($"Webhook event: {webhook.Event.Type}");
+
             // The actual charge object
             var charge = webhook.Event.DataAs<Charge>();
 
@@ -102,6 +125,8 @@ namespace InformacinesSistemos.Controllers
             if (!int.TryParse(charge.Metadata?["invoiceId"]?.ToString(), out var invoiceId))
                 return BadRequest("Missing/invalid invoiceId metadata.");
 
+            Console.WriteLine("Invoice ID from metadata: " + invoiceId);
+
             var invoice = await _db.Invoices.FindAsync(invoiceId);
 
             if (invoice == null)
@@ -109,11 +134,10 @@ namespace InformacinesSistemos.Controllers
                 return View("Error", new ErrorViewModel { RequestId = HttpContext.TraceIdentifier, Message = "Invoice not found when processing webhook" });
             }
 
-            if (webhook.Event.IsChargeCreated)
+            if (webhook.Event.IsChargeCreated && invoice.Status == InvoiceStatus.New)
             {
                 invoice.Status = InvoiceStatus.ChargeCreated;
             }
-            // 5) Handle events
             else if (webhook.Event.IsChargePending)
             {
                 invoice.Status = InvoiceStatus.Pending;

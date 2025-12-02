@@ -1,0 +1,4809 @@
+----- 2025-12-02T10:34:12.6147454Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T10:34:12Z",
+    "data": {
+      "id": "f890532c-d38f-4f29-9d5a-21b0408711e8",
+      "code": "Y64MGWCK",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160309",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "56"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-12-02T10:34:12Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T10:34:12Z",
+      "expires_at": "2025-12-04T10:34:12Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/f890532c-d38f-4f29-9d5a-21b0408711e8",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "ce6ecbc7-df79-49f5-8160-7f572ee6cae3",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "e77e68eb-5f12-46d4-950b-6a16c5bb4421",
+  "scheduled_for": "2025-12-02T10:34:12Z"
+}
+
+----- 2025-12-02T11:32:53.9705972Z -----
+{
+  "attempt_number": 6,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:24:47Z",
+    "data": {
+      "id": "04ac449b-21bc-417b-9f86-47c2c84cbbd8",
+      "code": "AERK5H86",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.16059",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "57"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:24:46Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:24:46Z",
+      "expires_at": "2025-12-04T11:24:46Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/04ac449b-21bc-417b-9f86-47c2c84cbbd8",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "b951213e-587e-413e-9adf-66d18f7d851b",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "d5e42fb5-5d06-4aef-be8e-47234b7d0fea",
+  "scheduled_for": "2025-12-02T11:32:52Z"
+}
+
+----- 2025-12-02T11:33:18.8225197Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:33:19Z",
+    "data": {
+      "id": "c33c58fb-8269-47a0-8c44-083a68f5277c",
+      "code": "MKV2MBL2",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160847",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "58"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:33:18Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:33:18Z",
+      "expires_at": "2025-12-04T11:33:18Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/c33c58fb-8269-47a0-8c44-083a68f5277c",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "30f4d378-bef0-4cf4-a94e-b4e845db6bee",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "221235e7-f256-49f4-aadd-0954c4580709",
+  "scheduled_for": "2025-12-02T11:33:19Z"
+}
+
+----- 2025-12-02T11:33:29.5180219Z -----
+{
+  "attempt_number": 6,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:25:16Z",
+    "data": {
+      "id": "04ac449b-21bc-417b-9f86-47c2c84cbbd8",
+      "code": "AERK5H86",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.16059",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "57"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.16059",
+              "currency": "USDC"
+            }
+          },
+          "status": "pending",
+          "network": "base",
+          "payment_id": "0x23098be3e7e31706f4064409e3f467bcb3fa5699da1099ab1aaeef0add0b2e39",
+          "detected_at": "2025-12-02T11:25:15Z",
+          "transaction_id": "0x23098be3e7e31706f4064409e3f467bcb3fa5699da1099ab1aaeef0add0b2e39",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:24:46Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T11:24:54Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T11:25:16Z",
+          "status": "PENDING"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x23098be3e7e31706f4064409e3f467bcb3fa5699da1099ab1aaeef0add0b2e39",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:25:15Z",
+            "network_fee_paid": "66172089804",
+            "input_token_amount": "1160590",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000161012244934242"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0xb241801c625a4792a66a22a7be9627c1",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T11:24:46Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x1b905815b870865059b73858b336b91c196f36ac87dec16ff733497cb060c6311bf01a10b482c8f36e343c00f369775802a6707fcaeaf91b030a7f41e73027d61c",
+            "fee_amount": "11605",
+            "recipient_amount": "1148985",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "291529e0-b2f5-4ec7-925a-4e8cbecf7001",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:24:46Z",
+      "expires_at": "2025-12-04T11:24:46Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/04ac449b-21bc-417b-9f86-47c2c84cbbd8",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "2a5f5196-7262-4901-aa3c-98af03d4243a",
+    "resource": "event",
+    "type": "charge:pending"
+  },
+  "id": "d76db09a-0907-4bc0-bfb3-be4c62dfe41a",
+  "scheduled_for": "2025-12-02T11:33:28Z"
+}
+
+----- 2025-12-02T11:39:16.2529634Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:39:16Z",
+    "data": {
+      "id": "04ac449b-21bc-417b-9f86-47c2c84cbbd8",
+      "code": "AERK5H86",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.16059",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "57"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.16059",
+              "currency": "USDC"
+            }
+          },
+          "status": "confirmed",
+          "network": "base",
+          "payment_id": "0x23098be3e7e31706f4064409e3f467bcb3fa5699da1099ab1aaeef0add0b2e39",
+          "detected_at": "2025-12-02T11:25:15Z",
+          "transaction_id": "0x23098be3e7e31706f4064409e3f467bcb3fa5699da1099ab1aaeef0add0b2e39",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:24:46Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T11:24:54Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T11:25:16Z",
+          "status": "PENDING"
+        },
+        {
+          "time": "2025-12-02T11:39:16Z",
+          "status": "COMPLETED"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x23098be3e7e31706f4064409e3f467bcb3fa5699da1099ab1aaeef0add0b2e39",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:25:15Z",
+            "network_fee_paid": "66172089804",
+            "input_token_amount": "1160590",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000161012244934242"
+          },
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x23098be3e7e31706f4064409e3f467bcb3fa5699da1099ab1aaeef0add0b2e39",
+            "chain_id": 8453,
+            "finalized": true,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:25:15Z",
+            "network_fee_paid": "66172089804",
+            "input_token_amount": "1160590",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000161012244934242"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0xb241801c625a4792a66a22a7be9627c1",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T11:24:46Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x1b905815b870865059b73858b336b91c196f36ac87dec16ff733497cb060c6311bf01a10b482c8f36e343c00f369775802a6707fcaeaf91b030a7f41e73027d61c",
+            "fee_amount": "11605",
+            "recipient_amount": "1148985",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "291529e0-b2f5-4ec7-925a-4e8cbecf7001",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:24:46Z",
+      "expires_at": "2025-12-04T11:24:46Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/04ac449b-21bc-417b-9f86-47c2c84cbbd8",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "confirmed_at": "2025-12-02T11:39:16Z",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "d5ee5000-48d8-4f6f-9575-63011c5bdf62",
+    "resource": "event",
+    "type": "charge:confirmed"
+  },
+  "id": "c1d68e44-0e3b-416a-af88-62bdc0edb72b",
+  "scheduled_for": "2025-12-02T11:39:16Z"
+}
+
+----- 2025-12-02T11:39:17.3785655Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:39:17Z",
+    "data": {
+      "id": "2e0cf489-6c35-44d4-8883-aa6af180b634",
+      "code": "Y77LWXC7",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160838",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "59"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:39:17Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:39:17Z",
+      "expires_at": "2025-12-04T11:39:17Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/2e0cf489-6c35-44d4-8883-aa6af180b634",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "f25ebee5-3476-4415-a117-d294c7330aed",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "a217a854-15f3-447d-90a7-7da459881c68",
+  "scheduled_for": "2025-12-02T11:39:17Z"
+}
+
+----- 2025-12-02T11:43:04.7243738Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:43:05Z",
+    "data": {
+      "id": "6a2d3c07-d20c-40c5-9d5b-687667550dbb",
+      "code": "L96YLHR4",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160836",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "60"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:43:04Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:43:04Z",
+      "expires_at": "2025-12-04T11:43:04Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/6a2d3c07-d20c-40c5-9d5b-687667550dbb",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "d94ed357-36a4-42a1-89f0-4edfa4c2daec",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "9df00407-ec94-4b73-8b5c-5179309700e5",
+  "scheduled_for": "2025-12-02T11:43:05Z"
+}
+
+----- 2025-12-02T11:43:31.7112381Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:43:32Z",
+    "data": {
+      "id": "6a2d3c07-d20c-40c5-9d5b-687667550dbb",
+      "code": "L96YLHR4",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160836",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "60"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.160836",
+              "currency": "USDC"
+            }
+          },
+          "status": "pending",
+          "network": "base",
+          "payment_id": "0xc9dff19da2f0934238810d5c6f5ddad31832689707ca0610592344de34d09601",
+          "detected_at": "2025-12-02T11:43:29Z",
+          "transaction_id": "0xc9dff19da2f0934238810d5c6f5ddad31832689707ca0610592344de34d09601",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:43:04Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T11:43:12Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T11:43:31Z",
+          "status": "PENDING"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0xc9dff19da2f0934238810d5c6f5ddad31832689707ca0610592344de34d09601",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:43:29Z",
+            "network_fee_paid": "65253077042",
+            "input_token_amount": "1160836",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000158809676250955"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0x36f205623e8b4ae0adb9ccaf04982534",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T11:43:04Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x4cecabf3d46d0821880b61041145d03b48447724a079bdf6c4d1318d2185b7da41f352ebc612c7dfc3d8655559f69833a1eddf9e49d1e72d7add92fe77aac2911b",
+            "fee_amount": "11608",
+            "recipient_amount": "1149228",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "41a2c414-6141-44de-b37e-516dd4810875",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:43:04Z",
+      "expires_at": "2025-12-04T11:43:04Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/6a2d3c07-d20c-40c5-9d5b-687667550dbb",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "c6b47d43-69b5-48a8-9db7-3d4c88ff0f20",
+    "resource": "event",
+    "type": "charge:pending"
+  },
+  "id": "57743c84-06fa-43b4-8639-fd04b8157539",
+  "scheduled_for": "2025-12-02T11:43:32Z"
+}
+
+----- 2025-12-02T11:43:49.7204083Z -----
+{
+  "attempt_number": 5,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:39:51Z",
+    "data": {
+      "id": "2e0cf489-6c35-44d4-8883-aa6af180b634",
+      "code": "Y77LWXC7",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160838",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "59"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.160838",
+              "currency": "USDC"
+            }
+          },
+          "status": "pending",
+          "network": "base",
+          "payment_id": "0x6c97a7a5a554bc62ce42f1ec935d1f52bcdf8a3a88ddeedc9568e95bf33a5a66",
+          "detected_at": "2025-12-02T11:39:47Z",
+          "transaction_id": "0x6c97a7a5a554bc62ce42f1ec935d1f52bcdf8a3a88ddeedc9568e95bf33a5a66",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:39:17Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T11:39:28Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T11:39:51Z",
+          "status": "PENDING"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x6c97a7a5a554bc62ce42f1ec935d1f52bcdf8a3a88ddeedc9568e95bf33a5a66",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:39:47Z",
+            "network_fee_paid": "74112929071",
+            "input_token_amount": "1160838",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000180401245168879"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0xf6ad8221ab834688ac272736a8c0ed6b",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T11:39:17Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x9d3dde13f5b2d8cca4fbb2e7c2a2da7a91b6276013caef53222ee521c20df135780d99bf89e26952e0837107f7d82d2ad84a177f12959c2f5e5d2855d06a76391b",
+            "fee_amount": "11608",
+            "recipient_amount": "1149230",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "6574e31e-9463-4125-a132-bb6e43f675e9",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:39:17Z",
+      "expires_at": "2025-12-04T11:39:17Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/2e0cf489-6c35-44d4-8883-aa6af180b634",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "a3010f10-b714-4ac4-8817-287fdfc3f320",
+    "resource": "event",
+    "type": "charge:pending"
+  },
+  "id": "7c8f2f49-5a53-4ced-bba9-72b246a41146",
+  "scheduled_for": "2025-12-02T11:43:47Z"
+}
+
+----- 2025-12-02T11:44:11.5921670Z -----
+{
+  "attempt_number": 11,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T08:39:50Z",
+    "data": {
+      "id": "2818879a-268b-471d-8c89-b54310f0f757",
+      "code": "5EGCRKPP",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.161181",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "52"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.161181",
+              "currency": "USDC"
+            }
+          },
+          "status": "confirmed",
+          "network": "base",
+          "payment_id": "0x3b38ac3e306e512aa9a041a69b7113b6bf616a63ea1c7c1bd95cc0217fa0fac8",
+          "detected_at": "2025-12-02T08:25:19Z",
+          "transaction_id": "0x3b38ac3e306e512aa9a041a69b7113b6bf616a63ea1c7c1bd95cc0217fa0fac8",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T08:24:53Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T08:25:04Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T08:25:20Z",
+          "status": "PENDING"
+        },
+        {
+          "time": "2025-12-02T08:39:49Z",
+          "status": "COMPLETED"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x3b38ac3e306e512aa9a041a69b7113b6bf616a63ea1c7c1bd95cc0217fa0fac8",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T08:25:19Z",
+            "network_fee_paid": "105051539522",
+            "input_token_amount": "1161181",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000252419940194259"
+          },
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x3b38ac3e306e512aa9a041a69b7113b6bf616a63ea1c7c1bd95cc0217fa0fac8",
+            "chain_id": 8453,
+            "finalized": true,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T08:25:19Z",
+            "network_fee_paid": "105051539522",
+            "input_token_amount": "1161181",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000252419940194259"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0xe29d6461c17649e495a330bb8d60c867",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T08:24:53Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x7c351c9b97ade8a01553485e2ccfb16d49b000bd02e82714060fd679b39d55152a745d23e4d4fb83772908dab81fb6a74b99bb66322b2a9e4da4613e3ca5a7df1b",
+            "fee_amount": "11611",
+            "recipient_amount": "1149570",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "253c79ab-2f0c-4f53-ae1a-02c370b0b991",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T08:24:53Z",
+      "expires_at": "2025-12-04T08:24:53Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/2818879a-268b-471d-8c89-b54310f0f757",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "confirmed_at": "2025-12-02T08:39:49Z",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "bcaea7eb-0053-4d9f-aaaa-6bbf5f176313",
+    "resource": "event",
+    "type": "charge:confirmed"
+  },
+  "id": "66ccd0a4-14d7-4d1c-bb11-6421d396d2f0",
+  "scheduled_for": "2025-12-02T11:44:07Z"
+}
+
+----- 2025-12-02T11:44:17.4849853Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:44:17Z",
+    "data": {
+      "id": "fe17359c-df79-4607-a255-57f4197eac46",
+      "code": "MDZCT57E",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160872",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "60"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:44:17Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:44:17Z",
+      "expires_at": "2025-12-04T11:44:17Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/fe17359c-df79-4607-a255-57f4197eac46",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "0ad7bbba-9d6c-45e7-832c-9e2e398124d0",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "dd3593fb-f603-4f70-996c-26d5693030f4",
+  "scheduled_for": "2025-12-02T11:44:17Z"
+}
+
+----- 2025-12-02T11:45:25.5771916Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:45:25Z",
+    "data": {
+      "id": "5f101519-7f7d-4bf9-92e7-738211d04390",
+      "code": "4LPEF892",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160845",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "60"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:45:25Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:45:25Z",
+      "expires_at": "2025-12-04T11:45:25Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/5f101519-7f7d-4bf9-92e7-738211d04390",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "ab2ddf79-5473-4200-a56a-6a44005e4a38",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "28d918d4-3418-42c9-bbf4-3cb9827b82c6",
+  "scheduled_for": "2025-12-02T11:45:25Z"
+}
+
+----- 2025-12-02T11:46:11.4120025Z -----
+{
+  "attempt_number": 56,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-11-30T11:39:04Z",
+    "data": {
+      "id": "3477f949-9074-490d-83d8-e0cd4e93f8b7",
+      "code": "HDA764RF",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "0.01",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "0.011597",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "18"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-11-30T11:39:03Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "https://localhost:7263/Payments/Status",
+        "will_redirect_after_success": true
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-11-30T11:39:03Z",
+      "expires_at": "2025-12-02T11:39:03Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/3477f949-9074-490d-83d8-e0cd4e93f8b7",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "27e9090c-cee1-4617-8e36-9be8e8b67571",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "41cd2e5c-b211-4e31-92a3-75c9d9f9b14e",
+  "scheduled_for": "2025-12-02T11:46:10Z"
+}
+
+----- 2025-12-02T11:47:56.2890070Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:47:56Z",
+    "data": {
+      "id": "c33c58fb-8269-47a0-8c44-083a68f5277c",
+      "code": "MKV2MBL2",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160847",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "58"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.160847",
+              "currency": "USDC"
+            }
+          },
+          "status": "confirmed",
+          "network": "base",
+          "payment_id": "0x4eea89de2196fb8a7d458e7c13958326a2dc76b6aa84a8f930607e5eaffaa6d8",
+          "detected_at": "2025-12-02T11:33:55Z",
+          "transaction_id": "0x4eea89de2196fb8a7d458e7c13958326a2dc76b6aa84a8f930607e5eaffaa6d8",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:33:18Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T11:33:41Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T11:33:56Z",
+          "status": "PENDING"
+        },
+        {
+          "time": "2025-12-02T11:47:56Z",
+          "status": "COMPLETED"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x4eea89de2196fb8a7d458e7c13958326a2dc76b6aa84a8f930607e5eaffaa6d8",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:33:55Z",
+            "network_fee_paid": "75284018484",
+            "input_token_amount": "1160847",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000183441556479211"
+          },
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x4eea89de2196fb8a7d458e7c13958326a2dc76b6aa84a8f930607e5eaffaa6d8",
+            "chain_id": 8453,
+            "finalized": true,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:33:55Z",
+            "network_fee_paid": "75284018484",
+            "input_token_amount": "1160847",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000183441556479211"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0xb629f0ce08904e5ab9b5a696c584b24a",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T11:33:18Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x5fae8c009839f558aa155bc5ea041646bc14721fa89d2bc57ac74bd39903a6ee63a7650b326e0aebad9b99ad0374106652e132d547fe917f6b61af19659b2fb71c",
+            "fee_amount": "11608",
+            "recipient_amount": "1149239",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "c30e3670-195f-4b7d-bf1c-716a6ddad153",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:33:18Z",
+      "expires_at": "2025-12-04T11:33:18Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/c33c58fb-8269-47a0-8c44-083a68f5277c",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "confirmed_at": "2025-12-02T11:47:56Z",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "3344151c-0a57-4ba5-879c-27c784831b50",
+    "resource": "event",
+    "type": "charge:confirmed"
+  },
+  "id": "a414911f-2bff-4160-b8b5-fdbefdb30101",
+  "scheduled_for": "2025-12-02T11:47:56Z"
+}
+
+----- 2025-12-02T11:48:15.2709187Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:48:15Z",
+    "data": {
+      "id": "600526f8-c132-4370-90db-af8bd05ffebe",
+      "code": "2KJ2R56Q",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.1608",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "60"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:48:15Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:48:15Z",
+      "expires_at": "2025-12-04T11:48:15Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/600526f8-c132-4370-90db-af8bd05ffebe",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "0a6e45db-7e33-45f0-b955-2a82ec2109dd",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "63dc4990-b356-4a34-a1ad-772524991883",
+  "scheduled_for": "2025-12-02T11:48:15Z"
+}
+
+----- 2025-12-02T11:49:31.9255837Z -----
+{
+  "attempt_number": 9,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T10:45:16Z",
+    "data": {
+      "id": "6ad98b72-2bdd-49e8-8cb1-256193dcdfcb",
+      "code": "P7E5LFTM",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160264",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "55"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.160264",
+              "currency": "USDC"
+            }
+          },
+          "status": "confirmed",
+          "network": "base",
+          "payment_id": "0xda898f15daa216ed5377000eeaa5bbcfde99399119293fbaa0c34be43d249ad3",
+          "detected_at": "2025-12-02T10:31:15Z",
+          "transaction_id": "0xda898f15daa216ed5377000eeaa5bbcfde99399119293fbaa0c34be43d249ad3",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T10:30:55Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T10:31:05Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T10:31:16Z",
+          "status": "PENDING"
+        },
+        {
+          "time": "2025-12-02T10:45:16Z",
+          "status": "COMPLETED"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0xda898f15daa216ed5377000eeaa5bbcfde99399119293fbaa0c34be43d249ad3",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T10:31:15Z",
+            "network_fee_paid": "40567396303",
+            "input_token_amount": "1160264",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.00009818770331593"
+          },
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0xda898f15daa216ed5377000eeaa5bbcfde99399119293fbaa0c34be43d249ad3",
+            "chain_id": 8453,
+            "finalized": true,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T10:31:15Z",
+            "network_fee_paid": "40567396303",
+            "input_token_amount": "1160264",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.00009818770331593"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0x453c8bbb501642498a63f1ab76307fdc",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T10:30:55Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x64e9b59b4a1eba54308a2090e480d08d386042d40cac732f78b0440a0dfbf89219b51176e049427b781a672360869b7d23999ffeb141b44bb7012b5b921687391b",
+            "fee_amount": "11602",
+            "recipient_amount": "1148662",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "68c9dcb6-68cf-4397-a86a-2133b00961ac",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T10:30:55Z",
+      "expires_at": "2025-12-04T10:30:55Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/6ad98b72-2bdd-49e8-8cb1-256193dcdfcb",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "confirmed_at": "2025-12-02T10:45:16Z",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "64e60f78-9f25-4556-9b0c-4d5fdf4d338c",
+    "resource": "event",
+    "type": "charge:confirmed"
+  },
+  "id": "203488ed-946a-4313-bb70-026db55c9891",
+  "scheduled_for": "2025-12-02T11:49:27Z"
+}
+
+----- 2025-12-02T11:50:15.3660134Z -----
+{
+  "attempt_number": 7,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:33:56Z",
+    "data": {
+      "id": "c33c58fb-8269-47a0-8c44-083a68f5277c",
+      "code": "MKV2MBL2",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160847",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "58"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.160847",
+              "currency": "USDC"
+            }
+          },
+          "status": "pending",
+          "network": "base",
+          "payment_id": "0x4eea89de2196fb8a7d458e7c13958326a2dc76b6aa84a8f930607e5eaffaa6d8",
+          "detected_at": "2025-12-02T11:33:55Z",
+          "transaction_id": "0x4eea89de2196fb8a7d458e7c13958326a2dc76b6aa84a8f930607e5eaffaa6d8",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:33:18Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T11:33:41Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T11:33:56Z",
+          "status": "PENDING"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x4eea89de2196fb8a7d458e7c13958326a2dc76b6aa84a8f930607e5eaffaa6d8",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:33:55Z",
+            "network_fee_paid": "75284018484",
+            "input_token_amount": "1160847",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000183441556479211"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0xb629f0ce08904e5ab9b5a696c584b24a",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T11:33:18Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x5fae8c009839f558aa155bc5ea041646bc14721fa89d2bc57ac74bd39903a6ee63a7650b326e0aebad9b99ad0374106652e132d547fe917f6b61af19659b2fb71c",
+            "fee_amount": "11608",
+            "recipient_amount": "1149239",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "c30e3670-195f-4b7d-bf1c-716a6ddad153",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:33:18Z",
+      "expires_at": "2025-12-04T11:33:18Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/c33c58fb-8269-47a0-8c44-083a68f5277c",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "1b92c595-06e3-4668-879e-ef0822ae8fc0",
+    "resource": "event",
+    "type": "charge:pending"
+  },
+  "id": "63d6a97e-d8aa-4ed0-b6de-2a33e4aa57d8",
+  "scheduled_for": "2025-12-02T11:50:05Z"
+}
+
+----- 2025-12-02T11:51:53.6397938Z -----
+{
+  "attempt_number": 76,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-11-29T15:44:18Z",
+    "data": {
+      "id": "976abe7c-7193-4840-8a41-45a1b41a7516",
+      "code": "4XQ957K5",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "0.01",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "0.011597",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-11-29T15:44:18Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "https://localhost:7263/Payments/Status",
+        "will_redirect_after_success": true
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-11-29T15:44:18Z",
+      "expires_at": "2025-12-01T15:44:18Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/976abe7c-7193-4840-8a41-45a1b41a7516",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "fe2cac07-c6d5-4484-bd14-1d159e302d01",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "36ffdd45-c3f5-4fba-a6b6-012fdd80f57d",
+  "scheduled_for": "2025-12-02T11:51:53Z"
+}
+
+----- 2025-12-02T11:52:40.9218986Z -----
+{
+  "attempt_number": 9,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T10:48:31Z",
+    "data": {
+      "id": "f890532c-d38f-4f29-9d5a-21b0408711e8",
+      "code": "Y64MGWCK",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160309",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "56"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.160309",
+              "currency": "USDC"
+            }
+          },
+          "status": "confirmed",
+          "network": "base",
+          "payment_id": "0x0803a0caa7c73f41ed9a469501f2a3c4f06b559ceaf2a307dacccdb993d57112",
+          "detected_at": "2025-12-02T10:34:29Z",
+          "transaction_id": "0x0803a0caa7c73f41ed9a469501f2a3c4f06b559ceaf2a307dacccdb993d57112",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T10:34:12Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T10:34:19Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T10:34:31Z",
+          "status": "PENDING"
+        },
+        {
+          "time": "2025-12-02T10:48:31Z",
+          "status": "COMPLETED"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x0803a0caa7c73f41ed9a469501f2a3c4f06b559ceaf2a307dacccdb993d57112",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T10:34:29Z",
+            "network_fee_paid": "38646755305",
+            "input_token_amount": "1160309",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000093528432812304"
+          },
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x0803a0caa7c73f41ed9a469501f2a3c4f06b559ceaf2a307dacccdb993d57112",
+            "chain_id": 8453,
+            "finalized": true,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T10:34:29Z",
+            "network_fee_paid": "38646755305",
+            "input_token_amount": "1160309",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000093528432812304"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0x02fd6b3b6ce844dca8f71a670de8bc50",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T10:34:12Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x0b091fdee48cb8a0b1ba5a04363501a36299cc46129f43c5ee00094ea88f0a3b41f1b39ad3bcb83c2495a3aafb4ebdf56e54404dfaf8316744633c6e26a77f551c",
+            "fee_amount": "11603",
+            "recipient_amount": "1148706",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "29d0fb7b-b788-4851-b956-3ecb09998d84",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T10:34:12Z",
+      "expires_at": "2025-12-04T10:34:12Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/f890532c-d38f-4f29-9d5a-21b0408711e8",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "confirmed_at": "2025-12-02T10:48:31Z",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "88302359-b001-4000-9577-1d25fcbfec6c",
+    "resource": "event",
+    "type": "charge:confirmed"
+  },
+  "id": "3de41145-efce-448d-acab-5efb300905de",
+  "scheduled_for": "2025-12-02T11:52:40Z"
+}
+
+----- 2025-12-02T11:53:51.5967881Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:53:51Z",
+    "data": {
+      "id": "2e0cf489-6c35-44d4-8883-aa6af180b634",
+      "code": "Y77LWXC7",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160838",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "59"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.160838",
+              "currency": "USDC"
+            }
+          },
+          "status": "confirmed",
+          "network": "base",
+          "payment_id": "0x6c97a7a5a554bc62ce42f1ec935d1f52bcdf8a3a88ddeedc9568e95bf33a5a66",
+          "detected_at": "2025-12-02T11:39:47Z",
+          "transaction_id": "0x6c97a7a5a554bc62ce42f1ec935d1f52bcdf8a3a88ddeedc9568e95bf33a5a66",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:39:17Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T11:39:28Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T11:39:51Z",
+          "status": "PENDING"
+        },
+        {
+          "time": "2025-12-02T11:53:51Z",
+          "status": "COMPLETED"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x6c97a7a5a554bc62ce42f1ec935d1f52bcdf8a3a88ddeedc9568e95bf33a5a66",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:39:47Z",
+            "network_fee_paid": "74112929071",
+            "input_token_amount": "1160838",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000180401245168879"
+          },
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x6c97a7a5a554bc62ce42f1ec935d1f52bcdf8a3a88ddeedc9568e95bf33a5a66",
+            "chain_id": 8453,
+            "finalized": true,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:39:47Z",
+            "network_fee_paid": "74112929071",
+            "input_token_amount": "1160838",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000180401245168879"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0xf6ad8221ab834688ac272736a8c0ed6b",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T11:39:17Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x9d3dde13f5b2d8cca4fbb2e7c2a2da7a91b6276013caef53222ee521c20df135780d99bf89e26952e0837107f7d82d2ad84a177f12959c2f5e5d2855d06a76391b",
+            "fee_amount": "11608",
+            "recipient_amount": "1149230",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "6574e31e-9463-4125-a132-bb6e43f675e9",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:39:17Z",
+      "expires_at": "2025-12-04T11:39:17Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/2e0cf489-6c35-44d4-8883-aa6af180b634",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "confirmed_at": "2025-12-02T11:53:51Z",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "f2e0c06c-3b31-46b9-ba79-f10e8fbe47be",
+    "resource": "event",
+    "type": "charge:confirmed"
+  },
+  "id": "d16b487c-7339-4d49-bbf7-d688d169a658",
+  "scheduled_for": "2025-12-02T11:53:51Z"
+}
+
+----- 2025-12-02T11:54:33.6494360Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:54:33Z",
+    "data": {
+      "id": "8a04ec6e-4b15-40a8-adfa-08b3faff9295",
+      "code": "PPNGE29H",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160938",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "60"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:54:33Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:54:33Z",
+      "expires_at": "2025-12-04T11:54:33Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/8a04ec6e-4b15-40a8-adfa-08b3faff9295",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "ea58926e-7c9a-4c0a-836d-fb8aa7144fbd",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "c0fef8c1-9bea-4d26-987e-d5759ebaecba",
+  "scheduled_for": "2025-12-02T11:54:33Z"
+}
+
+----- 2025-12-02T11:56:30.0432449Z -----
+{
+  "attempt_number": 11,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T08:52:25Z",
+    "data": {
+      "id": "abba170a-8c73-494f-aabc-6533b2a9ad8b",
+      "code": "G5YJJHNM",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.161289",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "53"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.161289",
+              "currency": "USDC"
+            }
+          },
+          "status": "confirmed",
+          "network": "base",
+          "payment_id": "0x01f6db460aca01377f1b682c7fcdc93c6b104aff9d8a0b723afbaca1da6c1e83",
+          "detected_at": "2025-12-02T08:38:21Z",
+          "transaction_id": "0x01f6db460aca01377f1b682c7fcdc93c6b104aff9d8a0b723afbaca1da6c1e83",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T08:37:43Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T08:37:58Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T08:38:25Z",
+          "status": "PENDING"
+        },
+        {
+          "time": "2025-12-02T08:52:25Z",
+          "status": "COMPLETED"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x01f6db460aca01377f1b682c7fcdc93c6b104aff9d8a0b723afbaca1da6c1e83",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T08:38:21Z",
+            "network_fee_paid": "80879059274",
+            "input_token_amount": "1161289",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000194633029771112"
+          },
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x01f6db460aca01377f1b682c7fcdc93c6b104aff9d8a0b723afbaca1da6c1e83",
+            "chain_id": 8453,
+            "finalized": true,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T08:38:21Z",
+            "network_fee_paid": "80879059274",
+            "input_token_amount": "1161289",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000194633029771112"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0x2c55c8a7ed5145ec8a5ab7f0df55d5df",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T08:37:43Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x9fbbad5c579f35e1f2a08a7606b5b52c74bfca7fd6c0b56e7740ada4dd5854bc3e921c1e83d653b4ea04f2901d26bdb276e962e1fd252e3f799081e89d1a986e1c",
+            "fee_amount": "11612",
+            "recipient_amount": "1149677",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "30fca5ba-924c-467a-8d4e-f31b04e9ae5c",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T08:37:43Z",
+      "expires_at": "2025-12-04T08:37:43Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/abba170a-8c73-494f-aabc-6533b2a9ad8b",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "confirmed_at": "2025-12-02T08:52:25Z",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "9b2a6d49-f80c-4467-8529-d9af4c0274e0",
+    "resource": "event",
+    "type": "charge:confirmed"
+  },
+  "id": "ec8e395a-d951-44d2-b8d1-14d00b8e0e3c",
+  "scheduled_for": "2025-12-02T11:56:29Z"
+}
+
+----- 2025-12-02T11:57:03.0364535Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:57:03Z",
+    "data": {
+      "id": "274dc7a7-61e8-4198-ae5d-47f7902211a4",
+      "code": "96Q44HK7",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.161033",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "61"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:57:03Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:57:03Z",
+      "expires_at": "2025-12-04T11:57:03Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/274dc7a7-61e8-4198-ae5d-47f7902211a4",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "3bd59f22-5c1d-4771-b070-fb5019d0ee63",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "6873aded-073c-47a1-afba-4722124a79d9",
+  "scheduled_for": "2025-12-02T11:57:03Z"
+}
+
+----- 2025-12-02T11:57:26.3319461Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:57:26Z",
+    "data": {
+      "id": "274dc7a7-61e8-4198-ae5d-47f7902211a4",
+      "code": "96Q44HK7",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.161033",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "61"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.161033",
+              "currency": "USDC"
+            }
+          },
+          "status": "pending",
+          "network": "base",
+          "payment_id": "0x2ef8c65d3f9b4da6ee44d75f0224d8fb8aae7dc5180699777dd60a5b8ad12bd3",
+          "detected_at": "2025-12-02T11:57:25Z",
+          "transaction_id": "0x2ef8c65d3f9b4da6ee44d75f0224d8fb8aae7dc5180699777dd60a5b8ad12bd3",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:57:03Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T11:57:12Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T11:57:26Z",
+          "status": "PENDING"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x2ef8c65d3f9b4da6ee44d75f0224d8fb8aae7dc5180699777dd60a5b8ad12bd3",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:57:25Z",
+            "network_fee_paid": "43645282154",
+            "input_token_amount": "1161033",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000106299830497348"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0x5e2a5bbae40d485385fcadb6f3b521c4",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T11:57:03Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x81d0de8a2b5d0b707064f582e6708bdcd0f3dd31a195b4a4444e6b2061d6441a548705402c660cb695f74ceb425a52eb553bb67953670145b5999256a5314e121c",
+            "fee_amount": "11610",
+            "recipient_amount": "1149423",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "98ac1b84-2aab-4e4a-b7a3-2a26f6a2d3a7",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:57:03Z",
+      "expires_at": "2025-12-04T11:57:03Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/274dc7a7-61e8-4198-ae5d-47f7902211a4",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "92df08d2-dffd-4b02-8640-3bbe67325dca",
+    "resource": "event",
+    "type": "charge:pending"
+  },
+  "id": "23085298-5f59-4dd4-800b-1cc4b61136cf",
+  "scheduled_for": "2025-12-02T11:57:26Z"
+}
+
+----- 2025-12-02T11:57:31.2903733Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:57:31Z",
+    "data": {
+      "id": "6a2d3c07-d20c-40c5-9d5b-687667550dbb",
+      "code": "L96YLHR4",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160836",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "60"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.160836",
+              "currency": "USDC"
+            }
+          },
+          "status": "confirmed",
+          "network": "base",
+          "payment_id": "0xc9dff19da2f0934238810d5c6f5ddad31832689707ca0610592344de34d09601",
+          "detected_at": "2025-12-02T11:43:29Z",
+          "transaction_id": "0xc9dff19da2f0934238810d5c6f5ddad31832689707ca0610592344de34d09601",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:43:04Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T11:43:12Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T11:43:31Z",
+          "status": "PENDING"
+        },
+        {
+          "time": "2025-12-02T11:57:31Z",
+          "status": "COMPLETED"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0xc9dff19da2f0934238810d5c6f5ddad31832689707ca0610592344de34d09601",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:43:29Z",
+            "network_fee_paid": "65253077042",
+            "input_token_amount": "1160836",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000158809676250955"
+          },
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0xc9dff19da2f0934238810d5c6f5ddad31832689707ca0610592344de34d09601",
+            "chain_id": 8453,
+            "finalized": true,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:43:29Z",
+            "network_fee_paid": "65253077042",
+            "input_token_amount": "1160836",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000158809676250955"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0x36f205623e8b4ae0adb9ccaf04982534",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T11:43:04Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x4cecabf3d46d0821880b61041145d03b48447724a079bdf6c4d1318d2185b7da41f352ebc612c7dfc3d8655559f69833a1eddf9e49d1e72d7add92fe77aac2911b",
+            "fee_amount": "11608",
+            "recipient_amount": "1149228",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "41a2c414-6141-44de-b37e-516dd4810875",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:43:04Z",
+      "expires_at": "2025-12-04T11:43:04Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/6a2d3c07-d20c-40c5-9d5b-687667550dbb",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "confirmed_at": "2025-12-02T11:57:31Z",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "70c8a307-c7cf-42a1-a4c6-5a2187af256f",
+    "resource": "event",
+    "type": "charge:confirmed"
+  },
+  "id": "35170736-7123-4402-93a3-f7b731de586f",
+  "scheduled_for": "2025-12-02T11:57:31Z"
+}
+
+----- 2025-12-02T11:57:42.0566172Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T11:57:42Z",
+    "data": {
+      "id": "9267f2f9-bfde-466f-a608-ba9973578d48",
+      "code": "85642PEG",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.160981",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "61"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:57:42Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:57:42Z",
+      "expires_at": "2025-12-04T11:57:42Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/9267f2f9-bfde-466f-a608-ba9973578d48",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "b1306a35-2a47-423e-a480-7f3eb79a6572",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "5c0b9d4c-b3ca-4a4a-bf5c-e8df60f91205",
+  "scheduled_for": "2025-12-02T11:57:42Z"
+}
+
+----- 2025-12-02T12:04:11.1580262Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T12:04:11Z",
+    "data": {
+      "id": "7f8b057e-03b4-453d-aad9-d183cff7dec1",
+      "code": "DJB8MKZQ",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.161194",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "62"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-12-02T12:04:11Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T12:04:11Z",
+      "expires_at": "2025-12-04T12:04:11Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/7f8b057e-03b4-453d-aad9-d183cff7dec1",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "000ab602-368f-4df0-9ac5-7e99b14fa650",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "f8f7a7ab-e9fd-4a5f-afcb-6c5f157f4dcf",
+  "scheduled_for": "2025-12-02T12:04:11Z"
+}
+
+----- 2025-12-02T12:04:40.6686303Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T12:04:41Z",
+    "data": {
+      "id": "7f8b057e-03b4-453d-aad9-d183cff7dec1",
+      "code": "DJB8MKZQ",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.161194",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "62"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.161194",
+              "currency": "USDC"
+            }
+          },
+          "status": "pending",
+          "network": "base",
+          "payment_id": "0xa5d4ea0990071c36f1cab1c5e2b1930b890c20f68583f7857782b92919042ab1",
+          "detected_at": "2025-12-02T12:04:35Z",
+          "transaction_id": "0xa5d4ea0990071c36f1cab1c5e2b1930b890c20f68583f7857782b92919042ab1",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T12:04:11Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T12:04:21Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T12:04:40Z",
+          "status": "PENDING"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0xa5d4ea0990071c36f1cab1c5e2b1930b890c20f68583f7857782b92919042ab1",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T12:04:35Z",
+            "network_fee_paid": "60949422794",
+            "input_token_amount": "1161194",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000148414587227416"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0xda40ee76da664abf839bee42007591e2",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T12:04:11Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x41e9b2da28efefe1a64ba6317e41dbe65dca386269f080617bc1bee83090575c3ca69f380d18c63af1144fa5d3674544bb4dd4a7b3e4cdd814a21e072a80ac921b",
+            "fee_amount": "11611",
+            "recipient_amount": "1149583",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "8680e66f-4055-41e1-8887-3e05f71c4386",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T12:04:11Z",
+      "expires_at": "2025-12-04T12:04:11Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/7f8b057e-03b4-453d-aad9-d183cff7dec1",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "aee5f33e-a4b1-4254-b375-0667393242dc",
+    "resource": "event",
+    "type": "charge:pending"
+  },
+  "id": "e9be2e0f-c29a-40df-9672-7bb0b11f7281",
+  "scheduled_for": "2025-12-02T12:04:41Z"
+}
+
+----- 2025-12-02T12:11:26.5397909Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T12:11:26Z",
+    "data": {
+      "id": "274dc7a7-61e8-4198-ae5d-47f7902211a4",
+      "code": "96Q44HK7",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.161033",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "61"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.161033",
+              "currency": "USDC"
+            }
+          },
+          "status": "confirmed",
+          "network": "base",
+          "payment_id": "0x2ef8c65d3f9b4da6ee44d75f0224d8fb8aae7dc5180699777dd60a5b8ad12bd3",
+          "detected_at": "2025-12-02T11:57:25Z",
+          "transaction_id": "0x2ef8c65d3f9b4da6ee44d75f0224d8fb8aae7dc5180699777dd60a5b8ad12bd3",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T11:57:03Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T11:57:12Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T11:57:26Z",
+          "status": "PENDING"
+        },
+        {
+          "time": "2025-12-02T12:11:26Z",
+          "status": "COMPLETED"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x2ef8c65d3f9b4da6ee44d75f0224d8fb8aae7dc5180699777dd60a5b8ad12bd3",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:57:25Z",
+            "network_fee_paid": "43645282154",
+            "input_token_amount": "1161033",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000106299830497348"
+          },
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0x2ef8c65d3f9b4da6ee44d75f0224d8fb8aae7dc5180699777dd60a5b8ad12bd3",
+            "chain_id": 8453,
+            "finalized": true,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T11:57:25Z",
+            "network_fee_paid": "43645282154",
+            "input_token_amount": "1161033",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000106299830497348"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0x5e2a5bbae40d485385fcadb6f3b521c4",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T11:57:03Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x81d0de8a2b5d0b707064f582e6708bdcd0f3dd31a195b4a4444e6b2061d6441a548705402c660cb695f74ceb425a52eb553bb67953670145b5999256a5314e121c",
+            "fee_amount": "11610",
+            "recipient_amount": "1149423",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "98ac1b84-2aab-4e4a-b7a3-2a26f6a2d3a7",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T11:57:03Z",
+      "expires_at": "2025-12-04T11:57:03Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/274dc7a7-61e8-4198-ae5d-47f7902211a4",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "confirmed_at": "2025-12-02T12:11:26Z",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "07ad23af-6320-4ec8-b054-197dc6e17fb8",
+    "resource": "event",
+    "type": "charge:confirmed"
+  },
+  "id": "e03118eb-9ba2-4aa4-a6e6-e2ac5a83efcc",
+  "scheduled_for": "2025-12-02T12:11:26Z"
+}
+
+----- 2025-12-02T12:16:26.3026596Z -----
+{
+  "attempt_number": 58,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-11-30T10:09:32Z",
+    "data": {
+      "id": "f829d917-cd66-4b49-a308-9ed8cd43ca38",
+      "code": "P7XPEMG4",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "0.01",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "0.011597",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "5"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-11-30T10:09:32Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "https://localhost:7263/Payments/Status",
+        "will_redirect_after_success": true
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-11-30T10:09:32Z",
+      "expires_at": "2025-12-02T10:09:32Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/f829d917-cd66-4b49-a308-9ed8cd43ca38",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "5613a5b0-a596-470f-93c7-b94aba7a6594",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "dba4ecbd-eb25-4658-9ded-13d0584653f6",
+  "scheduled_for": "2025-12-02T12:16:23Z"
+}
+
+----- 2025-12-02T12:18:03.9582133Z -----
+{
+  "attempt_number": 57,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-11-30T11:11:50Z",
+    "data": {
+      "id": "7984ab64-96cd-4f1d-a16a-aa67819ca5d3",
+      "code": "5KAKTAGF",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "0.01",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "0.011597",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "16"
+      },
+      "payments": [],
+      "timeline": [
+        {
+          "time": "2025-11-30T11:11:50Z",
+          "status": "NEW"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "https://layne-unsensate-unharshly.ngrok-free.dev/Payments/Status",
+        "will_redirect_after_success": true
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [],
+        "transfer_intent": null,
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-11-30T11:11:50Z",
+      "expires_at": "2025-12-02T11:11:50Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/7984ab64-96cd-4f1d-a16a-aa67819ca5d3",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "7094af12-787c-4ec0-8f30-2e5fb9845ddd",
+    "resource": "event",
+    "type": "charge:created"
+  },
+  "id": "4067ebf6-527c-4e3e-a18f-026e4da892c1",
+  "scheduled_for": "2025-12-02T12:18:03Z"
+}
+
+----- 2025-12-02T12:18:36.6252257Z -----
+{
+  "attempt_number": 1,
+  "event": {
+    "api_version": "2018-03-22",
+    "created_at": "2025-12-02T12:18:36Z",
+    "data": {
+      "id": "7f8b057e-03b4-453d-aad9-d183cff7dec1",
+      "code": "DJB8MKZQ",
+      "name": "Subscription Fee",
+      "pricing": {
+        "local": {
+          "amount": "1.0",
+          "currency": "EUR"
+        },
+        "settlement": {
+          "amount": "1.161194",
+          "currency": "USDC"
+        }
+      },
+      "metadata": {
+        "userId": "stankunas.augustas@gmail.com",
+        "invoiceId": "62"
+      },
+      "payments": [
+        {
+          "value": {
+            "local": {
+              "amount": "1.0",
+              "currency": "EUR"
+            },
+            "crypto": {
+              "amount": "1.161194",
+              "currency": "USDC"
+            }
+          },
+          "status": "confirmed",
+          "network": "base",
+          "payment_id": "0xa5d4ea0990071c36f1cab1c5e2b1930b890c20f68583f7857782b92919042ab1",
+          "detected_at": "2025-12-02T12:04:35Z",
+          "transaction_id": "0xa5d4ea0990071c36f1cab1c5e2b1930b890c20f68583f7857782b92919042ab1",
+          "payer_addresses": [
+            "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2025-12-02T12:04:11Z",
+          "status": "NEW"
+        },
+        {
+          "time": "2025-12-02T12:04:21Z",
+          "status": "SIGNED"
+        },
+        {
+          "time": "2025-12-02T12:04:40Z",
+          "status": "PENDING"
+        },
+        {
+          "time": "2025-12-02T12:18:36Z",
+          "status": "COMPLETED"
+        }
+      ],
+      "pwcb_only": false,
+      "redirects": {
+        "cancel_url": "",
+        "success_url": "",
+        "will_redirect_after_success": false
+      },
+      "web3_data": {
+        "failure_events": [],
+        "success_events": [
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0xa5d4ea0990071c36f1cab1c5e2b1930b890c20f68583f7857782b92919042ab1",
+            "chain_id": 8453,
+            "finalized": false,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T12:04:35Z",
+            "network_fee_paid": "60949422794",
+            "input_token_amount": "1161194",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000148414587227416"
+          },
+          {
+            "sender": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "tx_hsh": "0xa5d4ea0990071c36f1cab1c5e2b1930b890c20f68583f7857782b92919042ab1",
+            "chain_id": 8453,
+            "finalized": true,
+            "recipient": "0x7c41f0c1ac26e2abfc9787c4184d73122090a9ff",
+            "timestamp": "2025-12-02T12:04:35Z",
+            "network_fee_paid": "60949422794",
+            "input_token_amount": "1161194",
+            "input_token_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "network_fee_paid_local": "0.000148414587227416"
+          }
+        ],
+        "transfer_intent": {
+          "metadata": {
+            "sender": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "chain_id": 8453,
+            "contract_address": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+          },
+          "call_data": {
+            "id": "0xda40ee76da664abf839bee42007591e2",
+            "prefix": "0x4b3220496e666f726d6174696f6e616c204d6573736167653a20333220",
+            "deadline": "2025-12-04T12:04:11Z",
+            "operator": "0x8fccc78dae0a8f93b0fe6799de888d4c57e273db",
+            "recipient": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff",
+            "signature": "0x41e9b2da28efefe1a64ba6317e41dbe65dca386269f080617bc1bee83090575c3ca69f380d18c63af1144fa5d3674544bb4dd4a7b3e4cdd814a21e072a80ac921b",
+            "fee_amount": "11611",
+            "recipient_amount": "1149583",
+            "recipient_currency": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "refund_destination": "0x7C41F0C1AC26e2abFc9787C4184D73122090A9Ff"
+          }
+        },
+        "contract_addresses": {
+          "1": "0x1FA57f879417e029Ef57D7Ce915b0aA56A507C31",
+          "137": "0x288844216a63638381784E0C1081A3826fD5a2E4",
+          "8453": "0x03059433BCdB6144624cC2443159D9445C32b7a8"
+        },
+        "contract_caller_request_id": "8680e66f-4055-41e1-8887-3e05f71c4386",
+        "settlement_currency_addresses": {
+          "1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "137": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "subsidized_payments_chain_to_tokens": {
+          "1": {
+            "token_addresses": [
+              ""
+            ]
+          },
+          "137": {
+            "token_addresses": [
+              "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+            ]
+          },
+          "8453": {
+            "token_addresses": [
+              "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            ]
+          }
+        }
+      },
+      "created_at": "2025-12-02T12:04:11Z",
+      "expires_at": "2025-12-04T12:04:11Z",
+      "hosted_url": "https://commerce.coinbase.com/pay/7f8b057e-03b4-453d-aad9-d183cff7dec1",
+      "brand_color": "#122332",
+      "charge_kind": "WEB3",
+      "confirmed_at": "2025-12-02T12:18:36Z",
+      "pricing_type": "fixed_price",
+      "support_email": "stankunas.augustas@gmail.com",
+      "brand_logo_url": "",
+      "collected_email": false,
+      "organization_name": "",
+      "ocs_points_override": false,
+      "web3_retail_payment_metadata": {
+        "fees": [],
+        "quote_id": "",
+        "source_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_with_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "exchange_rate_without_spread": {
+          "amount": null,
+          "currency": null
+        },
+        "max_retail_payment_value_usd": 10000,
+        "high_value_payment_currencies": [
+          "usdc",
+          "btc",
+          "eth",
+          "sol",
+          "xrp"
+        ]
+      },
+      "web3_retail_payments_enabled": true
+    },
+    "id": "d7813fb0-ab6d-4bc9-a878-e2d13d466ab2",
+    "resource": "event",
+    "type": "charge:confirmed"
+  },
+  "id": "4e25da4e-866a-4058-a145-5219c56923bf",
+  "scheduled_for": "2025-12-02T12:18:36Z"
+}
+

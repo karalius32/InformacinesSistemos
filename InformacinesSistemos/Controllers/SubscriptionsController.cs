@@ -24,7 +24,32 @@ namespace InformacinesSistemos.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index() => View();
+        public async Task<IActionResult> Index()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return RedirectToAction("Login", "Account");
+
+            var profile = await _db.UserAccounts
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.IdentityUserId == user.Id);
+
+            if (profile == null)
+                return View("Error", new ErrorViewModel
+                {
+                    RequestId = HttpContext.TraceIdentifier,
+                    Message = "User profile not found."
+                });
+
+            var mySubscriptions = await _db.Subscriptions
+                .AsNoTracking()
+                .Where(s => s.UserId == profile.Id)
+                .OrderByDescending(s => s.PurchaseDate)
+                .ToListAsync();
+
+            // View is strongly typed to List<Subscription>
+            return View(mySubscriptions);
+        }
 
         public async Task<int> CreateSubscriptionInvoice()
         {

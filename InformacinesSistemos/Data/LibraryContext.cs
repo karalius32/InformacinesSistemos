@@ -232,6 +232,7 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
                 .HasColumnName("status");
             entity.Property(e => e.SubscriptionId).HasColumnName("subscription_id");
             entity.Property(i => i.UserId).HasColumnName("user_id");
+            entity.Property(i => i.CoinbaseHostedUrl).HasColumnName("coinbase_hosted_url");
 
             entity.HasOne(d => d.Loan).WithMany(p => p.Invoices)
                 .HasForeignKey(d => d.LoanId)
@@ -364,7 +365,6 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
             entity.Property(e => e.Id)
                 .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
-            entity.Property(e => e.AutoRenew).HasColumnName("auto_renew");
             entity.Property(e => e.Price).HasColumnName("price");
             entity.Property(e => e.PurchaseDate).HasColumnName("purchase_date");
             entity.Property(e => e.Status)

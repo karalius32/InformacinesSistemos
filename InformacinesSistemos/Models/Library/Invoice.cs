@@ -17,6 +17,7 @@ public partial class Invoice
     public string? Currency { get; set; }
 
     public string? CoinbaseChargeCode { get; set; }
+    public string? CoinbaseHostedUrl { get; set; }
 
     public InvoiceStatus Status { get; set; }
 
