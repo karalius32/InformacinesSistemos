@@ -1,7 +1,23 @@
 ﻿@model List<InformacinesSistemos.Models.Library.Subscription>
 
+@*
+PSEUDOCODE / PLAN:
+1. Determine if the current user already has an active subscription:
+   - Check Model (List<Subscription>) for any item where Status == SubscriptionStatus.Active.
+   - Store result in a bool variable `hasActiveSubscription`.
+2. Update the purchase form button:
+   - If hasActiveSubscription == true:
+     - Render the button disabled (use the `disabled` attribute).
+     - Change button text to "Jūs jau turite galiojančią prenumeratą".
+     - Optionally use a secondary/disabled styling class.
+   - Else:
+     - Render the button enabled with original text "Pirkti su kriptovaliuta" and primary styling.
+3. Keep the rest of the view unchanged.
+*@
+
 @{
     ViewData["Title"] = "Prenumerata";
+    bool hasActiveOrPendingSubscription = Model?.Any(s => s.Status == InformacinesSistemos.Models.Enums.SubscriptionStatus.Active || s.Status == InformacinesSistemos.Models.Enums.SubscriptionStatus.PendingPayment) ?? false;
 }
 
 <div class="container mt-5">
@@ -16,7 +32,7 @@
                     <p class="card-text text-muted mb-3">30 dienų prenumerata</p>
 
                     <div class="mb-3">
-                        <span class="display-6 fw-bold">9.99 €</span>
+                        <span class="display-6 fw-bold">1.00 €</span>
                         <div class="text-muted small">30 dienų</div>
                     </div>
 
@@ -26,8 +42,10 @@
                           class="mt-auto">
                         @Html.AntiForgeryToken()
 
-                        <button type="submit" class="btn btn-primary w-100">
-                            Pirkti su kriptovaliuta
+                        <button type="submit"
+                                class="@(hasActiveOrPendingSubscription ? "btn btn-secondary w-100" : "btn btn-primary w-100")"
+                                @(hasActiveOrPendingSubscription ? "disabled" : "")>
+                            @(hasActiveOrPendingSubscription ? "Jūs jau turite galiojančią arba laukiamą apmokėjimo prenumeratą" : "Pirkti su kriptovaliuta")
                         </button>
                     </form>
                 </div>
@@ -51,7 +69,6 @@
             <table class="table table-striped align-middle">
                 <thead>
                     <tr>
-                        <th>Kaina</th>
                         <th>Pirkimo data</th>
                         <th>Galioja iki</th>
                         <th>Statusas</th>
@@ -64,7 +81,6 @@
                         s.ValidUntil.Value >= DateOnly.FromDateTime(DateTime.Today);
 
                         <tr>
-                            <td>@(s.Price?.ToString("0.00") ?? "-") €</td>
                             <td>@(s.PurchaseDate?.ToString("yyyy-MM-dd") ?? "-")</td>
                             <td>
                                 @if (s.ValidUntil.HasValue)
@@ -81,9 +97,7 @@
                         </td>
                         <td>
                             <span class="badge @(isActive ? "bg-success" : "bg-secondary")">
-                                @(string.IsNullOrWhiteSpace(s.Status)
-                                                            ? (isActive ? "Active" : "Expired")
-                                                            : s.Status)
+                                @s.Status.ToString()
                         </span>
                     </td>
                 </tr>

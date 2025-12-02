@@ -51,7 +51,7 @@ namespace InformacinesSistemos.Controllers
             return View(mySubscriptions);
         }
 
-        public async Task<int> CreateSubscriptionInvoice()
+        public async Task<int> CreateSubscriptionAndInvoice()
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
@@ -69,6 +69,14 @@ namespace InformacinesSistemos.Controllers
 
             if (existing) return -1;
 
+            var subscription = new Subscription
+            {
+                User = profile,
+                Status = SubscriptionStatus.PendingPayment
+            };
+
+            _db.Subscriptions.Add(subscription);
+
             var invoice = new Invoice
             {
                 Name = "Subscription Fee",
@@ -76,10 +84,12 @@ namespace InformacinesSistemos.Controllers
                 Amount = double.Parse(_cfg["Subscription:Price"]!, CultureInfo.InvariantCulture),
                 Currency = "EUR",
                 Status = InvoiceStatus.New,
-                UserId = profile.Id
+                UserId = profile.Id,
+                Subscription = subscription
             };
 
             _db.Invoices.Add(invoice);
+
             await _db.SaveChangesAsync();
 
             return invoice.Id;
@@ -94,7 +104,7 @@ namespace InformacinesSistemos.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-            var invoiceId = await CreateSubscriptionInvoice();
+            var invoiceId = await CreateSubscriptionAndInvoice();
             if (invoiceId == -1)
                 return View("Error", new ErrorViewModel { RequestId = HttpContext.TraceIdentifier, Message = "Could not create invoice." });
 

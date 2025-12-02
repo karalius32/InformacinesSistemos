@@ -31,7 +31,5 @@ public partial class Invoice
 
     public virtual Loan? Loan { get; set; }
 
-    public virtual Payment? Payment { get; set; }
-
     public virtual Subscription? Subscription { get; set; }
 }

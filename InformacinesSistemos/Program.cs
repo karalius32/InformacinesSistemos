@@ -1,6 +1,7 @@
 using Coinbase.Commerce;
 using InformacinesSistemos.Data;
 using InformacinesSistemos.Models.Enums;
+using InformacinesSistemos.Services;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +42,8 @@ builder.Services.AddSingleton(sp =>
     var apiKey = cfg["CoinbaseCommerce:ApiKey"];
     return new CommerceApi(apiKey);
 });
+
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 
 var app = builder.Build();
 

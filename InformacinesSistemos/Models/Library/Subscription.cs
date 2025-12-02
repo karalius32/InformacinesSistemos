@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using InformacinesSistemos.Models.Enums;
+﻿using InformacinesSistemos.Models.Enums;
 
 namespace InformacinesSistemos.Models.Library;
 
@@ -12,9 +10,7 @@ public partial class Subscription
 
     public DateOnly? PurchaseDate { get; set; }
 
-    public double? Price { get; set; }
-
-    public string? Status { get; set; }
+    public SubscriptionStatus Status { get; set; }
 
     public int UserId { get; set; }
 

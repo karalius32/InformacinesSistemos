@@ -33,8 +33,6 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
 
     public virtual DbSet<Loan> Loans { get; set; }
 
-    public virtual DbSet<Payment> Payments { get; set; }
-
     public virtual DbSet<Rating> Ratings { get; set; }
 
     public virtual DbSet<Recommendation> Recommendations { get; set; }
@@ -217,7 +215,7 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
             entity.Property(e => e.Name).HasColumnName("name");
             entity.Property(e => e.CoinbaseChargeCode)
                 .HasMaxLength(255)
-                .HasColumnName("address");
+                .HasColumnName("charge_code");
             entity.Property(e => e.Amount).HasColumnName("amount");
             entity.Property(e => e.CreatedDate)
                 .HasDefaultValueSql("now()")
@@ -267,36 +265,6 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("loan_user_fk");
-        });
-
-        modelBuilder.Entity<Payment>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("payment_pkey");
-
-            entity.ToTable("payments");
-
-            entity.HasIndex(e => e.InvoiceId, "payment_invoice_id_key").IsUnique();
-
-            entity.Property(e => e.Id)
-                .UseIdentityAlwaysColumn()
-                .HasColumnName("id");
-            entity.Property(e => e.Amount).HasColumnName("amount");
-            entity.Property(e => e.InvoiceId).HasColumnName("invoice_id");
-            entity.Property(e => e.PaymentDate).HasColumnName("payment_date");
-            entity.Property(e => e.PaymentNumber)
-                .HasMaxLength(255)
-                .HasColumnName("payment_number");
-            entity.Property(e => e.Status)
-                .HasMaxLength(255)
-                .HasColumnName("status");
-            entity.Property(e => e.TransactionId)
-                .HasMaxLength(255)
-                .HasColumnName("transaction_id");
-
-            entity.HasOne(d => d.Invoice).WithOne(p => p.Payment)
-                .HasForeignKey<Payment>(d => d.InvoiceId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("payment_invoice_fk");
         });
 
         modelBuilder.Entity<Rating>(entity =>
@@ -365,9 +333,9 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
             entity.Property(e => e.Id)
                 .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
-            entity.Property(e => e.Price).HasColumnName("price");
             entity.Property(e => e.PurchaseDate).HasColumnName("purchase_date");
             entity.Property(e => e.Status)
+                .HasConversion<string>()
                 .HasMaxLength(255)
                 .HasColumnName("status");
             entity.Property(e => e.UserId).HasColumnName("user_id");

@@ -3,6 +3,7 @@ using Coinbase.Commerce.Models;
 using InformacinesSistemos.Data;
 using InformacinesSistemos.Models;
 using InformacinesSistemos.Models.Enums;
+using InformacinesSistemos.Services;
 using InformacinesSistemos.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,12 +17,14 @@ namespace InformacinesSistemos.Controllers
         private readonly CommerceApi _commerce;
         private readonly IConfiguration _cfg;
         private readonly LibraryContext _db;
+        private readonly IPaymentService _paymentService;
 
-        public PaymentsController(CommerceApi commerce, IConfiguration cfg, LibraryContext db)
+        public PaymentsController(CommerceApi commerce, IConfiguration cfg, LibraryContext db, IPaymentService paymentService)
         {
             _commerce = commerce;
             _cfg = cfg;
             _db = db;
+            _paymentService = paymentService;
         }
         // GET: /Payments/Checkout
         public async Task<IActionResult> Checkout(int invoiceId)
@@ -144,11 +147,11 @@ namespace InformacinesSistemos.Controllers
             }
             else if (webhook.Event.IsChargeConfirmed)
             {
-                invoice.Status = InvoiceStatus.Paid;
+                await _paymentService.HandleInvoicePaidAsync(invoice.Id);
             }
             else if (webhook.Event.IsChargeFailed)
             {
-                invoice.Status = InvoiceStatus.Failed;
+                await _paymentService.HandleInvoiceFailedAsync(invoice.Id);
             }
 
             await _db.SaveChangesAsync();
