@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace InformacinesSistemos.Models.Library;
+namespace InformacinesSistemos.Models;
 
 public partial class BookCategory
 {

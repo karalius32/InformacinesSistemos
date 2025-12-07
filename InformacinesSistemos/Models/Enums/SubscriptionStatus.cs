@@ -5,6 +5,7 @@
         PendingPayment,
         PaymentFailed,
         Active,
-        Expired
+        Expired,
+        Deactivated
     }
 }

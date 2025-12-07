@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using InformacinesSistemos.Models;
-using InformacinesSistemos.Models.Library;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using InformacinesSistemos.Models.Enums;
@@ -49,7 +48,6 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
         // Register Postgres enums and extensions
         modelBuilder
             .HasPostgresEnum<AuthorRole>("public", "author_role")
-            .HasPostgresEnum<SubscriptionLevel>("public", "subscription_level")
             .HasPostgresEnum<UserRole>("public", "user_role")
             .HasPostgresExtension("pg_catalog", "azure")
             .HasPostgresExtension("pg_catalog", "pg_cron")
@@ -61,7 +59,7 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
         modelBuilder.Entity<ApplicationUser>()
             .HasOne(a => a.Profile)
             .WithOne() // or .WithOne(p => p.User) if you have the back-reference
-            .HasForeignKey<Models.Library.UserAccount>(p => p.IdentityUserId)
+            .HasForeignKey<UserAccount>(p => p.IdentityUserId)
             .HasPrincipalKey<ApplicationUser>(a => a.Id)
             .OnDelete(DeleteBehavior.SetNull);
 

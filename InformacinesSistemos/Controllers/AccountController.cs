@@ -1,6 +1,6 @@
 ﻿using InformacinesSistemos.Data;
 using InformacinesSistemos.Models.Enums;
-using InformacinesSistemos.Models.Library;
+using InformacinesSistemos.Models;
 using InformacinesSistemos.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

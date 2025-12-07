@@ -17,7 +17,6 @@ builder.Services.AddDbContext<LibraryContext>(options =>
     options.UseNpgsql(connectionString, npgsqlOptionsAction =>
     {
         npgsqlOptionsAction.MapEnum<UserRole>("user_role", "public");
-        npgsqlOptionsAction.MapEnum<SubscriptionLevel>("subscription_level", "public");
         npgsqlOptionsAction.MapEnum<AuthorRole>("author_role", "public");
     }));
 

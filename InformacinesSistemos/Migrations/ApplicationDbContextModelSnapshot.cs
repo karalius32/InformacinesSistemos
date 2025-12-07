@@ -535,9 +535,6 @@ namespace InformacinesSistemos.Migrations
                         .HasColumnType("boolean")
                         .HasColumnName("auto_renew");
 
-                    b.Property<SubscriptionLevel>("Level")
-                        .HasColumnType("public.subscription_level");
-
                     b.Property<double?>("Price")
                         .HasColumnType("double precision")
                         .HasColumnName("price");

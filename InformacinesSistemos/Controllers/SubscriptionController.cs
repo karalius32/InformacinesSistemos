@@ -1,22 +1,21 @@
 ﻿using InformacinesSistemos.Data;
 using InformacinesSistemos.Models;
+using InformacinesSistemos.ViewModels;
 using InformacinesSistemos.Models.Enums;
-using InformacinesSistemos.Models.Library;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using System.Globalization;
 
 namespace InformacinesSistemos.Controllers
 {
-    public class SubscriptionsController : Controller
+    public class SubscriptionController : Controller
     {
         private readonly LibraryContext _db;
         private readonly IConfiguration _cfg;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public SubscriptionsController(LibraryContext db, IConfiguration cfg, 
+        public SubscriptionController(LibraryContext db, IConfiguration cfg, 
                                         UserManager<ApplicationUser> userManager)
         {
             _db = db;
@@ -109,6 +108,21 @@ namespace InformacinesSistemos.Controllers
                 return View("Error", new ErrorViewModel { RequestId = HttpContext.TraceIdentifier, Message = "Could not create invoice." });
 
             return RedirectToAction("Checkout", "Payments", new { invoiceId });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Deactivate(int id)
+        {
+            var subscription = _db.Subscriptions.Find(id);
+            if (subscription == null)
+            {
+                return View("Error", new ErrorViewModel { RequestId = HttpContext.TraceIdentifier, Message = "Subscription not found." });
+            }
+
+            subscription.Status = SubscriptionStatus.Deactivated;
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Subscription");
         }
     }
 }

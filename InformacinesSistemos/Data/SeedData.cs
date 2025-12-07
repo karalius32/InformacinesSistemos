@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using InformacinesSistemos.Models;
 
 namespace InformacinesSistemos.Data
 {
@@ -53,7 +54,7 @@ namespace InformacinesSistemos.Data
             var profile = await context.UserAccounts.FirstOrDefaultAsync(p => p.IdentityUserId == admin.Id);
             if (profile == null)
             {
-                profile = new Models.Library.UserAccount
+                profile = new UserAccount
                 {
                     IdentityUserId = admin.Id,
                     FirstName = "Admin",

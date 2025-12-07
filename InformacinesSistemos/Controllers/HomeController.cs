@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using InformacinesSistemos.Models;
+using InformacinesSistemos.Models.ToDelete;
+using InformacinesSistemos.ViewModels;
 
 namespace InformacinesSistemos.Controllers;
 

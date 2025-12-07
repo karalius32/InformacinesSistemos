@@ -1,6 +1,6 @@
 ﻿using InformacinesSistemos.Data;
+using InformacinesSistemos.Models;
 using InformacinesSistemos.Models.Enums;
-using InformacinesSistemos.Models.Library;
 using Microsoft.EntityFrameworkCore;
 
 namespace InformacinesSistemos.Services

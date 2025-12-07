@@ -1,4 +1,4 @@
-namespace InformacinesSistemos.Models
+namespace InformacinesSistemos.ViewModels
 {
     public class ErrorViewModel
     {

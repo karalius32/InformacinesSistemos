@@ -1,4 +1,4 @@
-using InformacinesSistemos.Models.Library;
+using InformacinesSistemos.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace InformacinesSistemos.Data

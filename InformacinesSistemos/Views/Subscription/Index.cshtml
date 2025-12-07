@@ -1,4 +1,4 @@
-﻿@model List<InformacinesSistemos.Models.Library.Subscription>
+﻿@model List<Subscription>
 
 @*
 PSEUDOCODE / PLAN:
@@ -36,7 +36,7 @@ PSEUDOCODE / PLAN:
                         <div class="text-muted small">30 dienų</div>
                     </div>
 
-                    <form asp-controller="Subscriptions"
+                    <form asp-controller="Subscription"
                           asp-action="BuyWithCrypto"
                           method="post"
                           class="mt-auto">
@@ -72,16 +72,19 @@ PSEUDOCODE / PLAN:
                         <th>Pirkimo data</th>
                         <th>Galioja iki</th>
                         <th>Statusas</th>
+                        <th>Veiksmai</th> @* NEW *@
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var s in Model.OrderByDescending(x => x.PurchaseDate))
                     {
                         var isActive = s.ValidUntil.HasValue &&
-                        s.ValidUntil.Value >= DateOnly.FromDateTime(DateTime.Today);
+                        s.ValidUntil.Value >= DateOnly.FromDateTime(DateTime.Today) &&
+                        s.Status == InformacinesSistemos.Models.Enums.SubscriptionStatus.Active;
 
                         <tr>
                             <td>@(s.PurchaseDate?.ToString("yyyy-MM-dd") ?? "-")</td>
+
                             <td>
                                 @if (s.ValidUntil.HasValue)
                                 {
@@ -91,17 +94,42 @@ PSEUDOCODE / PLAN:
                                 }
                                 else
                                 {
-
                                     <span>-</span>
                                 }
-                        </td>
-                        <td>
-                            <span class="badge @(isActive ? "bg-success" : "bg-secondary")">
-                                @s.Status.ToString()
-                        </span>
-                    </td>
-                </tr>
+                            </td>
+
+                            <td>
+                                <span class="badge @(isActive ? "bg-success" : "bg-secondary")">
+                                    @s.Status.ToString()
+                                </span>
+                            </td>
+
+                            <td>
+                                @if (isActive)
+                                {
+                                    <form asp-controller="Subscription"
+                                          asp-action="Deactivate"
+                                          method="post"
+                                          class="d-inline">
+                                        @Html.AntiForgeryToken()
+
+                                        @* Pass subscription id *@
+                                        <input type="hidden" name="id" value="@s.Id" />
+
+                                        <button type="submit"
+                                                class="btn btn-sm btn-outline-danger"
+                                                onclick="return confirm('Ar tikrai norite nutraukti prenumeratą?');">
+                                            Deaktyvuoti
+                                        </button>
+                                    </form>
                                 }
+                                else
+                                {
+                                    <span class="text-muted">-</span>
+                                }
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

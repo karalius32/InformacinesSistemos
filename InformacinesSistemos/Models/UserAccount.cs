@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using InformacinesSistemos.Models.Enums;
 
-namespace InformacinesSistemos.Models.Library;
+namespace InformacinesSistemos.Models;
 
 public partial class UserAccount
 {

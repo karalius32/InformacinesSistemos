@@ -38,7 +38,7 @@ namespace InformacinesSistemos.Controllers
 
             if (invoice.CoinbaseHostedUrl != null)
             {
-                return View("Waiting", new WaitingViewModel
+                return View("Waiting", new PaymentViewModel
                 {
                     InvoiceId = invoiceId,
                     HostedUrl = invoice.CoinbaseHostedUrl
@@ -71,7 +71,7 @@ namespace InformacinesSistemos.Controllers
 
             await _db.SaveChangesAsync();
 
-            return View("Waiting", new WaitingViewModel
+            return View("Payment", new PaymentViewModel
             {
                 InvoiceId = invoiceId,
                 HostedUrl = response.Data.HostedUrl

@@ -14,18 +14,6 @@ namespace InformacinesSistemos.Models.Enums
         Librarian
     }
 
-    public enum SubscriptionLevel
-    {
-        [PgName("bronze")]
-        Bronze,
-
-        [PgName("silver")]
-        Silver,
-
-        [PgName("gold")]
-        Gold
-    }
-
     public enum AuthorRole
     {
         [PgName("author")]

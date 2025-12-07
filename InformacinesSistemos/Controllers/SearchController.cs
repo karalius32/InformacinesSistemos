@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
-using InformacinesSistemos.Models;
 using System.Collections.Generic;
+using InformacinesSistemos.Models.ToDelete;
 
 namespace InformacinesSistemos.Controllers
 {

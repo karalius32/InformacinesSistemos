@@ -1,6 +1,6 @@
 using System;
 
-namespace InformacinesSistemos.Models
+namespace InformacinesSistemos.Models.ToDelete
 {
     public class BookSimple
     {

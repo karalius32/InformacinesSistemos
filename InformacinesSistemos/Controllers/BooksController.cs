@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using InformacinesSistemos.Models;
+using InformacinesSistemos.Models.ToDelete;
 
 namespace InformacinesSistemos.Controllers
 {

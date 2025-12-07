@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace InformacinesSistemos.Models
+namespace InformacinesSistemos.Models.ToDelete
 {
     public static class FakeData
     {

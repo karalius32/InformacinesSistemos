@@ -1,6 +1,6 @@
 ﻿using InformacinesSistemos.Models.Enums;
 
-namespace InformacinesSistemos.Models.Library;
+namespace InformacinesSistemos.Models;
 
 public partial class BookAuthor
 {
