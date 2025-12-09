@@ -16,12 +16,11 @@ public partial class Loan
     public int? ExtensionCount { get; set; }
 
     public int UserId { get; set; }
-
-    public virtual ICollection<Book> Books { get; set; } = new List<Book>();
-
+    public int BookId { get; set; }
     public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
 
     public virtual ICollection<Recommendation> Recommendations { get; set; } = new List<Recommendation>();
 
     public virtual UserAccount User { get; set; } = null!;
+    public virtual Book Book { get; set; } = null!;
 }

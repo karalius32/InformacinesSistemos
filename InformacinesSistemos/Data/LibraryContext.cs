@@ -118,7 +118,6 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
             entity.Property(e => e.Language)
                 .HasMaxLength(255)
                 .HasColumnName("language");
-            entity.Property(e => e.LoanId).HasColumnName("loan_id");
             entity.Property(e => e.PageCount).HasColumnName("page_count");
             entity.Property(e => e.PublishDate).HasColumnName("publish_date");
             entity.Property(e => e.Publisher)
@@ -128,10 +127,6 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
                 .HasMaxLength(255)
                 .HasColumnName("title");
             entity.Property(e => e.UpdatedDate).HasColumnName("updated_date");
-
-            entity.HasOne(d => d.Loan).WithMany(p => p.Books)
-                .HasForeignKey(d => d.LoanId)
-                .HasConstraintName("book_loan_fk");
         });
 
         modelBuilder.Entity<BookAuthor>(entity =>
@@ -258,11 +253,18 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
             entity.Property(e => e.LoanDate).HasColumnName("loan_date");
             entity.Property(e => e.ReturnDate).HasColumnName("return_date");
             entity.Property(e => e.UserId).HasColumnName("user_id");
+            entity.Property(e => e.BookId).HasColumnName("book_id");
 
             entity.HasOne(d => d.User).WithMany(p => p.Loans)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("loan_user_fk");
+
+            entity.HasOne(d => d.Book)
+                .WithOne(b => b.Loan)
+                .HasForeignKey<Loan>(d => d.BookId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("loans_book_id_fkey");
         });
 
         modelBuilder.Entity<Rating>(entity =>

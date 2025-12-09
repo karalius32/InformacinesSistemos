@@ -31,8 +31,6 @@ public partial class Book
 
     public string? Keywords { get; set; }
 
-    public int? LoanId { get; set; }
-
     public virtual ICollection<BookAuthor> BookAuthors { get; set; } = new List<BookAuthor>();
 
     public virtual ICollection<BookCategory> BookCategories { get; set; } = new List<BookCategory>();
