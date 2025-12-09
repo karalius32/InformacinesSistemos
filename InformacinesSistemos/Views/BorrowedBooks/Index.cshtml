@@ -1,16 +1,90 @@
-﻿@{
-    ViewData["Title"] = "SKolintos knygos";
+﻿@model List<InformacinesSistemos.Models.Loan>
+
+@{
+    ViewData["Title"] = "Skolintos knygos";
+    var activeLoans = Model?.Where(l => l.ReturnDate == null).ToList() ?? new List<InformacinesSistemos.Models.Loan>();
+    var returnedLoans = Model?.Where(l => l.ReturnDate != null).ToList() ?? new List<InformacinesSistemos.Models.Loan>();
 }
 
-<h2>Pasiskolintos knygos:</h2>
-<li>Knyga 1</li>
-<a asp-controller="Lending" asp-action="ReturnBook" @* asp-route-id="@b.Id" *@ class="btn btn-outline-primary">Grąžinti</a>
-<a asp-controller="Recommendation" asp-action="ViewRecommendation" @* asp-route-id="@b.Id" *@ class="btn btn-outline-primary">Rekomendacija</a>
+<div class="container mt-4">
+    <h2 class="mb-3">Pasiskolintos knygos</h2>
 
-<h2>Paskolintų knygų istorija:</h2>
-<li>Knyga 1</li>
-<a asp-controller="Recommendation" asp-action="ViewRecommendation" @* asp-route-id="@b.Id" *@ class="btn btn-outline-primary">Rekomendacija</a>
-<a asp-controller="Payments" asp-action="Checkout" @* asp-route-id="@b.Id" *@ class="btn btn-outline-primary">Mokėti skolą</a>
-<li>Knyga 2</li>
-<a asp-controller="Recommendation" asp-action="ViewRecommendation" @* asp-route-id="@b.Id" *@ class="btn btn-outline-primary">Rekomendacija</a>
-<a asp-controller="Payments" asp-action="Checkout" @* asp-route-id="@b.Id" *@ class="btn btn-outline-primary">Mokėti skolą</a>
+    @if (!activeLoans.Any())
+    {
+        <div class="alert alert-info">Nėra aktyvių pasiskolintų knygų.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>Pasiskolinimo ID</th>
+                        <th>Knygos ID</th>
+                        <th>Naudotojo ID</th>
+                        <th>Paskolinimo data</th>
+                        <th>Sukaupti delspinigiai</th>
+                        <th>Pratęsimų skaičius</th>
+                        <th>Veiksmai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var loan in activeLoans)
+                    {
+                        <tr>
+                            <td>@loan.Id</td>
+                            <td>@loan.BookId</td>
+                            <td>@loan.UserId</td>
+                            <td>@(loan.LoanDate?.ToString("yyyy-MM-dd") ?? "-")</td>
+                            <td>@(loan.AccumulatedPenalties?.ToString("0.##") ?? "-")</td>
+                            <td>@(loan.ExtensionCount?.ToString() ?? "0")</td>
+                            <td>
+                                <a class="btn btn-outline-primary btn-sm"
+                                   asp-controller="Lending"
+                                   asp-action="ReturnBook"
+                                   asp-route-id="@loan.Id">
+                                    Grąžinti knygą
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+    <h2 class="mb-3 mt-5">Grąžintos knygos</h2>
+
+    @if (!returnedLoans.Any())
+    {
+        <div class="alert alert-info">Nėra grąžintų knygų.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>Pasiskolinimo ID</th>
+                        <th>Knygos ID</th>
+                        <th>Naudotojo ID</th>
+                        <th>Paskolinimo data</th>
+                        <th>Grąžinimo data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var loan in returnedLoans)
+                    {
+                        <tr>
+                            <td>@loan.Id</td>
+                            <td>@loan.BookId</td>
+                            <td>@loan.UserId</td>
+                            <td>@(loan.LoanDate?.ToString("yyyy-MM-dd") ?? "-")</td>
+                            <td>@(loan.ReturnDate?.ToString("yyyy-MM-dd") ?? "-")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

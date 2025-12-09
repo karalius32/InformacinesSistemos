@@ -1,9 +1,25 @@
+using InformacinesSistemos.Data;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Encodings.Web;
+using Microsoft.EntityFrameworkCore;
 
 namespace InformacinesSistemos.Controllers;
 
 public class BorrowedBooksController : Controller
 {
-    public IActionResult Index() => View();
+    private readonly LibraryContext _db;
+
+    public BorrowedBooksController(LibraryContext db)
+    {
+        _db = db;
+    }
+
+    public async Task<IActionResult> Index()
+    {
+        var loans = await _db.Loans
+            .AsNoTracking()
+            .OrderByDescending(l => l.LoanDate)
+            .ToListAsync();
+
+        return View(loans);
+    }
 }

@@ -57,7 +57,12 @@ namespace InformacinesSistemos.Services
 
         public async Task HandleInvoicePaidLoan(Invoice invoice)
         {
-            // JUOZAPAI, TAU CIA
+            if (!invoice.LoanId.HasValue) return;
+
+            var loan = await _db.Loans.FirstOrDefaultAsync(l => l.Id == invoice.LoanId.Value);
+            if (loan == null) return;
+
+            loan.AccumulatedPenalties = 0;
         }
 
         public async Task HandleInvoiceFailedAsync(int invoiceId)
@@ -86,7 +91,10 @@ namespace InformacinesSistemos.Services
 
         public async Task HandleInvoiceFailedLoan(Invoice invoice)
         {
-            // JUOZAPAI, TAU CIA
+            if (!invoice.LoanId.HasValue) return;
+
+            var loan = await _db.Loans.FirstOrDefaultAsync(l => l.Id == invoice.LoanId.Value);
+            if (loan == null) return;
         }
     }
 

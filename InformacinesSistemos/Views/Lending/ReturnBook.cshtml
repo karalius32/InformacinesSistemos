@@ -1,6 +1,55 @@
-﻿@{
+﻿@model InformacinesSistemos.Models.Loan
+
+@{
     ViewData["Title"] = "Grąžinti knygą";
+    var hasDebt = (Model?.AccumulatedPenalties ?? 0) > 0;
 }
 
-<h2>Knygos grąžinimas</h2>
-<a asp-controller="Payments" asp-action="PayDebt" @* asp-route-id="@b.Id" *@ class="btn btn-outline-primary">Mokėti skolą</a>
+<div class="container mt-4">
+    <h2 class="mb-3">Knygos grąžinimas</h2>
+
+    @if (Model?.Book != null)
+    {
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Book.Title</h5>
+                <p class="card-text mb-1"><strong>Knygos ID:</strong> @Model.BookId</p>
+                <p class="card-text mb-1"><strong>Paskolinimo ID:</strong> @Model.Id</p>
+                <p class="card-text mb-1"><strong>Paskolinta:</strong> @(Model.LoanDate?.ToString("yyyy-MM-dd") ?? "-")</p>
+                <p class="card-text mb-1"><strong>Grąžinti iki:</strong> @(Model.ReturnDate?.ToString("yyyy-MM-dd") ?? "-")</p>
+                <p class="card-text mb-1"><strong>Delspinigiai:</strong> @(Model.AccumulatedPenalties?.ToString("0.##") ?? "0") €</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">Knygos informacijos nepavyko rasti.</div>
+    }
+
+    <div class="d-flex gap-2">
+        <a asp-controller="Payments"
+           asp-action="PayDebt"
+           asp-route-id="@Model?.Id"
+           class="btn btn-outline-primary @(hasDebt ? "" : "disabled")"
+           aria-disabled="@(hasDebt ? "false" : "true")">
+            Mokėti skolą
+        </a>
+        <form asp-controller="Lending"
+              asp-action="ConfirmReturn"
+              method="post"
+              class="d-inline">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@Model?.Id" />
+            <button type="submit"
+                    class="btn btn-success"
+                    @(hasDebt ? "disabled" : "")>
+                Patvirtinti grąžinimą
+            </button>
+        </form>
+        <a asp-controller="BorrowedBooks"
+           asp-action="Index"
+           class="btn btn-secondary">
+            Grįžti
+        </a>
+    </div>
+</div>
