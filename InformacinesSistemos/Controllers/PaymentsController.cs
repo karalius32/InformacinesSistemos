@@ -1,5 +1,4 @@
 ﻿using Coinbase.Commerce;
-using Coinbase.Commerce.Models;
 using InformacinesSistemos.Data;
 using InformacinesSistemos.Models;
 using InformacinesSistemos.Models.Enums;
@@ -7,6 +6,7 @@ using InformacinesSistemos.Services;
 using InformacinesSistemos.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -25,6 +25,40 @@ namespace InformacinesSistemos.Controllers
             _cfg = cfg;
             _db = db;
             _paymentService = paymentService;
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateLoanInvoice(int loanId)
+        {
+            var loan = await _db.Loans.FirstOrDefaultAsync(l => l.Id == loanId);
+            if (loan == null)
+            {
+                return NotFound();
+            }
+
+            var amount = loan.AccumulatedPenalties ?? 0;
+            if (amount <= 0)
+            {
+                // Nothing to pay, just go back
+                return RedirectToAction("ReturnBook", "Lending", new { id = loanId });
+            }
+
+            var invoice = new Invoice
+            {
+                Name = "Delspinigiai už knygos grąžinimą",
+                CreatedDate = DateTime.UtcNow,
+                Amount = amount,
+                Currency = "EUR",
+                Status = InvoiceStatus.New,
+                LoanId = loan.Id,
+                UserId = loan.UserId
+            };
+
+            _db.Invoices.Add(invoice);
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Checkout), new { invoiceId = invoice.Id });
         }
         // GET: /Payments/Checkout
         public async Task<IActionResult> Checkout(int invoiceId)
@@ -45,11 +79,11 @@ namespace InformacinesSistemos.Controllers
                 });
             }
 
-            var charge = new CreateCharge
+            var charge = new Coinbase.Commerce.Models.CreateCharge
             {
                 Name = invoice.Name,
-                PricingType = PricingType.FixedPrice,  // fixed EUR price
-                LocalPrice = new Money { Amount = (decimal)invoice.Amount, Currency = "EUR" },
+                PricingType = Coinbase.Commerce.Models.PricingType.FixedPrice,  // fixed EUR price
+                LocalPrice = new Coinbase.Commerce.Models.Money { Amount = (decimal)invoice.Amount, Currency = "EUR" },
                 Metadata =
                 {
                     {"userId", User.Identity?.Name ?? "demo" },
@@ -110,7 +144,7 @@ namespace InformacinesSistemos.Controllers
             }
 
             // 4) Safe to deserialize now
-            var webhook = JsonConvert.DeserializeObject<Webhook>(body);
+            var webhook = JsonConvert.DeserializeObject<Coinbase.Commerce.Models.Webhook>(body);
 
             if (webhook == null)
             {
@@ -120,7 +154,7 @@ namespace InformacinesSistemos.Controllers
             Console.WriteLine($"Webhook event: {webhook.Event.Type}");
 
             // The actual charge object
-            var charge = webhook.Event.DataAs<Charge>();
+            var charge = webhook.Event.DataAs<Coinbase.Commerce.Models.Charge>();
 
             // Example: metadata lookup
             var userId = charge.Metadata?["userId"]?.ToString();
@@ -183,8 +217,5 @@ namespace InformacinesSistemos.Controllers
             });
         }
 
-
-        public IActionResult PayDebt() => View();
-        public IActionResult StatusDebt() => View();
     }
 }

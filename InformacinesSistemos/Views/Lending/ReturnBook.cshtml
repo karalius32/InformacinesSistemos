@@ -27,13 +27,18 @@
     }
 
     <div class="d-flex gap-2">
-        <a asp-controller="Payments"
-           asp-action="PayDebt"
-           asp-route-id="@Model?.Id"
-           class="btn btn-outline-primary @(hasDebt ? "" : "disabled")"
-           aria-disabled="@(hasDebt ? "false" : "true")">
-            Mokėti skolą
-        </a>
+        <form asp-controller="Payments"
+              asp-action="CreateLoanInvoice"
+              method="post"
+              class="d-inline">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="loanId" value="@Model?.Id" />
+            <button type="submit"
+                    class="btn btn-outline-primary"
+                    @(hasDebt ? "" : "disabled")>
+                Mokėti skolą
+            </button>
+        </form>
         <form asp-controller="Lending"
               asp-action="ConfirmReturn"
               method="post"

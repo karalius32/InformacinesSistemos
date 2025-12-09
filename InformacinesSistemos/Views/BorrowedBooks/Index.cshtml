@@ -70,6 +70,9 @@
                         <th>Naudotojo ID</th>
                         <th>Paskolinimo data</th>
                         <th>Grąžinimo data</th>
+                        <th>Sukaupti delspinigiai</th>
+                        <th>Pratęsimų skaičius</th>
+                        <th>Veiksmai</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,6 +84,17 @@
                             <td>@loan.UserId</td>
                             <td>@(loan.LoanDate?.ToString("yyyy-MM-dd") ?? "-")</td>
                             <td>@(loan.ReturnDate?.ToString("yyyy-MM-dd") ?? "-")</td>
+                            <td>@(loan.AccumulatedPenalties?.ToString("0.##") ?? "-")</td>
+                            <td>@(loan.ExtensionCount?.ToString() ?? "0")</td>
+                            <td>
+                                <a class="btn btn-outline-primary btn-sm"
+                                   asp-controller="Recommendation"
+                                   asp-action="ViewRecommendation"
+                                   asp-route-bookTitle="@loan.Book?.Title"
+                                   asp-route-showReturnConfirmation="false">
+                                    Žiūrėti rekomendaciją
+                                </a>
+                            </td>
                         </tr>
                     }
                 </tbody>

@@ -16,6 +16,7 @@ public class BorrowedBooksController : Controller
     public async Task<IActionResult> Index()
     {
         var loans = await _db.Loans
+            .Include(l => l.Book)
             .AsNoTracking()
             .OrderByDescending(l => l.LoanDate)
             .ToListAsync();

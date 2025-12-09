@@ -1,5 +1,24 @@
 ﻿@{
     ViewData["Title"] = "Rekomendacija";
+    var bookTitle = ViewBag.BookTitle as string;
+    var showReturnConfirmation = (bool)(ViewBag.ShowReturnConfirmation ?? false);
 }
 
-<h2>Rekomendacija</h2>
+<div class="container mt-4">
+    @if (showReturnConfirmation)
+    {
+        <div class="alert alert-success">
+            Book @(string.IsNullOrWhiteSpace(bookTitle) ? "" : $"\"{bookTitle}\" ")is returned successfully.
+        </div>
+    }
+
+    <h3 class="mb-3">Rekomendacija</h3>
+
+    @if (!string.IsNullOrWhiteSpace(bookTitle))
+    {
+        <p class="text-muted">Knyga: @bookTitle</p>
+    }
+
+    <p class="fw-semibold">Panašios knygos į grąžintą:</p>
+    <p>Rekomendacija</p>
+</div>

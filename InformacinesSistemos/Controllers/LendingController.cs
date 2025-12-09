@@ -34,7 +34,9 @@ namespace InformacinesSistemos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ConfirmReturn(int id)
         {
-            var loan = await _db.Loans.FirstOrDefaultAsync(l => l.Id == id);
+            var loan = await _db.Loans
+                .Include(l => l.Book)
+                .FirstOrDefaultAsync(l => l.Id == id);
             if (loan == null)
             {
                 return NotFound();
@@ -46,7 +48,11 @@ namespace InformacinesSistemos.Controllers
                 await _db.SaveChangesAsync();
             }
 
-            return RedirectToAction("Index", "BorrowedBooks");
+            return RedirectToAction("ViewRecommendation", "Recommendation", new
+            {
+                bookTitle = loan.Book?.Title,
+                showReturnConfirmation = true
+            });
         }
     }
 }
