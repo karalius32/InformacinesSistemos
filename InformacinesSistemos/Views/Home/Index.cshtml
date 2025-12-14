@@ -1,6 +1,5 @@
 ﻿@using InformacinesSistemos.Models
-@using InformacinesSistemos.Models.ToDelete
-@model IEnumerable<BookSimple>
+@model List<InformacinesSistemos.Models.Book>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -11,7 +10,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form method="get" action="@Url.Action("Results","Search")" class="row g-3">
+            <form method="get" asp-controller="Search" asp-action="Index" class="row g-3">
                 <div class="col-md-9">
                     <input type="text" name="q" class="form-control" placeholder="Įvesk knygos pavadinimą">
                 </div>
@@ -46,11 +45,24 @@
                     {
                         <tr>
                             <td>@b.Title</td>
-                            <td>@b.Author</td>
-                            <td>@b.Year</td>
                             <td>
-                                <a asp-controller="Books" asp-action="Edit" asp-route-id="@b.Id"
-                                   class="btn btn-sm btn-outline-primary">Redaguoti</a>
+                            @{
+                                var authors = (b.BookAuthors == null || !b.BookAuthors.Any())
+                                    ? "-"
+                                    : string.Join(", ",
+                                        b.BookAuthors
+                                        .Select(ba => $"{ba.Author?.FirstName} {ba.Author?.LastName}".Trim())
+                                        .Where(s => !string.IsNullOrWhiteSpace(s)));
+                            }
+                            @authors
+                            </td>
+                            <td>@(b.PublishDate?.ToString("yyyy") ?? "-")</td>
+                            <td>
+                                <a asp-controller="Books"
+                                    asp-action="Edit"
+                                    asp-route-id="@b.Id"
+                                    asp-route-returnUrl="@($"{Context.Request.Path}{Context.Request.QueryString}")"
+                                    class="btn btn-sm btn-outline-primary">Redaguoti</a>
                                 <a asp-controller="Ratings" asp-action="Create" asp-route-bookId="@b.Id"
                                    class="btn btn-sm btn-success">Palikti įvertinimą</a>
                                 <a asp-controller="Lending" asp-action="LendBook" asp-route-bookId="@b.Id"

@@ -1,30 +1,61 @@
+using InformacinesSistemos.Data;
+using InformacinesSistemos.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using InformacinesSistemos.Models.ToDelete;
+using Microsoft.EntityFrameworkCore;
 
 namespace InformacinesSistemos.Controllers
 {
     public class SearchController : Controller
     {
-        public IActionResult Index() => View();
+        private readonly LibraryContext _db;
 
-        public IActionResult Results(string? q)
+        public SearchController(LibraryContext db)
         {
-            IEnumerable<BookSimple> items = FakeData.Books;
+            _db = db;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Index(string? q)
+        {
+            // Čia esminis triukas: forma visada siunčia ?q=...
+            // Net jei q tuščias, query rakte "q" bus.
+            bool submitted = Request.Query.ContainsKey("q");
+
+            var vm = new SearchViewModel
+            {
+                Query = q,
+                ShowResults = submitted
+            };
+
+            // Jei dar nepaspausta "Ieškoti" (t.y. tiesiog atėjai į /Search) – nerodom lentelės.
+            if (!submitted)
+                return View(vm);
+
+            // Jei paspausta "Ieškoti" su tuščiu q – rodome visas knygas (pvz. 50).
+            var booksQuery = _db.Books
+                .AsNoTracking()
+                .Include(b => b.BookAuthors)
+                    .ThenInclude(ba => ba.Author)
+                .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(q))
             {
                 var term = q.Trim();
+                var pattern = term + "%"; // pradžia
 
-                items = FakeData.Books.Where(b =>
-                    (!string.IsNullOrEmpty(b.Title) && b.Title.StartsWith(term, StringComparison.OrdinalIgnoreCase))
+                booksQuery = booksQuery.Where(b =>
+                    (!string.IsNullOrEmpty(b.Title) && EF.Functions.ILike(b.Title, pattern)) ||
+                    (!string.IsNullOrEmpty(b.Identifier) && EF.Functions.ILike(b.Identifier, pattern)) ||
+                    (!string.IsNullOrEmpty(b.Publisher) && EF.Functions.ILike(b.Publisher, pattern))
                 );
             }
 
-            ViewBag.Query = q;
-            return View(items.ToList());
+            vm.Results = await booksQuery
+                .OrderBy(b => b.Title)
+                .Take(50)
+                .ToListAsync();
+
+            return View(vm);
         }
     }
 }

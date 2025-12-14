@@ -1,44 +1,137 @@
-@using InformacinesSistemos.Models.ToDelete
-@model BookSimple
+@model InformacinesSistemos.ViewModels.BookEditViewModel
+
 @{
-    ViewData["Title"] = "Knygos redagavimo langas";
+    ViewData["Title"] = "Redaguoti knygą";
 }
 
 <div class="container mt-4">
-    <h2 class="mb-4 text-center">Knygos redagavimas</h2>
+    <h2 class="mb-4 text-center">Redaguoti knygą</h2>
+    @if (TempData["Error"] is string err && !string.IsNullOrWhiteSpace(err))
+    {
+        <div class="alert alert-danger">@err</div>
+    }
 
     <div class="card">
         <div class="card-body">
-            <p class="text-muted">Redaguojama knyga: ID @Model.Id</p>
+            <form asp-action="Edit" asp-controller="Books" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="ReturnUrl" />
+                <input type="hidden" asp-for="Id" />
 
-            <form>
                 <div class="row g-3">
+
                     <div class="col-md-6">
-                        <label class="form-label">Pavadinimas</label>
-                        <input type="text" class="form-control" value="@Model.Title">
+                        <label asp-for="Title" class="form-label">Pavadinimas</label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
                     </div>
+
                     <div class="col-md-6">
-                        <label class="form-label">Autorius</label>
-                        <input type="text" class="form-control" value="@Model.Author">
+                        <label asp-for="Identifier" class="form-label">Identifikatorius</label>
+                        <input asp-for="Identifier" class="form-control" />
+                        <span asp-validation-for="Identifier" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-4">
-                        <label class="form-label">Metai</label>
-                        <input type="number" class="form-control" value="@Model.Year" min="1" max="9999">
+                        <label asp-for="PublishDate" class="form-label">Išleidimo data</label>
+                        <input asp-for="PublishDate" type="date" class="form-control" />
+                        <span asp-validation-for="PublishDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label asp-for="UpdatedDate" class="form-label">Atnaujinimo data</label>
+                        <input asp-for="UpdatedDate" type="date" class="form-control" />
+                        <span asp-validation-for="UpdatedDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label asp-for="Description" class="form-label">Aprašymas</label>
+                        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label asp-for="PageCount" class="form-label">Puslapių skaičius</label>
+                        <input asp-for="PageCount" type="number" class="form-control" />
+                        <span asp-validation-for="PageCount" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label asp-for="Publisher" class="form-label">Leidėjas</label>
+                        <input asp-for="Publisher" class="form-control" />
+                        <span asp-validation-for="Publisher" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label asp-for="Language" class="form-label">Kalba</label>
+                        <input asp-for="Language" class="form-control" />
+                        <span asp-validation-for="Language" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label asp-for="Format" class="form-label">Formatas</label>
+                        <input asp-for="Format" class="form-control" />
+                        <span asp-validation-for="Format" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-8">
+                        <label asp-for="CoverUrl" class="form-label">Viršelio URL</label>
+                        <input asp-for="CoverUrl" class="form-control" />
+                        <span asp-validation-for="CoverUrl" class="text-danger"></span>
+                        <small class="text-muted">Įrašyk tiesioginį paveikslėlio URL (pvz. baigiasi .jpg/.png)</small>
+                    </div>
+
+                    <div class="col-md-4">
+                        @if (!string.IsNullOrWhiteSpace(Model.CoverUrl))
+                        {
+                            <label class="form-label">Peržiūra</label>
+                            <div>
+                                <img src="@Model.CoverUrl" alt="Viršelis" style="max-width:150px; max-height:220px; object-fit:cover;" />
+                            </div>
+                        }
+                    </div>
+
+                    <div class="col-md-12">
+                        <label asp-for="Keywords" class="form-label">Raktažodžiai</label>
+                        <input asp-for="Keywords" class="form-control" />
+                        <span asp-validation-for="Keywords" class="text-danger"></span>
                     </div>
                 </div>
 
-                <div class="d-flex gap-2 justify-content-end mt-4">
-                    <button type="button" class="btn btn-secondary" onclick="history.back()">Atšaukti</button>
-                    <a asp-controller="Home" asp-action="Index" class="btn btn-success">Išsaugoti</a>
+                <div class="mt-4 d-flex gap-2">
+                    <button type="submit" class="btn btn-success">Išsaugoti</button>
+
+                    <a href="@(string.IsNullOrWhiteSpace(Model.ReturnUrl) ? Url.Action("Index","Home") : Model.ReturnUrl)"
+                    class="btn btn-outline-secondary">Atšaukti</a>
                 </div>
-            </form>
+                </form>
+
+                @{
+                    var title = Model.Title ?? "-";
+                    var authors = string.IsNullOrWhiteSpace(Model.AuthorsDisplay) ? "-" : Model.AuthorsDisplay;
+                    var msg = $"Ar tikrai norite ištrinti knygą \"{title}\" (Autorius: {authors})?\nŠis veiksmas negrįžtamas.";
+                    var msgJson = System.Text.Json.JsonSerializer.Serialize(msg); // <-- JS string literal
+                }
+
+                <form asp-controller="Books" asp-action="Delete" method="post" class="mt-3"
+                    onsubmit="return confirm(@msgJson);">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                    <button type="submit" class="btn btn-danger">Ištrinti knygą</button>
+                </form>
         </div>
     </div>
-
-    <div class="text-center mt-3">
-        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-sm">
-            Grįžti į pradžią
-        </a>
-    </div>
 </div>
+
+@functions {
+    public string ConfirmDeleteText(string? title, string? authors)
+    {
+        var t = title ?? "-";
+        var a = string.IsNullOrWhiteSpace(authors) ? "-" : authors;
+
+        // JS string su escape
+        var msg = $"Ar tikrai norite ištrinti knygą \"{t}\" (Autorius: {a})?";
+        return "'" + msg.Replace("\\", "\\\\").Replace("'", "\\'").Replace("\"", "\\\"") + "'";
+    }
+}

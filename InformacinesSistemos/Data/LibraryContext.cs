@@ -141,7 +141,10 @@ public partial class LibraryContext : IdentityDbContext<ApplicationUser>
             entity.Property(e => e.AuthorId).HasColumnName("author_id");
             entity.Property(e => e.BookId).HasColumnName("book_id");
             entity.Property(e => e.Contribution).HasColumnName("contribution");
-
+            entity.Property(e => e.Role)
+                .HasColumnType("author_role")
+                .HasColumnName("role");
+            
             entity.HasOne(d => d.Author).WithMany(p => p.BookAuthors)
                 .HasForeignKey(d => d.AuthorId)
                 .OnDelete(DeleteBehavior.ClientSetNull)

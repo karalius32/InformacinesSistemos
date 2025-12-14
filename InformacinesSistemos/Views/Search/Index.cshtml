@@ -1,3 +1,6 @@
+@using System.Globalization
+@model InformacinesSistemos.ViewModels.SearchViewModel
+
 @{
     ViewData["Title"] = "Knygos paieška";
 }
@@ -7,9 +10,13 @@
 
     <div class="card">
         <div class="card-body">
-            <form method="get" action="@Url.Action("Results","Search")" class="row g-3">
+            <form method="get" asp-controller="Search" asp-action="Index" class="row g-3">
                 <div class="col-md-9">
-                    <input type="text" name="q" class="form-control" placeholder="Įvesk knygos pavadinimą">
+                    <input type="text"
+                           name="q"
+                           value="@Model?.Query"
+                           class="form-control"
+                           placeholder="Įvesk knygos pavadinimą">
                 </div>
                 <div class="col-md-3 d-grid">
                     <button type="submit" class="btn btn-success">Ieškoti</button>
@@ -17,6 +24,118 @@
             </form>
         </div>
     </div>
+
+    @if (Model?.ShowResults == true)
+    {
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="mb-3">Paieškos rezultatai</h5>
+                <p class="text-muted mb-3">Užklausa: <b>@Model.Query</b></p>
+
+                <table class="table table-striped table-bordered align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Viršelis</th>
+                            <th>Pavadinimas</th>
+                            <th>Identifikatorius</th>
+                            <th>Išleidimo data</th>
+                            <th>Atnaujinimo data</th>
+                            <th>Puslapių sk.</th>
+                            <th>Leidėjas</th>
+                            <th>Kalba</th>
+                            <th>Formatas</th>
+                            <th>Sukūrimo data</th>
+                            <th>Autoriai</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Results == null || !Model.Results.Any())
+                        {
+                            <tr>
+                                <td colspan="11" class="text-center">Nieko nerasta</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var b in Model.Results)
+                            {
+                                var authors = (b.BookAuthors == null || !b.BookAuthors.Any())
+                                    ? "-"
+                                    : string.Join(", ",
+                                        b.BookAuthors
+                                            .Select(ba => $"{ba.Author?.FirstName} {ba.Author?.LastName}".Trim())
+                                            .Where(s => !string.IsNullOrWhiteSpace(s)));
+
+                                <tr>
+                                    <td style="width:90px">
+                                        @if (!string.IsNullOrWhiteSpace(b.CoverUrl))
+                                        {
+                                            <img src="@b.CoverUrl" alt="Viršelis" style="max-width:80px; max-height:110px; object-fit:cover;" />
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">-</span>
+                                        }
+                                    </td>
+
+                                    <td><b>@(b.Title ?? "-")</b></td>
+                                    <td>@(b.Identifier ?? "-")</td>
+                                    <td>@(b.PublishDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ?? "-")</td>
+                                    <td>@(b.UpdatedDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ?? "-")</td>
+                                    <td>@(b.PageCount?.ToString() ?? "-")</td>
+                                    <td>@(b.Publisher ?? "-")</td>
+                                    <td>@(b.Language ?? "-")</td>
+                                    <td>@(b.Format ?? "-")</td>
+                                    <td>@(b.CreatedDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ?? "-")</td>
+                                    <td>@authors</td>
+                                </tr>
+
+                                @* Antra eilutė – pilnas aprašymas per visą plotį *@
+                                <tr>
+                                    <td colspan="11">
+                                        <div>
+                                            <span class="badge bg-secondary">Aprašymas</span>
+                                            <span>@(string.IsNullOrWhiteSpace(b.Description) ? "-" : b.Description)</span>
+                                        </div>
+                                        <div class="mt-2 text-muted" style="font-size: 0.9em;">
+                                            ID: @b.Id
+                                        </div>
+                                        
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 2px solid #000;">
+                                    <td colspan="11" class="text-nowrap">
+                                        <a asp-controller="Books"
+                                        asp-action="Edit"
+                                        asp-route-id="@b.Id"
+                                        asp-route-returnUrl="@($"{Context.Request.Path}{Context.Request.QueryString}")"
+                                        class="btn btn-sm btn-outline-primary">
+                                            Redaguoti
+                                        </a>
+
+                                        <a asp-controller="Ratings"
+                                        asp-action="Create"
+                                        asp-route-bookId="@b.Id"
+                                        class="btn btn-sm btn-success">
+                                            Palikti įvertinimą
+                                        </a>
+
+                                        <a asp-controller="Lending"
+                                        asp-action="LendBook"
+                                        asp-route-bookId="@b.Id"
+                                        class="btn btn-sm btn-outline-primary">
+                                            Pasiimti
+                                        </a>
+                                    </td>
+                                </tr>
+                                    
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
 
     <div class="text-center mt-3">
         <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-sm">Grįžti į pradžią</a>
