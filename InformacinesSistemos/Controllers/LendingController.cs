@@ -51,7 +51,9 @@ namespace InformacinesSistemos.Controllers
             return RedirectToAction("ViewRecommendation", "Recommendation", new
             {
                 bookTitle = loan.Book?.Title,
-                showReturnConfirmation = true
+                showReturnConfirmation = true,
+                returnedBookId = loan.BookId,
+                loanId = loan.Id
             });
         }
     }

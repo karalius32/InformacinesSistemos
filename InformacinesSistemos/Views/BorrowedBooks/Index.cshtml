@@ -91,6 +91,8 @@
                                    asp-controller="Recommendation"
                                    asp-action="ViewRecommendation"
                                    asp-route-bookTitle="@loan.Book?.Title"
+                                   asp-route-returnedBookId="@loan.BookId"
+                                   asp-route-loanId="@loan.Id"
                                    asp-route-showReturnConfirmation="false">
                                     Žiūrėti rekomendaciją
                                 </a>

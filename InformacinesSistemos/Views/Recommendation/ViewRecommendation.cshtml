@@ -2,6 +2,16 @@
     ViewData["Title"] = "Rekomendacija";
     var bookTitle = ViewBag.BookTitle as string;
     var showReturnConfirmation = (bool)(ViewBag.ShowReturnConfirmation ?? false);
+    var aiRecommendation = ViewBag.Recommendation as string;
+    var recommendationError = ViewBag.RecommendationError as string;
+    int? returnedBookId = ViewBag.ReturnedBookId as int?;
+    int? recommendedBookId = ViewBag.RecommendedBookId as int?;
+    var recommendedBookTitle = ViewBag.RecommendedBookTitle as string;
+    var returnedBookTitle = ViewBag.ReturnedBookTitle as string;
+    var returnedBookAuthor = ViewBag.ReturnedBookAuthor as string;
+    var returnedBookYear = ViewBag.ReturnedBookYear as string;
+    var recommendedBookAuthor = ViewBag.RecommendedBookAuthor as string;
+    var recommendedBookYear = ViewBag.RecommendedBookYear as string;
 }
 
 <div class="container mt-4">
@@ -14,11 +24,60 @@
 
     <h3 class="mb-3">Rekomendacija</h3>
 
+    <div class="table-responsive mb-3">
+        <table class="table table-bordered align-middle w-100" style="table-layout: fixed;">
+            <thead>
+                <tr>
+                    <th>Grąžintos knygos ID</th>
+                    <th>Grąžintos knygos pavadinimas</th>
+                    <th>Autorius</th>
+                    <th>Metai</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@(returnedBookId?.ToString() ?? "-")</td>
+                    <td>@(string.IsNullOrWhiteSpace(returnedBookTitle) ? "-" : returnedBookTitle)</td>
+                    <td>@(string.IsNullOrWhiteSpace(returnedBookAuthor) ? "-" : returnedBookAuthor)</td>
+                    <td>@(string.IsNullOrWhiteSpace(returnedBookYear) ? "-" : returnedBookYear)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive mb-3">
+        <table class="table table-bordered align-middle w-100" style="table-layout: fixed;">
+            <thead>
+                <tr>
+                    <th>Rekomenduojamos knygos ID</th>
+                    <th>Rekomenduojamos knygos pavadinimas</th>
+                    <th>Autorius</th>
+                    <th>Metai</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@(recommendedBookId?.ToString() ?? "-")</td>
+                    <td>@(string.IsNullOrWhiteSpace(recommendedBookTitle) ? "-" : recommendedBookTitle)</td>
+                    <td>@(string.IsNullOrWhiteSpace(recommendedBookAuthor) ? "-" : recommendedBookAuthor)</td>
+                    <td>@(string.IsNullOrWhiteSpace(recommendedBookYear) ? "-" : recommendedBookYear)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     @if (!string.IsNullOrWhiteSpace(bookTitle))
     {
         <p class="text-muted">Knyga: @bookTitle</p>
     }
 
+    @if (!string.IsNullOrWhiteSpace(recommendationError))
+    {
+        <div class="alert alert-danger" role="alert">
+            @recommendationError
+        </div>
+    }
+
     <p class="fw-semibold">Panašios knygos į grąžintą:</p>
-    <p>Rekomendacija</p>
+    <p>@(string.IsNullOrWhiteSpace(aiRecommendation) ? "Rekomendacija" : aiRecommendation)</p>
 </div>
