@@ -21,7 +21,6 @@
                     <tr>
                         <th>Pasiskolinimo ID</th>
                         <th>Knygos ID</th>
-                        <th>Naudotojo ID</th>
                         <th>Paskolinimo data</th>
                         <th>Sukaupti delspinigiai</th>
                         <th>Pratęsimų skaičius</th>
@@ -34,7 +33,6 @@
                         <tr>
                             <td>@loan.Id</td>
                             <td>@loan.BookId</td>
-                            <td>@loan.UserId</td>
                             <td>@(loan.LoanDate?.ToString("yyyy-MM-dd") ?? "-")</td>
                             <td>@(loan.AccumulatedPenalties?.ToString("0.##") ?? "-")</td>
                             <td>@(loan.ExtensionCount?.ToString() ?? "0")</td>
@@ -67,7 +65,6 @@
                     <tr>
                         <th>Pasiskolinimo ID</th>
                         <th>Knygos ID</th>
-                        <th>Naudotojo ID</th>
                         <th>Paskolinimo data</th>
                         <th>Grąžinimo data</th>
                         <th>Sukaupti delspinigiai</th>

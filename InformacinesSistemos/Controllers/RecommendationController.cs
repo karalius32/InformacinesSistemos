@@ -59,36 +59,43 @@ namespace InformacinesSistemos.Controllers
             if (ViewBag.Recommendation == null)
             {
                 var result = await FetchRecommendationAsync(bookTitle, catalogContext);
-                var parsed = TryParseRecommendationJson(result.Recommendation);
-                var recommendationText = parsed.ReasonText ?? result.Recommendation;
-
-                if (loanId.HasValue && !string.IsNullOrWhiteSpace(recommendationText))
+                if (!string.IsNullOrWhiteSpace(result.Error))
                 {
-                    var parsedId = parsed.BookId ?? returnedBookId ?? 0;
-                    if (parsedId > 0)
-                    {
-                        var rec = new Models.Recommendation
-                        {
-                            RecommendationDate = DateTime.UtcNow,
-                            RecommendationText = recommendationText,
-                            LoanId = loanId.Value,
-                            BookId = parsedId
-                        };
-
-                        _db.Recommendations.Add(rec);
-                        await _db.SaveChangesAsync();
-
-                        // ensure we use the persisted values
-                        recommendedBookId = parsedId;
-                    }
+                    ViewBag.RecommendationError = result.Error;
                 }
+                else
+                {
+                    var parsed = TryParseRecommendationJson(result.Recommendation);
+                    var recommendationText = parsed.ReasonText ?? result.Recommendation;
 
-                ViewBag.Recommendation = recommendationText;
-                recommendedBookId ??= parsed.BookId;
-                recommendedBookTitle = parsed.BookTitle;
-                ViewBag.RecommendedBookAuthor = null;
-                ViewBag.RecommendedBookYear = null;
-                ViewBag.RecommendationError = result.Error;
+                    if (loanId.HasValue && !string.IsNullOrWhiteSpace(recommendationText))
+                    {
+                        var parsedId = parsed.BookId ?? returnedBookId ?? 0;
+                        if (parsedId > 0)
+                        {
+                            var rec = new Models.Recommendation
+                            {
+                                RecommendationDate = DateTime.UtcNow,
+                                RecommendationText = recommendationText,
+                                LoanId = loanId.Value,
+                                BookId = parsedId
+                            };
+
+                            _db.Recommendations.Add(rec);
+                            await _db.SaveChangesAsync();
+
+                            // ensure we use the persisted values
+                            recommendedBookId = parsedId;
+                        }
+                    }
+
+                    ViewBag.Recommendation = recommendationText;
+                    recommendedBookId ??= parsed.BookId;
+                    recommendedBookTitle = parsed.BookTitle;
+                    ViewBag.RecommendedBookAuthor = null;
+                    ViewBag.RecommendedBookYear = null;
+                    ViewBag.RecommendationError = result.Error;
+                }
             }
 
             // Fetch returned book details

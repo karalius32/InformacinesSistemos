@@ -8,6 +8,13 @@
 <div class="container mt-4">
     <h1 class="display-4 text-center mb-4">Bibliotekos sistema</h1>
 
+    @if (TempData["LendMessage"] != null)
+    {
+        var status = TempData["LendStatus"] as string;
+        var alertClass = status == "success" ? "alert-success" : "alert-danger";
+        <div class="alert @alertClass">@TempData["LendMessage"]</div>
+    }
+
     <div class="card">
         <div class="card-body">
             <form method="get" asp-controller="Search" asp-action="Index" class="row g-3">
