@@ -78,9 +78,9 @@ PSEUDOCODE / PLAN:
                 <tbody>
                     @foreach (var s in Model.OrderByDescending(x => x.PurchaseDate))
                     {
-                        var isActive = s.ValidUntil.HasValue &&
+                        var isActive = s.Status == InformacinesSistemos.Models.Enums.SubscriptionStatus.PendingPayment || (s.ValidUntil.HasValue &&
                         s.ValidUntil.Value >= DateOnly.FromDateTime(DateTime.Today) &&
-                        s.Status == InformacinesSistemos.Models.Enums.SubscriptionStatus.Active;
+                        s.Status == InformacinesSistemos.Models.Enums.SubscriptionStatus.Active);
 
                         <tr>
                             <td>@(s.PurchaseDate?.ToString("yyyy-MM-dd") ?? "-")</td>
