@@ -7,7 +7,10 @@
 
 <div class="container mt-4">
     <h1 class="display-4 text-center mb-4">Bibliotekos sistema</h1>
-
+    @if (TempData["Error"] is string err && !string.IsNullOrWhiteSpace(err))
+    {
+        <div class="alert alert-danger">@err</div>
+    }
     @if (TempData["LendMessage"] != null)
     {
         var status = TempData["LendStatus"] as string;
@@ -70,8 +73,12 @@
                                     asp-route-id="@b.Id"
                                     asp-route-returnUrl="@($"{Context.Request.Path}{Context.Request.QueryString}")"
                                     class="btn btn-sm btn-outline-primary">Redaguoti</a>
-                                <a asp-controller="Ratings" asp-action="Create" asp-route-bookId="@b.Id"
-                                   class="btn btn-sm btn-success">Palikti įvertinimą</a>
+                                <a asp-controller="Ratings" asp-action="Create"
+                                    asp-route-bookId="@b.Id"
+                                    asp-route-returnUrl="@(Context.Request.Path + Context.Request.QueryString)"
+                                    class="btn btn-sm btn-success">
+                                        Palikti įvertinimą
+                                </a>
                                 <a asp-controller="Lending" asp-action="LendBook" asp-route-bookId="@b.Id"
                                        class="btn btn-sm btn-outline-primary">Pasiimti</a>
                             </td>

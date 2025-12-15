@@ -31,11 +31,9 @@ namespace InformacinesSistemos.Controllers
             return await q.FirstOrDefaultAsync(p => p.IdentityUserId == user.Id);
         }
 
-        // Tik Librarian gali kurti/redaguoti/trinti (Admin - NEGALI).
         private static bool CanManageBooks(UserAccount profile)
             => profile.Role == UserRole.Librarian;
 
-        // --- CREATE ---
         [Authorize]
         [HttpGet]
         public async Task<IActionResult> Create(string? returnUrl = null)
@@ -44,7 +42,32 @@ namespace InformacinesSistemos.Controllers
             if (profile == null) return RedirectToAction("Login", "Account");
             if (!CanManageBooks(profile)) return Forbid();
 
-            return View(new BookCreateViewModel { ReturnUrl = returnUrl });
+            var vm = new BookCreateViewModel { ReturnUrl = returnUrl };
+
+            vm.CategoryOptions = await _db.Categories
+                .AsNoTracking()
+                .OrderBy(c => c.Name)
+                .Select(c => new BookCreateViewModel.CategoryOption
+                {
+                    Id = c.Id,
+                    Name = c.Name ?? ""
+                })
+                .ToListAsync();
+
+            vm.AvailableAuthors = await _db.Authors
+                .AsNoTracking()
+                .OrderBy(a => a.LastName).ThenBy(a => a.FirstName)
+                .Select(a => new BookCreateViewModel.AuthorPickRow
+                {   
+                    Role = AuthorRole.Author,
+                    AuthorId = a.Id,
+                    FullName = ((a.FirstName ?? "") + " " + (a.LastName ?? "")).Trim(),
+                    Selected = false,
+                    Contribution = 100
+                })
+                .ToListAsync();
+
+            return View(vm);
         }
 
         [Authorize]
@@ -78,7 +101,46 @@ namespace InformacinesSistemos.Controllers
             _db.Books.Add(book);
             await _db.SaveChangesAsync();
 
-            // Jei įvesta autoriaus info – susiejam su Author ir BookAuthor
+            if (vm.SelectedCategoryId.HasValue && vm.SelectedCategoryId.Value > 0)
+{
+                var exists = await _db.Categories.AnyAsync(c => c.Id == vm.SelectedCategoryId.Value);
+                if (exists)
+                {
+                    _db.BookCategories.Add(new BookCategory
+                    {
+                        BookId = book.Id,
+                        CategoryId = vm.SelectedCategoryId.Value
+                    });
+
+                    await _db.SaveChangesAsync();
+                }
+            }
+
+            var picked = vm.AvailableAuthors?.Where(x => x.Selected).ToList() ?? new();
+
+            foreach (var p in picked)
+            {
+                var authorExists = await _db.Authors.AnyAsync(a => a.Id == p.AuthorId);
+                if (!authorExists) continue;
+
+                var linkExists = await _db.BookAuthors
+                    .AnyAsync(ba => ba.BookId == book.Id && ba.AuthorId == p.AuthorId);
+
+                if (!linkExists)
+                {
+                    _db.BookAuthors.Add(new BookAuthor
+                    {
+                        BookId = book.Id,
+                        AuthorId = p.AuthorId,
+                        Contribution = p.Contribution ?? 100,
+                        Role = p.Role,
+                    });
+                }
+            }
+
+            if (picked.Any())
+                await _db.SaveChangesAsync();
+
             var fn = vm.AuthorFirstName?.Trim();
             var ln = vm.AuthorLastName?.Trim();
 
@@ -117,10 +179,9 @@ namespace InformacinesSistemos.Controllers
             if (!string.IsNullOrWhiteSpace(vm.ReturnUrl) && Url.IsLocalUrl(vm.ReturnUrl))
                 return Redirect(vm.ReturnUrl);
 
-            return RedirectToAction("Edit", new { id = book.Id });
+            return RedirectToAction("Index", "Home");
         }
 
-        // --- EDIT ---
         [Authorize]
         [HttpGet]
         public async Task<IActionResult> Edit(int id, string? returnUrl = null)
@@ -159,7 +220,45 @@ namespace InformacinesSistemos.Controllers
                             .Where(s => !string.IsNullOrWhiteSpace(s))),
                 ReturnUrl = returnUrl
             };
+            var allAuthors = await _db.Authors
+                .AsNoTracking()
+                .OrderBy(a => a.LastName).ThenBy(a => a.FirstName)
+                .Select(a => new { a.Id, a.FirstName, a.LastName })
+                .ToListAsync();
 
+            var existingLinks = await _db.BookAuthors
+                .AsNoTracking()
+                .Where(ba => ba.BookId == id)
+                .ToListAsync();
+
+            vm.AvailableAuthors = allAuthors.Select(a =>
+            {
+                var link = existingLinks.FirstOrDefault(x => x.AuthorId == a.Id);
+                return new BookEditViewModel.AuthorPickRow
+                {
+                    AuthorId = a.Id,
+                    FullName = (((a.FirstName ?? "") + " " + (a.LastName ?? "")).Trim()),
+                    Selected = link != null,
+                    Contribution = link?.Contribution ?? 100,
+                    Role = link?.Role ?? InformacinesSistemos.Models.Enums.AuthorRole.Author
+                };
+            }).ToList();
+
+            vm.CategoryOptions = await _db.Categories
+                .AsNoTracking()
+                .OrderBy(c => c.Name)
+                .Select(c => new BookEditViewModel.CategoryOption
+                {
+                    Id = c.Id,
+                    Name = c.Name ?? ""
+                })
+                .ToListAsync();
+
+            vm.SelectedCategoryId = await _db.BookCategories
+                .AsNoTracking()
+                .Where(bc => bc.BookId == id)
+                .Select(bc => (int?)bc.CategoryId)
+                .FirstOrDefaultAsync();
             return View(vm);
         }
 
@@ -192,17 +291,75 @@ namespace InformacinesSistemos.Controllers
             book.Keywords = vm.Keywords;
             book.UpdatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
 
+            var selectedAuthors = (vm.AvailableAuthors ?? new List<BookEditViewModel.AuthorPickRow>())
+                .Where(x => x.Selected)
+                .GroupBy(x => x.AuthorId)
+                .Select(g => g.First())
+                .ToList();
+
+            var oldLinks = await _db.BookAuthors.Where(ba => ba.BookId == id).ToListAsync();
+            _db.BookAuthors.RemoveRange(oldLinks);
+
+            foreach (var a in selectedAuthors)
+            {
+                _db.BookAuthors.Add(new BookAuthor
+                {
+                    BookId = id,
+                    AuthorId = a.AuthorId,
+                    Contribution = a.Contribution ?? 100,
+                    Role = a.Role
+                });
+            }
+
+            var oldCats = await _db.BookCategories.Where(bc => bc.BookId == id).ToListAsync();
+            _db.BookCategories.RemoveRange(oldCats);
+
+            if (vm.SelectedCategoryId.HasValue && vm.SelectedCategoryId.Value > 0)
+            {
+                _db.BookCategories.Add(new BookCategory
+                {
+                    BookId = id,
+                    CategoryId = vm.SelectedCategoryId.Value
+                });
+            }
+
             await _db.SaveChangesAsync();
 
             TempData["Success"] = "Knyga sėkmingai atnaujinta.";
 
-            if (!string.IsNullOrWhiteSpace(vm.ReturnUrl) && Url.IsLocalUrl(vm.ReturnUrl))
-                return Redirect(vm.ReturnUrl);
+            if (!ModelState.IsValid)
+            {
+                vm.CategoryOptions = await _db.Categories
+                    .AsNoTracking()
+                    .OrderBy(c => c.Name)
+                    .Select(c => new BookEditViewModel.CategoryOption { Id = c.Id, Name = c.Name ?? "" })
+                    .ToListAsync();
+
+                if (vm.AvailableAuthors == null || vm.AvailableAuthors.Count == 0)
+                {
+                    var allAuthors = await _db.Authors
+                        .AsNoTracking()
+                        .OrderBy(a => a.LastName).ThenBy(a => a.FirstName)
+                        .Select(a => new { a.Id, a.FirstName, a.LastName })
+                        .ToListAsync();
+
+                    vm.AvailableAuthors = allAuthors.Select(a => new BookEditViewModel.AuthorPickRow
+                    {
+                        AuthorId = a.Id,
+                        FullName = (((a.FirstName ?? "") + " " + (a.LastName ?? "")).Trim()),
+                        Selected = false,
+                        Contribution = 100,
+                        Role = InformacinesSistemos.Models.Enums.AuthorRole.Author
+                    }).ToList();
+                }
+
+                return View(vm);
+            }
+
 
             return RedirectToAction("Index", "Home");
         }
 
-        // --- DELETE ---
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]

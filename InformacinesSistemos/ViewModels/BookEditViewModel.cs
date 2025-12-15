@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using InformacinesSistemos.Models.Enums;
 
 namespace InformacinesSistemos.ViewModels
 {
@@ -41,5 +42,23 @@ namespace InformacinesSistemos.ViewModels
         public string? Keywords { get; set; }
         public string? ReturnUrl { get; set; }
         public string? AuthorsDisplay { get; set; }
+        public List<AuthorPickRow> AvailableAuthors { get; set; } = new();
+        public int? SelectedCategoryId { get; set; }
+        public List<CategoryOption> CategoryOptions { get; set; } = new();
+
+        public class CategoryOption
+        {
+            public int Id { get; set; }
+            public string Name { get; set; } = "";
+        }
+
+        public class AuthorPickRow
+        {
+            public int AuthorId { get; set; }
+            public string FullName { get; set; } = "";
+            public bool Selected { get; set; }
+            public int? Contribution { get; set; } = 100;
+            public AuthorRole Role { get; set; } = AuthorRole.Author;
+        }
     }
 }

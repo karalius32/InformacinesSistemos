@@ -1,8 +1,27 @@
+@using System.Collections
 @using System.Globalization
+@using System.Linq
 @model InformacinesSistemos.ViewModels.SearchViewModel
 
 @{
     ViewData["Title"] = "Knygos paieška";
+
+    var selectedCats = new HashSet<int>();
+    var selectedAuthors = new HashSet<int>();
+
+    if (Model?.SelectedCategoryIds is IEnumerable cats)
+    {
+        foreach (var x in cats)
+            if (x != null && int.TryParse(x.ToString(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var id))
+                selectedCats.Add(id);
+    }
+
+    if (Model?.SelectedAuthorIds is IEnumerable auths)
+    {
+        foreach (var x in auths)
+            if (x != null && int.TryParse(x.ToString(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var id))
+                selectedAuthors.Add(id);
+    }
 }
 
 <div class="container mt-4">
@@ -11,16 +30,94 @@
     <div class="card">
         <div class="card-body">
             <form method="get" asp-controller="Search" asp-action="Index" class="row g-3">
-                <div class="col-md-9">
+
+                <!-- Paieškos juosta -->
+                <div class="col-12">
+                    <label class="form-label">Paieška</label>
                     <input type="text"
                            name="q"
                            value="@Model?.Query"
                            class="form-control"
                            placeholder="Įvesk knygos pavadinimą">
                 </div>
-                <div class="col-md-3 d-grid">
-                    <button type="submit" class="btn btn-success">Ieškoti</button>
+
+                <!-- Kategorijos -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Kategorijos (pasirink 0 arba daugiau)</div>
+                        <div class="card-body" style="height: 100px; overflow-y: auto;">
+                            @if (Model?.CategoryOptions == null || !Model.CategoryOptions.Any())
+                            {
+                                <div class="text-muted">Kategorijų nėra.</div>
+                            }
+                            else
+                            {
+                                foreach (var c in Model.CategoryOptions)
+                                {
+                                    var isChecked = selectedCats.Contains(c.Id);
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                               type="checkbox"
+                                               name="categoryIds"
+                                               value="@c.Id"
+                                               id="cat_@c.Id"
+                                               @(isChecked ? "checked" : null) />
+                                        <label class="form-check-label" for="cat_@c.Id">@c.Name</label>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Autoriai -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Autoriai (pasirink 0 arba daugiau)</div>
+                        <div class="card-body" style="height: 100px; overflow-y: auto;">
+                            @if (Model?.AuthorOptions == null || !Model.AuthorOptions.Any())
+                            {
+                                <div class="text-muted">Autorių nėra.</div>
+                            }
+                            else
+                            {
+                                foreach (var a in Model.AuthorOptions)
+                                {
+                                    var isChecked = selectedAuthors.Contains(a.Id);
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                               type="checkbox"
+                                               name="authorIds"
+                                               value="@a.Id"
+                                               id="auth_@a.Id"
+                                               @(isChecked ? "checked" : null) />
+                                        <label class="form-check-label" for="auth_@a.Id">@a.Name</label>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metai -->
+                <div class="col-md-3">
+                    <label class="form-label">Metai nuo</label>
+                    <input name="yearFrom" type="number" class="form-control"
+                           value="@(Model?.YearFrom?.ToString() ?? "")" min="1" max="9999" />
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Metai iki</label>
+                    <input name="yearTo" type="number" class="form-control"
+                           value="@(Model?.YearTo?.ToString() ?? "")" min="1" max="9999" />
+                </div>
+
+                <!-- Mygtukai -->
+                <div class="col-md-6 d-flex align-items-end gap-2">
+                    <button type="submit" class="btn btn-success w-100">Ieškoti</button>
+                    <a class="btn btn-outline-secondary w-100" href="@Url.Action("Index","Search")">Išvalyti</a>
+                </div>
+
             </form>
         </div>
     </div>
@@ -30,7 +127,7 @@
         <div class="card mt-4">
             <div class="card-body">
                 <h5 class="mb-3">Paieškos rezultatai</h5>
-                <p class="text-muted mb-3">Užklausa: <b>@Model.Query</b></p>
+                <p class="text-muted mb-3">Užklausa: <b>@Model?.Query</b></p>
 
                 <table class="table table-striped table-bordered align-middle">
                     <thead class="table-dark">
@@ -39,7 +136,7 @@
                             <th>Pavadinimas</th>
                             <th>Identifikatorius</th>
                             <th>Išleidimo data</th>
-                            <th>Atnaujinimo data</th>
+                            <th>Žanras</th>
                             <th>Puslapių sk.</th>
                             <th>Leidėjas</th>
                             <th>Kalba</th>
@@ -49,10 +146,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (Model.Results == null || !Model.Results.Any())
+                        @if (Model?.Results == null || !Model.Results.Any())
                         {
                             <tr>
-                                <td colspan="11" class="text-center">Nieko nerasta</td>
+                                <td colspan="11" class="text-center">Rezultatų nerasta</td>
                             </tr>
                         }
                         else
@@ -81,7 +178,15 @@
                                     <td><b>@(b.Title ?? "-")</b></td>
                                     <td>@(b.Identifier ?? "-")</td>
                                     <td>@(b.PublishDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ?? "-")</td>
-                                    <td>@(b.UpdatedDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ?? "-")</td>
+                                    @{
+                                        var genre = (b.BookCategories == null || !b.BookCategories.Any())
+                                            ? "-"
+                                            : string.Join(", ",
+                                                b.BookCategories
+                                                    .Select(bc => bc.Category?.Name)
+                                                    .Where(n => !string.IsNullOrWhiteSpace(n)));
+                                    }
+                                    <td>@genre</td>
                                     <td>@(b.PageCount?.ToString() ?? "-")</td>
                                     <td>@(b.Publisher ?? "-")</td>
                                     <td>@(b.Language ?? "-")</td>
@@ -90,7 +195,6 @@
                                     <td>@authors</td>
                                 </tr>
 
-                                @* Antra eilutė – pilnas aprašymas per visą plotį *@
                                 <tr>
                                     <td colspan="11">
                                         <div>
@@ -100,35 +204,64 @@
                                         <div class="mt-2 text-muted" style="font-size: 0.9em;">
                                             ID: @b.Id
                                         </div>
-                                        
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    @{
+                                        var avg = 0;
+                                        var cnt = 0;
+
+                                        if (Model?.RatingByBookId != null &&
+                                            Model.RatingByBookId.TryGetValue(b.Id, out var rs) &&
+                                            rs != null)
+                                        {
+                                            avg = rs.AvgRounded;
+                                            cnt = rs.Count;
+                                        }
+                                    }
+
+                                    <td colspan="11">
+                                        @for (int k = 1; k <= 5; k++)
+                                        {
+                                            if (k <= avg)
+                                            {
+                                                <span class="text-warning">★</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-secondary">★</span>
+                                            }
+                                        }
+                                        <span class="ms-1 text-muted">(@cnt)</span>
+                                    </td>
+                                </tr>
+
                                 <tr style="border-bottom: 2px solid #000;">
                                     <td colspan="11" class="text-nowrap">
                                         <a asp-controller="Books"
-                                        asp-action="Edit"
-                                        asp-route-id="@b.Id"
-                                        asp-route-returnUrl="@($"{Context.Request.Path}{Context.Request.QueryString}")"
-                                        class="btn btn-sm btn-outline-primary">
+                                           asp-action="Edit"
+                                           asp-route-id="@b.Id"
+                                           asp-route-returnUrl="@($"{Context.Request.Path}{Context.Request.QueryString}")"
+                                           class="btn btn-sm btn-outline-primary">
                                             Redaguoti
                                         </a>
 
-                                        <a asp-controller="Ratings"
-                                        asp-action="Create"
-                                        asp-route-bookId="@b.Id"
-                                        class="btn btn-sm btn-success">
+                                        <a asp-controller="Ratings" asp-action="Create"
+                                           asp-route-bookId="@b.Id"
+                                           asp-route-returnUrl="@(Context.Request.Path + Context.Request.QueryString)"
+                                           class="btn btn-sm btn-success">
                                             Palikti įvertinimą
                                         </a>
 
                                         <a asp-controller="Lending"
-                                        asp-action="LendBook"
-                                        asp-route-bookId="@b.Id"
-                                        class="btn btn-sm btn-outline-primary">
+                                           asp-action="LendBook"
+                                           asp-route-bookId="@b.Id"
+                                           class="btn btn-sm btn-outline-primary">
                                             Pasiimti
                                         </a>
                                     </td>
                                 </tr>
-                                    
                             }
                         }
                     </tbody>

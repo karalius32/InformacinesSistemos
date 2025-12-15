@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using InformacinesSistemos.Models.Enums;
 
 namespace InformacinesSistemos.ViewModels
 {
@@ -35,7 +36,6 @@ namespace InformacinesSistemos.ViewModels
         [MaxLength(255)]
         public string? Keywords { get; set; }
 
-        // Jei bibliotekoje kuriant norima iškart susieti autorių.
         [MaxLength(255)]
         public string? AuthorFirstName { get; set; }
 
@@ -43,5 +43,35 @@ namespace InformacinesSistemos.ViewModels
         public string? AuthorLastName { get; set; }
 
         public string? ReturnUrl { get; set; }
+        public class AuthorListItem
+        {
+            public int Id { get; set; }
+            public string Name { get; set; } = "";
+        }
+
+        public class SelectedAuthorInput
+        {
+            public int AuthorId { get; set; }
+            public string? Contribution { get; set; }
+        }
+        public List<AuthorPickRow> AvailableAuthors { get; set; } = new();
+        public class AuthorPickRow
+        {
+            public int AuthorId { get; set; }
+            public string FullName { get; set; } = "";
+            public bool Selected { get; set; }
+            public AuthorRole Role { get; set; } = AuthorRole.Author;
+
+            [Range(0, 100, ErrorMessage = "Indėlis turi būti nuo 0 iki 100")]
+            public int? Contribution { get; set; } = 100;
+        }
+        public int? SelectedCategoryId { get; set; }
+        public List<CategoryOption> CategoryOptions { get; set; } = new();
+
+        public class CategoryOption
+        {
+            public int Id { get; set; }
+            public string Name { get; set; } = "";
+        }
     }
 }

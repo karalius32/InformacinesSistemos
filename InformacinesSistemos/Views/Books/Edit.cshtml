@@ -97,12 +97,84 @@
                         <span asp-validation-for="Keywords" class="text-danger"></span>
                     </div>
                 </div>
+                @{
+                    var authors = Model?.AvailableAuthors ?? new List<InformacinesSistemos.ViewModels.BookEditViewModel.AuthorPickRow>();
+                    var categories = Model?.CategoryOptions ?? new List<InformacinesSistemos.ViewModels.BookEditViewModel.CategoryOption>();
+                }
+
+                <div class="card mt-4">
+                    <div class="card-header">
+                        Autoriai (pasirink 0 arba daugiau)
+                    </div>
+                    <div class="card-body">
+                        @if (!authors.Any())
+                        {
+                            <div class="text-muted">Autorių sąrašas tuščias.</div>
+                        }
+                        else
+                        {
+                            for (int i = 0; i < authors.Count; i++)
+                            {
+                                <input type="hidden" asp-for="AvailableAuthors[i].AuthorId" />
+                                <input type="hidden" asp-for="AvailableAuthors[i].FullName" />
+
+                                <div class="row align-items-end mb-2 pb-2 border-bottom">
+                                    <div class="col-6">
+                                        <div class="form-check">
+                                            <input asp-for="AvailableAuthors[i].Selected" class="form-check-input" />
+                                            <label class="form-check-label" for="@Html.IdFor(m => m.AvailableAuthors[i].Selected)">
+                                                @authors[i].FullName
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <label class="form-label small mb-0">Indėlis (%)</label>
+                                        <input asp-for="AvailableAuthors[i].Contribution"
+                                            type="number" min="0" max="100"
+                                            class="form-control form-control-sm" />
+                                    </div>
+
+                                    <div class="col-3">
+                                        <label class="form-label small mb-0">Vaidmuo</label>
+                                        <select asp-for="AvailableAuthors[i].Role" class="form-select form-select-sm">
+                                            <option value="author">Autorius</option>
+                                            <option value="coauthor">Bendraautorius</option>
+                                            <option value="editor">Redaktorius</option>
+                                            <option value="translator">Vertėjas</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        <div class="form-text">Pažymėk autorius ir nurodyk indėlį bei vaidmenį.</div>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        Kategorija (pasirink 1 arba nepasirink)
+                    </div>
+                    <div class="card-body">
+                        <label class="form-label">Kategorija</label>
+                        <select asp-for="SelectedCategoryId" class="form-select">
+                            <option value="">-- Nekategorizuota --</option>
+                            @foreach (var c in categories)
+                            {
+                                <option value="@c.Id">@c.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
 
                 <div class="mt-4 d-flex gap-2">
                     <button type="submit" class="btn btn-success">Išsaugoti</button>
 
-                    <a href="@(string.IsNullOrWhiteSpace(Model.ReturnUrl) ? Url.Action("Index","Home") : Model.ReturnUrl)"
-                    class="btn btn-outline-secondary">Atšaukti</a>
+                    <a href="@(
+                        string.IsNullOrWhiteSpace(Model?.ReturnUrl)
+                            ? Url.Action("Index","Home")
+                            : Model!.ReturnUrl
+                    )" class="btn btn-outline-secondary">Atšaukti</a>
                 </div>
                 </form>
 
@@ -110,7 +182,7 @@
                     var title = Model.Title ?? "-";
                     var authors = string.IsNullOrWhiteSpace(Model.AuthorsDisplay) ? "-" : Model.AuthorsDisplay;
                     var msg = $"Ar tikrai norite ištrinti knygą \"{title}\" (Autorius: {authors})?\nŠis veiksmas negrįžtamas.";
-                    var msgJson = System.Text.Json.JsonSerializer.Serialize(msg); // <-- JS string literal
+                    var msgJson = System.Text.Json.JsonSerializer.Serialize(msg);
                 }
 
                 <form asp-controller="Books" asp-action="Delete" method="post" class="mt-3"
@@ -130,7 +202,6 @@
         var t = title ?? "-";
         var a = string.IsNullOrWhiteSpace(authors) ? "-" : authors;
 
-        // JS string su escape
         var msg = $"Ar tikrai norite ištrinti knygą \"{t}\" (Autorius: {a})?";
         return "'" + msg.Replace("\\", "\\\\").Replace("'", "\\'").Replace("\"", "\\\"") + "'";
     }

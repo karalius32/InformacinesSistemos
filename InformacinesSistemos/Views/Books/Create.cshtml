@@ -1,109 +1,160 @@
 @model InformacinesSistemos.ViewModels.BookCreateViewModel
+@using System
 
 @{
     ViewData["Title"] = "Sukurti knygą";
     var backUrl = (!string.IsNullOrWhiteSpace(Model?.ReturnUrl) && Url.IsLocalUrl(Model.ReturnUrl))
-        ? Model.ReturnUrl
+        ? Model!.ReturnUrl
         : Url.Action("Index", "Home");
+
+    var authors = Model?.AvailableAuthors ?? new List<InformacinesSistemos.ViewModels.BookCreateViewModel.AuthorPickRow>();
+    var categories = Model?.CategoryOptions ?? new List<InformacinesSistemos.ViewModels.BookCreateViewModel.CategoryOption>();
 }
 
 <h2>@ViewData["Title"]</h2>
 
 <form asp-action="Create" asp-controller="Books" method="post" class="mt-3">
     @Html.AntiForgeryToken()
-
     <input type="hidden" asp-for="ReturnUrl" />
 
     <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
     <div class="row">
         <div class="col-md-8">
+
             <div class="mb-3">
-                <label asp-for="Title" class="form-label"></label>
+                <label class="form-label">Pavadinimas</label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
-                <label asp-for="Identifier" class="form-label"></label>
+                <label class="form-label">Identifikatorius</label>
                 <input asp-for="Identifier" class="form-control" />
                 <span asp-validation-for="Identifier" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
-                <label asp-for="PublishDate" class="form-label"></label>
-                <input asp-for="PublishDate" class="form-control" />
+                <label class="form-label">Išleidimo data</label>
+                <input asp-for="PublishDate" type="date" class="form-control" />
                 <span asp-validation-for="PublishDate" class="text-danger"></span>
-                <div class="form-text">Pvz.: 2024-01-31</div>
             </div>
 
             <div class="mb-3">
-                <label asp-for="Description" class="form-label"></label>
+                <label class="form-label">Aprašymas</label>
                 <textarea asp-for="Description" class="form-control" rows="4"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
-                <label asp-for="PageCount" class="form-label"></label>
-                <input asp-for="PageCount" class="form-control" />
+                <label class="form-label">Puslapių skaičius</label>
+                <input asp-for="PageCount" type="number" class="form-control" />
                 <span asp-validation-for="PageCount" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
-                <label asp-for="Publisher" class="form-label"></label>
+                <label class="form-label">Leidėjas</label>
                 <input asp-for="Publisher" class="form-control" />
                 <span asp-validation-for="Publisher" class="text-danger"></span>
             </div>
 
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label asp-for="Language" class="form-label"></label>
+                    <label class="form-label">Kalba</label>
                     <input asp-for="Language" class="form-control" />
                     <span asp-validation-for="Language" class="text-danger"></span>
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label asp-for="Format" class="form-label"></label>
+                    <label class="form-label">Formatas</label>
                     <input asp-for="Format" class="form-control" />
                     <span asp-validation-for="Format" class="text-danger"></span>
                 </div>
             </div>
 
             <div class="mb-3">
-                <label asp-for="CoverUrl" class="form-label"></label>
+                <label class="form-label">Viršelio URL</label>
                 <input asp-for="CoverUrl" class="form-control" />
                 <span asp-validation-for="CoverUrl" class="text-danger"></span>
+                <div class="form-text">Įrašyk tiesioginį paveikslėlio URL (pvz. baigiasi .jpg/.png)</div>
             </div>
 
             <div class="mb-3">
-                <label asp-for="Keywords" class="form-label"></label>
+                <label class="form-label">Raktažodžiai</label>
                 <input asp-for="Keywords" class="form-control" />
                 <span asp-validation-for="Keywords" class="text-danger"></span>
                 <div class="form-text">Raktažodžiai, atskirti kableliais.</div>
             </div>
+
         </div>
 
         <div class="col-md-4">
             <div class="card mb-3">
                 <div class="card-header">
-                    Autorius (nebūtina)
+                    Autoriai (pasirink 0 arba daugiau)
                 </div>
                 <div class="card-body">
-                    <div class="mb-3">
-                        <label asp-for="AuthorFirstName" class="form-label"></label>
-                        <input asp-for="AuthorFirstName" class="form-control" />
-                        <span asp-validation-for="AuthorFirstName" class="text-danger"></span>
-                    </div>
+                    @if (!authors.Any())
+                    {
+                        <div class="text-muted">Autorių sąrašas tuščias.</div>
+                    }
+                    else
+                    {
+                        for (int i = 0; i < authors.Count; i++)
+                        {
+                            <input type="hidden" asp-for="AvailableAuthors[i].AuthorId" />
+                            <input type="hidden" asp-for="AvailableAuthors[i].FullName" />
 
-                    <div class="mb-3">
-                        <label asp-for="AuthorLastName" class="form-label"></label>
-                        <input asp-for="AuthorLastName" class="form-control" />
-                        <span asp-validation-for="AuthorLastName" class="text-danger"></span>
-                    </div>
+                            <div class="row align-items-end mb-2 pb-2 border-bottom">
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input asp-for="AvailableAuthors[i].Selected" class="form-check-input" />
+                                        <label class="form-check-label" for="@Html.IdFor(m => m.AvailableAuthors[i].Selected)">
+                                            @authors[i].FullName
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <label class="form-label small mb-0">Indėlis (%)</label>
+                                    <input asp-for="AvailableAuthors[i].Contribution"
+                                           type="number" min="0" max="100"
+                                           class="form-control form-control-sm" />
+                                    <span asp-validation-for="AvailableAuthors[i].Contribution" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-3">
+                                    <label class="form-label small mb-0">Vaidmuo</label>
+                                    <select asp-for="AvailableAuthors[i].Role" class="form-select form-select-sm">
+                                        <option value="author">Autorius</option>
+                                        <option value="coauthor">Bendraautorius</option>
+                                        <option value="editor">Redaktorius</option>
+                                        <option value="translator">Vertėjas</option>
+                                    </select>
+                                </div>
+                            </div>
+                        }
+                    }
 
                     <div class="form-text">
-                        Jei įvesi autorių, sistema sukurs arba pririš prie esamo.
+                        Pažymėk autorius ir nurodyk indėlį bei vaidmenį.
                     </div>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    Kategorija (pasirink 1 arba nepasirink)
+                </div>
+                <div class="card-body">
+                    <label class="form-label">Kategorija</label>
+                    <select asp-for="SelectedCategoryId" class="form-select">
+                        <option value="">-- Nekategorizuota --</option>
+                        @foreach (var c in categories)
+                        {
+                            <option value="@c.Id">@c.Name</option>
+                        }
+                    </select>
                 </div>
             </div>
 

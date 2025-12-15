@@ -1,31 +1,60 @@
+@model InformacinesSistemos.ViewModels.RatingCreateViewModel
+
 @{
-    ViewData["Title"] = "Įvertinimo forma";
+    ViewData["Title"] = "Palikti įvertinimą";
+    var backUrl = (!string.IsNullOrWhiteSpace(Model?.ReturnUrl) && Url.IsLocalUrl(Model.ReturnUrl))
+        ? Model.ReturnUrl
+        : Url.Action("Index", "Home");
 }
 
 <div class="container mt-4">
-    <h2 class="mb-4 text-center">Įvertinimo forma</h2>
+    <h2 class="mb-3 text-center">Palikti įvertinimą</h2>
+    
+    <div class="card mb-3">
+        <div class="card-body">
+            <div><b>Knyga:</b> @(Model?.BookTitle ?? "-")</div>
+            <div><b>Autoriai:</b> @(Model?.AuthorsDisplay ?? "-")</div>
+        </div>
+    </div>
 
     <div class="card">
         <div class="card-body">
-            <form>
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <label class="form-label">Įvertinimas (1–5)</label>
-                        <select class="form-select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option selected>5</option>
-                        </select>
-                    </div>
+            <form asp-action="Create" asp-controller="Ratings" method="post">
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" asp-for="BookId" />
+                <input type="hidden" asp-for="ReturnUrl" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label class="form-label">Įvertinimas</label>
+                    <select asp-for="RatingValue" class="form-select">
+                        <option value="1">1 - Labai blogai</option>
+                        <option value="2">2 - Blogai</option>
+                        <option value="3">3 - Vidutiniškai</option>
+                        <option value="4">4 - Gerai</option>
+                        <option value="5">5 - Puikiai</option>
+                    </select>
+                    <span asp-validation-for="RatingValue" class="text-danger"></span>
                 </div>
 
-                <div class="d-flex gap-2 justify-content-end mt-4">
-                    <button type="button" class="btn btn-secondary" onclick="history.back()">Atšaukti</button>
-                    <a asp-controller="Home" asp-action="Index" class="btn btn-success">Išsaugoti</a>
+                <div class="mb-3">
+                    <label class="form-label">Komentaras (nebūtina)</label>
+                    <textarea asp-for="Comment" class="form-control" rows="4" maxlength="255"
+                              placeholder="Trumpas komentaras (iki 255 simbolių)"></textarea>
+                    <span asp-validation-for="Comment" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">Išsaugoti</button>
+                    <a class="btn btn-outline-secondary" href="@backUrl">Atšaukti</a>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
