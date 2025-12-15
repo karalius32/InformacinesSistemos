@@ -1,9 +1,42 @@
-﻿@{
+﻿@model List<InformacinesSistemos.Models.UserAccount>
+@using InformacinesSistemos.Models.Enums
+@removeTagHelper Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
     ViewData["Title"] = "Vartotojų sąrašas";
 }
 
 <div class="container mt-4">
     <h2 class="mb-4 text-center">Vartotojų sąrašas</h2>
+
+    @if (TempData["AdminMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["AdminMessage"]</div>
+    }
+
+    <form method="get" asp-action="Index" class="row g-3 mb-3">
+        <div class="col-md-4">
+            <label class="form-label">Filtruoti pagal rolę</label>
+            <select name="role" class="form-select">
+                <option value="">Visi</option>
+                @foreach (UserRole role in Enum.GetValues(typeof(UserRole)))
+                {
+                    var selected = (ViewBag.SelectedRole != null && (UserRole)ViewBag.SelectedRole == role) ? "selected" : "";
+                    var label = role switch
+                    {
+                        UserRole.Administrator => "Administratorius",
+                        UserRole.Reader => "Skaitytojas",
+                        UserRole.Librarian => "Bibliotekininkas",
+                        _ => role.ToString()
+                    };
+                    <option value="@role" @selected>@label</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary">Filtruoti</button>
+        </div>
+    </form>
 
     <table class="table table-striped table-bordered align-middle">
         <thead class="table-dark">
@@ -12,39 +45,44 @@
                 <th>Vardas</th>
                 <th>El. paštas</th>
                 <th>Rolė</th>
-                <th>Veiksmai</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Example users for prototype -->
-            <tr>
-                <td>1</td>
-                <td>Jonas Jonaitis</td>
-                <td>jonas@pavyzdys.lt</td>
-                <td style="width: 200px;">
-                    <select class="form-select form-select-sm">
-                        <option selected>Vartotojas</option>
-                        <option>Administratorius</option>
-                    </select>
-                </td>
-                <td>
-                    <button class="btn btn-sm btn-success" onclick="fakeSave(this)">Išsaugoti</button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Agnė Petrauskaitė</td>
-                <td>agne@pavyzdys.lt</td>
-                <td style="width: 200px;">
-                    <select class="form-select form-select-sm">
-                        <option>Vartotojas</option>
-                        <option selected>Administratorius</option>
-                    </select>
-                </td>
-                <td>
-                    <button class="btn btn-sm btn-success" onclick="fakeSave(this)">Išsaugoti</button>
-                </td>
-            </tr>
+            @if (Model == null || !Model.Any())
+            {
+                <tr><td colspan="4" class="text-center">Nėra vartotojų.</td></tr>
+            }
+            else
+            {
+                foreach (var u in Model)
+                {
+                    <tr>
+                        <td>@u.Id</td>
+                        <td>@($"{u.FirstName} {u.LastName}")</td>
+                        <td>@u.Email</td>
+                        <td style="width: 220px;">
+                            <form asp-controller="Admin" asp-action="UpdateRole" method="post" class="d-flex gap-2">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@u.Id" />
+                                <select name="role" class="form-select form-select-sm">
+                                    @foreach (UserRole role in Enum.GetValues(typeof(UserRole)))
+                                    {
+                                        var label = role switch
+                                        {
+                                            UserRole.Administrator => "Administratorius",
+                                            UserRole.Reader => "Skaitytojas",
+                                            UserRole.Librarian => "Bibliotekininkas",
+                                            _ => role.ToString()
+                                        };
+                                        <option value="@role" @(role == u.Role ? "selected" : "")>@label</option>
+                                    }
+                                </select>
+                                <button type="submit" class="btn btn-sm btn-success">Išsaugoti</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
 
@@ -52,13 +90,3 @@
         <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Grįžti į pradžią</a>
     </div>
 </div>
-
-<!-- Fake JS for demo -->
-<script>
-    function fakeSave(btn) {
-        const row = btn.closest("tr");
-        const name = row.children[1].innerText;
-        const role = row.querySelector("select").value;
-        alert(`${name} rolė pakeista į: ${role}`);
-    }
-</script>

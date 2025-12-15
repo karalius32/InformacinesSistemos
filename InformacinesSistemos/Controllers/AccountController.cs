@@ -180,5 +180,11 @@ namespace InformacinesSistemos.Controllers
 
             return RedirectToAction("Edit"); // or Home/Index
         }
+
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }
