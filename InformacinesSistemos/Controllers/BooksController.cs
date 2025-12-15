@@ -1,7 +1,10 @@
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using InformacinesSistemos.Data;
+using InformacinesSistemos.Models;
+using InformacinesSistemos.Models.Enums;
 using InformacinesSistemos.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace InformacinesSistemos.Controllers
@@ -9,16 +12,128 @@ namespace InformacinesSistemos.Controllers
     public class BooksController : Controller
     {
         private readonly LibraryContext _db;
-        public BooksController(LibraryContext db) { _db = db; }
-        public IActionResult Create() => View();
+        private readonly UserManager<ApplicationUser> _userManager;
 
+        public BooksController(LibraryContext db, UserManager<ApplicationUser> userManager)
+        {
+            _db = db;
+            _userManager = userManager;
+        }
+
+        private async Task<UserAccount?> GetCurrentProfileAsync(bool asNoTracking = true)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return null;
+
+            var q = _db.UserAccounts.AsQueryable();
+            if (asNoTracking) q = q.AsNoTracking();
+
+            return await q.FirstOrDefaultAsync(p => p.IdentityUserId == user.Id);
+        }
+
+        // Tik Librarian gali kurti/redaguoti/trinti (Admin - NEGALI).
+        private static bool CanManageBooks(UserAccount profile)
+            => profile.Role == UserRole.Librarian;
+
+        // --- CREATE ---
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> Create(string? returnUrl = null)
+        {
+            var profile = await GetCurrentProfileAsync();
+            if (profile == null) return RedirectToAction("Login", "Account");
+            if (!CanManageBooks(profile)) return Forbid();
+
+            return View(new BookCreateViewModel { ReturnUrl = returnUrl });
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(BookCreateViewModel vm)
+        {
+            var profile = await GetCurrentProfileAsync(asNoTracking: true);
+            if (profile == null) return RedirectToAction("Login", "Account");
+            if (!CanManageBooks(profile)) return Forbid();
+
+            if (!ModelState.IsValid)
+                return View(vm);
+
+            var book = new Book
+            {
+                Title = vm.Title,
+                Identifier = vm.Identifier,
+                PublishDate = vm.PublishDate,
+                Description = vm.Description,
+                PageCount = vm.PageCount,
+                Publisher = vm.Publisher,
+                Language = vm.Language,
+                Format = vm.Format,
+                CoverUrl = vm.CoverUrl,
+                Keywords = vm.Keywords,
+                CreatedDate = DateTime.UtcNow,
+                UpdatedDate = null
+            };
+
+            _db.Books.Add(book);
+            await _db.SaveChangesAsync();
+
+            // Jei įvesta autoriaus info – susiejam su Author ir BookAuthor
+            var fn = vm.AuthorFirstName?.Trim();
+            var ln = vm.AuthorLastName?.Trim();
+
+            if (!string.IsNullOrWhiteSpace(fn) || !string.IsNullOrWhiteSpace(ln))
+            {
+                var author = await _db.Authors.FirstOrDefaultAsync(a =>
+                    (a.FirstName ?? "").ToLower() == (fn ?? "").ToLower() &&
+                    (a.LastName ?? "").ToLower() == (ln ?? "").ToLower());
+
+                if (author == null)
+                {
+                    author = new Author
+                    {
+                        FirstName = fn,
+                        LastName = ln
+                    };
+                    _db.Authors.Add(author);
+                    await _db.SaveChangesAsync();
+                }
+
+                var linkExists = await _db.BookAuthors.AnyAsync(ba => ba.BookId == book.Id && ba.AuthorId == author.Id);
+                if (!linkExists)
+                {
+                    _db.BookAuthors.Add(new BookAuthor
+                    {
+                        BookId = book.Id,
+                        AuthorId = author.Id,
+                        Role = AuthorRole.Author
+                    });
+                    await _db.SaveChangesAsync();
+                }
+            }
+
+            TempData["Success"] = "Knyga sėkmingai sukurta.";
+
+            if (!string.IsNullOrWhiteSpace(vm.ReturnUrl) && Url.IsLocalUrl(vm.ReturnUrl))
+                return Redirect(vm.ReturnUrl);
+
+            return RedirectToAction("Edit", new { id = book.Id });
+        }
+
+        // --- EDIT ---
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Edit(int id, string? returnUrl = null)
         {
+            var profile = await GetCurrentProfileAsync();
+            if (profile == null) return RedirectToAction("Login", "Account");
+            if (!CanManageBooks(profile)) return Forbid();
+
             var book = await _db.Books
                 .Include(b => b.BookAuthors)
                     .ThenInclude(ba => ba.Author)
                 .FirstOrDefaultAsync(b => b.Id == id);
+
             if (book == null) return NotFound();
 
             var vm = new BookEditViewModel
@@ -42,17 +157,21 @@ namespace InformacinesSistemos.Controllers
                         book.BookAuthors
                             .Select(ba => $"{ba.Author?.FirstName} {ba.Author?.LastName}".Trim())
                             .Where(s => !string.IsNullOrWhiteSpace(s))),
-
                 ReturnUrl = returnUrl
             };
 
             return View(vm);
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, BookEditViewModel vm)
         {
+            var profile = await GetCurrentProfileAsync();
+            if (profile == null) return RedirectToAction("Login", "Account");
+            if (!CanManageBooks(profile)) return Forbid();
+
             if (id != vm.Id) return BadRequest();
 
             if (!ModelState.IsValid)
@@ -61,11 +180,9 @@ namespace InformacinesSistemos.Controllers
             var book = await _db.Books.FirstOrDefaultAsync(b => b.Id == id);
             if (book == null) return NotFound();
 
-            // Atnaujinam visus laukus iš formos:
             book.Title = vm.Title;
             book.Identifier = vm.Identifier;
             book.PublishDate = vm.PublishDate;
-            book.UpdatedDate = vm.UpdatedDate;     // jei nori auto: book.UpdatedDate = DateTime.UtcNow;
             book.Description = vm.Description;
             book.PageCount = vm.PageCount;
             book.Publisher = vm.Publisher;
@@ -73,19 +190,28 @@ namespace InformacinesSistemos.Controllers
             book.Format = vm.Format;
             book.CoverUrl = vm.CoverUrl;
             book.Keywords = vm.Keywords;
+            book.UpdatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
 
             await _db.SaveChangesAsync();
+
+            TempData["Success"] = "Knyga sėkmingai atnaujinta.";
 
             if (!string.IsNullOrWhiteSpace(vm.ReturnUrl) && Url.IsLocalUrl(vm.ReturnUrl))
                 return Redirect(vm.ReturnUrl);
 
             return RedirectToAction("Index", "Home");
         }
+
+        // --- DELETE ---
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id, string? returnUrl)
         {
-            // 1) Jei paskolinta – netrinam
+            var profile = await GetCurrentProfileAsync();
+            if (profile == null) return RedirectToAction("Login", "Account");
+            if (!CanManageBooks(profile)) return Forbid();
+
             bool isLoaned = await _db.Loans.AnyAsync(l => l.BookId == id);
             if (isLoaned)
             {
@@ -93,7 +219,6 @@ namespace InformacinesSistemos.Controllers
                 return RedirectToAction("Edit", new { id, returnUrl });
             }
 
-            // 2) Jei nepaskolinta – trinam (tik vaikinius ryšius, kad FK netrukdytų)
             var book = await _db.Books.FirstOrDefaultAsync(b => b.Id == id);
             if (book == null) return NotFound();
 
@@ -104,6 +229,8 @@ namespace InformacinesSistemos.Controllers
 
             _db.Books.Remove(book);
             await _db.SaveChangesAsync();
+
+            TempData["Success"] = "Knyga ištrinta.";
 
             if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
                 return Redirect(returnUrl);

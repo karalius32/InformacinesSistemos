@@ -1,50 +1,120 @@
+@model InformacinesSistemos.ViewModels.BookCreateViewModel
+
 @{
-    ViewData["Title"] = "Knygos kūrimo langas";
-    var homeUrl = Url.Action("Index", "Home");
+    ViewData["Title"] = "Sukurti knygą";
+    var backUrl = (!string.IsNullOrWhiteSpace(Model?.ReturnUrl) && Url.IsLocalUrl(Model.ReturnUrl))
+        ? Model.ReturnUrl
+        : Url.Action("Index", "Home");
 }
 
-<div class="container mt-4">
-    <h2 class="mb-4 text-center">Knygos kūrimas</h2>
+<h2>@ViewData["Title"]</h2>
 
-    <div class="card">
-        <div class="card-body">
-            <form>
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <label class="form-label">Pavadinimas</label>
-                        <input type="text" class="form-control" placeholder="Pvz. Pavyzdinė knyga">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Autorius</label>
-                        <input type="text" class="form-control" placeholder="Pvz. A. Autorius">
-                    </div>
+<form asp-action="Create" asp-controller="Books" method="post" class="mt-3">
+    @Html.AntiForgeryToken()
 
-                    <div class="col-md-4">
-                        <label class="form-label">Metai</label>
-                        <input type="number" class="form-control" placeholder="2025" min="1" max="9999">
-                    </div>
+    <input type="hidden" asp-for="ReturnUrl" />
 
-                    <div class="col-12">
-                        <label class="form-label">Aprašymas (nebūtina)</label>
-                        <textarea class="form-control" rows="3" placeholder="Trumpas aprašymas"></textarea>
-                    </div>
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Identifier" class="form-label"></label>
+                <input asp-for="Identifier" class="form-control" />
+                <span asp-validation-for="Identifier" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="PublishDate" class="form-label"></label>
+                <input asp-for="PublishDate" class="form-control" />
+                <span asp-validation-for="PublishDate" class="text-danger"></span>
+                <div class="form-text">Pvz.: 2024-01-31</div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="PageCount" class="form-label"></label>
+                <input asp-for="PageCount" class="form-control" />
+                <span asp-validation-for="PageCount" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Publisher" class="form-label"></label>
+                <input asp-for="Publisher" class="form-control" />
+                <span asp-validation-for="Publisher" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Language" class="form-label"></label>
+                    <input asp-for="Language" class="form-control" />
+                    <span asp-validation-for="Language" class="text-danger"></span>
                 </div>
 
-                <div class="d-flex gap-2 justify-content-end mt-4">
-                    <button type="button" class="btn btn-secondary" onclick="history.back()">Atšaukti</button>
-                    <button type="button"
-                            class="btn btn-success"
-                            onclick="window.location.href='@homeUrl'">
-                        Išsaugoti
-                    </button>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Format" class="form-label"></label>
+                    <input asp-for="Format" class="form-control" />
+                    <span asp-validation-for="Format" class="text-danger"></span>
                 </div>
-            </form>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="CoverUrl" class="form-label"></label>
+                <input asp-for="CoverUrl" class="form-control" />
+                <span asp-validation-for="CoverUrl" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Keywords" class="form-label"></label>
+                <input asp-for="Keywords" class="form-control" />
+                <span asp-validation-for="Keywords" class="text-danger"></span>
+                <div class="form-text">Raktažodžiai, atskirti kableliais.</div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Autorius (nebūtina)
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label asp-for="AuthorFirstName" class="form-label"></label>
+                        <input asp-for="AuthorFirstName" class="form-control" />
+                        <span asp-validation-for="AuthorFirstName" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="AuthorLastName" class="form-label"></label>
+                        <input asp-for="AuthorLastName" class="form-control" />
+                        <span asp-validation-for="AuthorLastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-text">
+                        Jei įvesi autorių, sistema sukurs arba pririš prie esamo.
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Sukurti</button>
+                <a class="btn btn-outline-secondary" href="@backUrl">Atgal</a>
+            </div>
         </div>
     </div>
+</form>
 
-    <div class="text-center mt-3">
-        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-sm">
-            Grįžti į pradžią
-        </a>
-    </div>
-</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
