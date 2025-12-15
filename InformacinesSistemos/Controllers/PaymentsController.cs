@@ -72,7 +72,7 @@ namespace InformacinesSistemos.Controllers
 
             if (invoice.CoinbaseHostedUrl != null)
             {
-                return View("Waiting", new PaymentViewModel
+                return View("Payment", new PaymentViewModel
                 {
                     InvoiceId = invoiceId,
                     HostedUrl = invoice.CoinbaseHostedUrl
@@ -194,7 +194,7 @@ namespace InformacinesSistemos.Controllers
         }
         public IActionResult Status()
         {
-                return Content($"OK Status hit");
+            return Content($"OK Status hit");
         }
 
         [HttpGet]
