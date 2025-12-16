@@ -66,11 +66,6 @@
         </table>
     </div>
 
-    @if (!string.IsNullOrWhiteSpace(bookTitle))
-    {
-        <p class="text-muted">Knyga: @bookTitle</p>
-    }
-
     @if (!string.IsNullOrWhiteSpace(recommendationError))
     {
         <div class="alert alert-danger" role="alert">
@@ -79,7 +74,6 @@
     }
     else
     {
-        <p class="fw-semibold">Panašios knygos į grąžintą:</p>
         <p>@(string.IsNullOrWhiteSpace(aiRecommendation) ? "Rekomendacija" : aiRecommendation)</p>
     }
 </div>
