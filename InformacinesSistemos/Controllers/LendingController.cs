@@ -69,6 +69,7 @@ namespace InformacinesSistemos.Controllers
                 return NotFound();
             }
 
+            loan.AccumulatedPenalties = CalculatePenalties(loan);
             return View(loan);
         }
 
@@ -97,6 +98,14 @@ namespace InformacinesSistemos.Controllers
                 returnedBookId = loan.BookId,
                 loanId = loan.Id
             });
+        }
+
+        private static double CalculatePenalties(Loan loan)
+        {
+            if (loan.LoanDate == null) return loan.AccumulatedPenalties ?? 0;
+            var endDate = loan.ReturnDate ?? DateOnly.FromDateTime(DateTime.UtcNow);
+            var overdue = endDate.DayNumber - loan.LoanDate.Value.DayNumber - 30;
+            return overdue > 0 ? overdue : 0;
         }
     }
 }

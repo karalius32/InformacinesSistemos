@@ -1,4 +1,5 @@
 using InformacinesSistemos.Data;
+using InformacinesSistemos.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -40,6 +41,19 @@ public class BorrowedBooksController : Controller
             .OrderByDescending(l => l.LoanDate)
             .ToListAsync();
 
+        foreach (var loan in loans)
+        {
+            loan.AccumulatedPenalties = CalculatePenalties(loan);
+        }
+
         return View(loans);
+    }
+
+    private static double CalculatePenalties(Loan loan)
+    {
+        if (loan.LoanDate == null) return loan.AccumulatedPenalties ?? 0;
+        var endDate = loan.ReturnDate ?? DateOnly.FromDateTime(DateTime.UtcNow);
+        var overdue = endDate.DayNumber - loan.LoanDate.Value.DayNumber - 30;
+        return overdue > 0 ? overdue : 0;
     }
 }

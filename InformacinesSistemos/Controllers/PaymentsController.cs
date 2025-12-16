@@ -37,7 +37,7 @@ namespace InformacinesSistemos.Controllers
                 return NotFound();
             }
 
-            var amount = loan.AccumulatedPenalties ?? 0;
+            var amount = (loan.AccumulatedPenalties ?? 0) + CalculatePenalties(loan);
             if (amount <= 0)
             {
                 // Nothing to pay, just go back
@@ -59,6 +59,14 @@ namespace InformacinesSistemos.Controllers
             await _db.SaveChangesAsync();
 
             return RedirectToAction(nameof(Checkout), new { invoiceId = invoice.Id });
+        }
+
+        private static double CalculatePenalties(Loan loan)
+        {
+            if (loan.LoanDate == null) return loan.AccumulatedPenalties ?? 0;
+            var endDate = loan.ReturnDate ?? DateOnly.FromDateTime(DateTime.UtcNow);
+            var overdue = endDate.DayNumber - loan.LoanDate.Value.DayNumber - 30;
+            return overdue > 0 ? overdue : 0;
         }
         // GET: /Payments/Checkout
         public async Task<IActionResult> Checkout(int invoiceId)
